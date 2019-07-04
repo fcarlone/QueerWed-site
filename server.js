@@ -20,6 +20,7 @@ app.use(express.json({ extended: true }));
 // Serve static assets
 
 // Define routes
+require("./routes/user")(app);
 
 // Route to load single HTML page
 
