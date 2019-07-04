@@ -2,8 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const connectDB = require("./config/db");
-
 // Passport packages
+const session = require("express-session");
+const passport = require("./config/passport");
 
 const app = express();
 
@@ -14,8 +15,12 @@ connectDB();
 
 // Middleware
 app.use(express.json({ extended: true }));
-
 // Passport Middleware
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Serve static assets
 
@@ -23,6 +28,9 @@ app.use(express.json({ extended: true }));
 require("./routes/user")(app);
 
 // Route to load single HTML page
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 // Test Route (DELETE after front-end build)
 app.get("/", (req, res) => {
