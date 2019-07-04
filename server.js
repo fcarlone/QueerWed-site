@@ -15,10 +15,10 @@ connectDB();
 
 // Middleware
 app.use(express.json({ extended: true }));
-// Passport Middleware
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 );
+// Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
 

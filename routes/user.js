@@ -1,5 +1,6 @@
 const passport = require("../config/passport");
 const bcrypt = require("bcryptjs");
+
 // Connect model
 const User = require("../models/User");
 
@@ -10,9 +11,11 @@ module.exports = function(app) {
   });
 
   // User login
-  app.post("/user-login", passport.authenticate("local"), (req, res) => {
-    // Redirct to the users account page
-    res.json("/api/user");
+  app.post("/user-login", (req, res, next) => {
+    passport.authenticate("local", {
+      successRedirect: "/api/user",
+      failureRedirect: "/"
+    })(req, res, next);
   });
 
   // User signup
@@ -21,38 +24,37 @@ module.exports = function(app) {
     console.log("user signup", req.body);
     const { email, password } = req.body;
 
-    let user = await User.findOne({ email: email });
+    // ***Check required fields***
 
-    if (user) {
-      return res.status(400).json({ msg: "User already exists" });
-    }
+    // Check if email already exists
+    let user = await User.findOne({ email: email }).then(user => {
+      if (user) {
+        return res.status(400).json({ msg: "User already exists" });
+      } else {
+        try {
+          // Build user object - save to database
+          const newUser = new User({
+            email: email,
+            password: password
+          });
+          console.log("Added user info:", newUser);
 
-    try {
-      // Build user object - save to database
-      const newUser = new User({
-        email: email,
-        password: password
-      });
-      console.log("user to be added", newUser);
-
-      // Encrypt password
-      bcrypt.genSalt(10, function(err, salt) {
-        bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;
-
+          // Encrypt password
+          const salt = bcrypt.genSaltSync(10);
+          const hash = bcrypt.hashSync(newUser.password, salt);
           newUser.password = hash;
-          // Store hash in your password and send to MongoDB.
+
           newUser.save().then(response => {
             res.json(response);
           });
-        });
-      });
 
-      // Catch error
-    } catch (error) {
-      console.error(error.message);
-      res.status(500).send("Server Error");
-    }
+          // Catch error
+        } catch (error) {
+          console.error(error.message);
+          res.status(500).send("Server Error");
+        }
+      }
+    });
   });
 
   // Next route
