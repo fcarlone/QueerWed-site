@@ -55,5 +55,17 @@ module.exports = function(app) {
     });
   });
 
-  // Next route
+  // Route for getting user data to be used on the client side
+  app.get("/api/user_data", (req, res) => {
+    if (!req.user) {
+      //  If user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      //  If user is logged in, send back data (Do not send password)
+      res.json({
+        id: req.user._id,
+        email: req.user.email
+      });
+    }
+  });
 };
