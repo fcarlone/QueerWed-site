@@ -12,7 +12,7 @@ module.exports = function(app) {
 
   // User login
   app.post("/user-login", passport.authenticate("local"), (req, res) => {
-    console.log("user login route: ", req.user);
+    console.log("user login from client-side: ", req.user);
     // res.json(req.user);
     res.redirect(`/user`);
   });
@@ -20,7 +20,7 @@ module.exports = function(app) {
   // User signup
   app.post("/user-signup", async (req, res) => {
     // Get user data
-    console.log("user signup", req.body);
+    console.log("user signup from client-side", req.body);
     const { email, password } = req.body;
 
     // ***Check required fields***
