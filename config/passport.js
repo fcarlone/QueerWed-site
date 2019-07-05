@@ -20,30 +20,16 @@ passport.use(
           return done(null, false, { messgae: "This email is not registered" });
         }
         // Decrypt password
-        console.log("user password", password, user.password);
         bcrypt.compare(password, user.password).then(res => {
           console.log(res);
-          // res === true
+          if (!res) {
+            return done(null, false, {
+              message: "This password is not correct"
+            });
+          } else {
+            return done(null, user);
+          }
         });
-
-        // console.log("passport user", user);
-        // bcrypt.compare(password, user.password, (err, isMatch) => {
-        //   if (err) throw err;
-        //   console.log(
-        //     "compare db password and user password",
-        //     passport,
-        //     user.password
-        //   );
-        //   if (isMatch) {
-        //     // Email & password match - return user
-        //     return done(null, user);
-        //   } else {
-        //     // Correct email - but incorrect password
-        //     return done(null, false, {
-        //       message: "This password is not correct"
-        //     });
-        //   }
-        // });
       });
     }
   )

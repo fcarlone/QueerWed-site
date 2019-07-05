@@ -6,16 +6,15 @@ const User = require("../models/User");
 
 module.exports = function(app) {
   // Get user
-  app.get("/api/user", (req, res) => {
-    res.send("User Page");
+  app.get("/user", (req, res) => {
+    res.send(req.user);
   });
 
   // User login
-  app.post("/user-login", (req, res, next) => {
-    passport.authenticate("local", {
-      successRedirect: "/api/user",
-      failureRedirect: "/"
-    })(req, res, next);
+  app.post("/user-login", passport.authenticate("local"), (req, res) => {
+    console.log("user login route: ", req.user);
+    // res.json(req.user);
+    res.redirect(`/user`);
   });
 
   // User signup
@@ -47,7 +46,6 @@ module.exports = function(app) {
           newUser.save().then(response => {
             res.json(response);
           });
-
           // Catch error
         } catch (error) {
           console.error(error.message);
