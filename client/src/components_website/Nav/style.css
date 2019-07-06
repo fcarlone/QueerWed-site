@@ -1,0 +1,14 @@
+.nav {
+  height: 50px;
+  font-size: 20px;
+  padding: 0px 0;
+  background:	#bcfcbf;
+  font-family: 'Bubblegum Sans';
+  font-size: 27px;
+}
+
+.logo {
+  /* background:#f0f0f0; */
+  font-size: 30px;
+  /* margin-bottom: 10px; */
+}
