@@ -1,5 +1,6 @@
 const passport = require("../config/passport");
 const bcrypt = require("bcryptjs");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // Connect model
 const User = require("../models/User");
@@ -56,7 +57,8 @@ module.exports = function(app) {
   });
 
   // Route for getting user data to be used on the client side
-  app.get("/api/user_data", (req, res) => {
+  // Auth rule in secone parameter
+  app.get("/api/user_data", isAuthenticated, (req, res) => {
     if (!req.user) {
       //  If user is not logged in, send back an empty object
       res.json({});
