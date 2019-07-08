@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Nav from '../components_website/Nav/index.js';
-import Header from '../components_website/Header';
-import Details from '../components_website/Details';
-import GuestBook from '../components_website/GuestBook';
-import GuestList from '../components_website/GeustList';
+import Nav from '../../components_website/Nav/index.js';
+import Header from '../../components_website/Header';
+import Details from '../../components_website/Details';
+import GuestBook from '../../components_website/GuestBook';
+import GuestList from '../../components_website/GeustList';
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 // import 'bootstrap-css-only/css/bootstrap.min.css';
 // import 'mdbreact/dist/css/mdb.css';

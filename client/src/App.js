@@ -1,18 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "./components/layout/Nav"
-import Loading from "./pages/Loading";
-import Planning from "./pages/Planning";
-import Registry from "./pages/Registry";
-import Vendor from "./pages/Vendor";
-import Website from "./pages/Website";
+import Loading from "./components/pages/Loading";
+import Planning from "./components/pages/Planning";
+import Registry from "./components/pages/Registry";
+import Vendor from "./components/pages/Vendor";
+import Website from "./components/pages/Website";
 
 
 
 function App() {
   return (
     <Router>
-      <Nav />
       <div>
         <Switch>
           <Route exact path="/" component={Loading} />
