@@ -73,7 +73,6 @@ class Loading extends React.Component {
   render() {
     return (
       <>
-      <Nav />
       <MDBView src="https://johngress.com/wp-content/uploads//2012/09/ChicagoGayWeddingPhotographer11.jpg">
         <MDBMask overlay="black-light" className="flex-center flex-column text-white text-center">
           <h2>This Navbar is fixed</h2>
@@ -83,9 +82,6 @@ class Loading extends React.Component {
         </MDBMask>
       </MDBView>
       </>
-
-
-
 
 
       // <div className="App">

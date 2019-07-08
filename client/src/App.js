@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Nav from "./components/layout/Nav"
 import Loading from "./components/pages/Loading";
 import Planning from "./components/pages/Planning";
 import Registry from "./components/pages/Registry";
@@ -12,6 +13,7 @@ function App() {
   return (
     <Router>
       <div>
+        <Nav />
         <Switch>
           <Route exact path="/" component={Loading} />
           <Route exact path="/planning" component={Planning} />
