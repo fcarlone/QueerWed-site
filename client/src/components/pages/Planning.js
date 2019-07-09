@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from "react-dom";
 import ToDoItems from "../layout/toDoItems"
+import Container from "../layout/Container"
 import axios from "axios";
 
 // import "/index.css";
@@ -41,39 +41,41 @@ class Planning extends Component {
     }
 
     //when anything changes in the "enter task" field, this functions updates the DOM and state
-    handleChange =(event)=> {
+    handleChange = (event) => {
         console.log(event.target);
-        const{name,value}=event.target;
-        console.log(name,value);
+        const { name, value } = event.target;
+        console.log(name, value);
 
-       this.setState({[name]:value});
-        
+        this.setState({ [name]: value });
+
     }
 
     //this part saves the item on the list to the database
-    saveTask =(event)=> {
+    saveTask = (event) => {
         event.preventDefault();
-        const {item} = this.state;
-        axios.post("/todos",item).then((res)=>{
+        const { item } = this.state;
+        axios.post("/todos", item).then((res) => {
             console.log(res);
         })
     }
 
     render() {
         return (
-            <div className="planningMain">
-                <div className="header">
-                    <form onSubmit={this.addItem}>
-                        {/* <input ref={(a) => this._inputElement = a} */}
+            <Container>
+                <div className="planningMain">
+                    <div className="header">
+                        <form onSubmit={this.addItem}>
+                            {/* <input ref={(a) => this._inputElement = a} */}
                             {/* placeholder="enter task"> */}
-                        {/* </input> */}
-                        <input name="item" onChange={this.handleChange} value={this.item}/>
-                        <button onClick={this.saveTask} type="submit">add</button>
-                       
-                    </form>
+                            {/* </input> */}
+                            <input name="item" onChange={this.handleChange} value={this.item} />
+                            <button onClick={this.saveTask} type="submit">add</button>
+
+                        </form>
+                    </div>
+                    <ToDoItems entries={this.state.items} />
                 </div>
-                <ToDoItems entries={this.state.items}/>
-            </div>
+            </Container>
         );
     }
 };
