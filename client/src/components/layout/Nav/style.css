@@ -6,6 +6,8 @@ nav {
   margin: 0;
   height: 60px;
   position:relative;
+  background: #FFFFFF;
+  /* opacity:0.8; */
 }
   
 nav ul {
@@ -47,6 +49,7 @@ nav ul li:hover > ul {
   
 nav ul ul {
   background: #FFFFFF;
+  /* opacity:0.9; */
   padding:0;
   text-align: center;
   display:none;
