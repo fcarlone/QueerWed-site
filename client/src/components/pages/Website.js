@@ -7,14 +7,15 @@ import GuestList from '../../components_website/GeustList';
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 // import 'bootstrap-css-only/css/bootstrap.min.css';
 // import 'mdbreact/dist/css/mdb.css';
+import Container from "../layout/Container"
 
-class Website extends Component{
+class Website extends Component {
 
   state = {
-      name1:'enter your name',
-      name2:'enter your spouse name',
-      date:'',
-      location: ''
+    name1: 'enter your name',
+    name2: 'enter your spouse name',
+    date: '',
+    location: ''
   };
 
   onClickName1 = () => {
@@ -33,22 +34,24 @@ class Website extends Component{
 
   render() {
 
-  return  (
-    <div className="App">
-      <Nav />
-    {/* header */}
-      <Header />
- 
-    {/* detail */}
-      <Details />
+    return (
+      <Container>
+        <div className="App">
+          <Nav />
+          {/* header */}
+          <Header />
 
-    {/* guest list */}
-      <GuestList />
+          {/* detail */}
+          <Details />
 
-    {/* guest book */}
-      <GuestBook />
-    </div>
-  );
+          {/* guest list */}
+          <GuestList />
+
+          {/* guest book */}
+          <GuestBook />
+        </div>
+      </Container>
+    );
   }
 }
 export default Website;
