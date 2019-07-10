@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ToDoItems from "../layout/toDoItems"
-import Container from "../layout/Container"
+import ToDoItems from "./toDoItems"
+import Container from "../../layout/Container.js"
 import axios from "axios";
 
 // import "/index.css";

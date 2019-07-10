@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "../../../style/website/guestBook.css";
 
 function GuestBook() {
   return(
