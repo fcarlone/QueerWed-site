@@ -1,9 +1,30 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import GuestContext from "../../context/guest/guestContext";
 
 const GuestForm = () => {
-  // Get access to state and methods (addGuest)
+  // Get access to state and methods
   const guestContext = useContext(GuestContext);
+
+  const { addGuest, updateGuest, clearCurrent, current } = guestContext;
+
+  useEffect(() => {
+    if (current !== null) {
+      setGuest(current);
+    } else {
+      // Set to nothing
+      setGuest({
+        name: "",
+        address1: "",
+        address2: "",
+        city: "",
+        state: "",
+        zip: "",
+        email: "",
+        phone: "",
+        type: "family"
+      });
+    }
+  }, [guestContext, current]);
 
   const [guest, setGuest] = useState({
     name: "",
@@ -39,8 +60,13 @@ const GuestForm = () => {
   const onSubmit = event => {
     event.preventDefault();
 
-    // addGuest
-    guestContext.addGuest(guest);
+    if (current === null) {
+      // addGuest
+      addGuest(guest);
+    } else {
+      updateGuest(guest);
+    }
+
     // Clear Form
     setGuest({
       name: "",
@@ -55,9 +81,13 @@ const GuestForm = () => {
     });
   };
 
+  const clearAll = () => {
+    clearCurrent();
+  };
+
   return (
     <form onSubmit={onSubmit}>
-      <h2>Add Contact</h2>
+      <h2> {current ? "Edit Guest" : "Add Guest"}</h2>
       <input
         type="text"
         placeholder="Name"
@@ -140,8 +170,20 @@ const GuestForm = () => {
       />
       Professional{" "}
       <div>
-        <input type="submit" value="Add Guest" className="btn btn-primary" />
+        <input
+          type="submit"
+          value={current ? "Update Guest" : "Add Guest"}
+          className="btn btn-primary"
+        />
       </div>
+      {current && (
+        <div>
+          {" "}
+          <button className="btn" onClick={clearAll}>
+            Clear
+          </button>
+        </div>
+      )}
     </form>
   );
 };

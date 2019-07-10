@@ -55,7 +55,8 @@ const GuestState = props => {
         phone: "333-333-3333",
         type: "personal"
       }
-    ]
+    ],
+    current: null
   };
   // Pull-out state and dispatch
   const [state, dispatch] = useReducer(guestReducer, initialState);
@@ -74,10 +75,19 @@ const GuestState = props => {
   };
 
   // Set Current Guest
+  const setCurrent = guest => {
+    dispatch({ type: SET_CURRENT, payload: guest });
+  };
 
   // Clear Current Guest
+  const clearCurrent = () => {
+    dispatch({ type: CLEAR_CURRENT });
+  };
 
   // Update Guest
+  const updateGuest = guest => {
+    dispatch({ type: UPDATE_GUEST, payload: guest });
+  };
 
   // Filter Guest
 
@@ -87,8 +97,12 @@ const GuestState = props => {
     <GuestContext.Provider
       value={{
         guests: state.guests,
+        current: state.current,
         addGuest,
-        deleteGuest
+        deleteGuest,
+        setCurrent,
+        clearCurrent,
+        updateGuest
       }}
     >
       {props.children}

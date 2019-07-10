@@ -26,6 +26,24 @@ export default (state, action) => {
           return guest.id !== action.payload;
         })
       };
+    case UPDATE_GUEST: {
+      return {
+        ...state,
+        guests: state.guests.map(guest => {
+          return guest.id === action.payload.id ? action.payload : guest;
+        })
+      };
+    }
+    case SET_CURRENT:
+      return {
+        ...state,
+        current: action.payload
+      };
+    case CLEAR_CURRENT:
+      return {
+        ...state,
+        current: null
+      };
     default:
       return state;
   }
