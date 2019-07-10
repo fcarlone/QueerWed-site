@@ -1,0 +1,35 @@
+.registry-items-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 20rem;
+  max-width: 20rem;
+  width: 100%;
+  padding: 2vw;
+  margin: 1vw;
+}
+
+.card img {
+  max-width: 255px;
+  max-height: 70px;
+}
+
+.store-container {
+  border: black solid 1px;
+}
+
+.btn {
+  margin-top: 5rem;
+  font-size: 0.8rem;
+  color: #e96150;
+  border: solid #e96150 0.05rem;
+  border-radius: 12px;
+  width: 10rem;
+}

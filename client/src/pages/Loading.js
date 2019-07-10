@@ -18,7 +18,6 @@ class Loading extends React.Component {
     };
     console.log("handle get user ", event.target.value, userObject);
 
-    // Save book to MongoDb
     return axios
       .post("user-login", userObject)
       .then(response => {
@@ -44,7 +43,6 @@ class Loading extends React.Component {
     };
     console.log("handle get user ", event.target.value, userObject);
 
-    // Save book to MongoDb
     return axios
       .post("user-signup", userObject)
       .then(response => {
