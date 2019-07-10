@@ -1,7 +1,7 @@
 import React from 'react';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
-import "./style.css"
+import "../../style/nav.css"
 
 class FullPageIntroWithFixedNavbar extends React.Component {
     constructor(props) {

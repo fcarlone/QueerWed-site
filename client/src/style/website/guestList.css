@@ -1,0 +1,35 @@
+#guestlist {
+    background-image: url("img_table.jpg");
+    opacity: 0.4;
+   }
+   .tab-1 {
+     background-color: antiquewhite;
+   }
+  .container {
+    overflow: hidden;
+  }
+  p {
+    font-family: 'Bilbo Swash Caps';
+    font-size: 45px;
+    background-color: antiquewhite;
+    float: top;
+  }
+  .checkdone {
+    font-family: fantasy;
+    font-size: 25px;
+    margin-left: 10px;
+  }
+  .removeButton {
+    margin-left: 20px;
+  }
+  .tab {
+    float: left;
+  }
+  .tab-2 {
+    clear: both;
+    margin-top: 15px;
+  }
+  .tab-2 input {
+    display: block;
+    margin-bottom: 20px;
+  }

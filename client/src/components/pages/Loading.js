@@ -1,7 +1,7 @@
 import React from "react";
 // import axios from "axios";
 import { MDBMask, MDBView } from 'mdbreact';
-import { LinkedButton, LinkedOutlinedButton } from "../layout/Button"
+import { LinkedButton, LinkedOutlinedButton } from "../layout/Button.js"
 
 
 class Loading extends React.Component {
