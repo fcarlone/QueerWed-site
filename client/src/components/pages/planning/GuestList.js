@@ -1,6 +1,7 @@
 import React from "react";
 import Guests from "../../guests/Guests";
 import GuestForm from "../../guests/GuestForm";
+import GuestFilter from "../../guests/GuestFilter";
 import "../../../styles/guest/guestList.css";
 
 const GuestList = () => {
@@ -11,6 +12,7 @@ const GuestList = () => {
         <GuestForm />
       </div>
       <div>
+        <GuestFilter />
         <Guests />
       </div>
     </div>

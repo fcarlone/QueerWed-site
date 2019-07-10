@@ -44,6 +44,19 @@ export default (state, action) => {
         ...state,
         current: null
       };
+    case FILTER_GUESTS:
+      return {
+        ...state,
+        filtered: state.guests.filter(guest => {
+          const regex = new RegExp(`${action.payload}`, "gi");
+          return guest.name.match(regex) || guest.email.match(regex);
+        })
+      };
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: null
+      };
     default:
       return state;
   }

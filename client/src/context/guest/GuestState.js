@@ -56,7 +56,8 @@ const GuestState = props => {
         type: "personal"
       }
     ],
-    current: null
+    current: null,
+    filtered: null
   };
   // Pull-out state and dispatch
   const [state, dispatch] = useReducer(guestReducer, initialState);
@@ -90,19 +91,28 @@ const GuestState = props => {
   };
 
   // Filter Guest
+  const filterGuests = text => {
+    dispatch({ type: FILTER_GUESTS, payload: text });
+  };
 
   // Clear Filter
+  const clearFilter = () => {
+    dispatch({ type: CLEAR_FILTER });
+  };
 
   return (
     <GuestContext.Provider
       value={{
         guests: state.guests,
         current: state.current,
+        filtered: state.filtered,
         addGuest,
         deleteGuest,
         setCurrent,
         clearCurrent,
-        updateGuest
+        updateGuest,
+        filterGuests,
+        clearFilter
       }}
     >
       {props.children}
