@@ -76,13 +76,16 @@ module.exports = function(app) {
         return res.status(404).json({ msg: "Guest not found" });
       }
 
-      // Verify user owns guest
-      // if (guest.user != req.user._id) {
-      //   return res.status(401).json({ msg: "User not authorized" });
-      // }
+      //Verify user owns guest
+      if (guest.user != req.user._id) {
+        return res.status(401).json({ msg: "User not authorized" });
+      }
 
       // Delete guest from database
       await Guest.findByIdAndDelete(req.params.id);
+
+      // Return guest to the client
+      res.json(guest);
 
       // Catch error
     } catch (error) {
