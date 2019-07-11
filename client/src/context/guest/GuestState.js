@@ -29,7 +29,7 @@ const GuestState = props => {
         zip: "19102",
         email: "joe@example.com",
         phone: "111-111-1111",
-        type: "personal"
+        type: "family"
       },
       {
         id: 2,
@@ -53,7 +53,7 @@ const GuestState = props => {
         zip: "19102",
         email: "jim@example.com",
         phone: "333-333-3333",
-        type: "personal"
+        type: "friend"
       }
     ],
     current: null,
