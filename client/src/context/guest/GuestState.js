@@ -34,7 +34,8 @@ const GuestState = props => {
       const res = await axois.get("api/guests");
       dispatch({ type: GET_GUESTS, payload: res.data });
     } catch (error) {
-      dispatch({ type: GUEST_ERROR, payload: error.response.message });
+      console.log(error.message);
+      // dispatch({ type: GUEST_ERROR, payload: error.response.message });
     }
   };
 
@@ -47,12 +48,28 @@ const GuestState = props => {
     } catch (error) {
       dispatch({ type: GUEST_ERROR, payload: error.response.message });
     }
-
-    dispatch({ type: ADD_GUEST, payload: guest });
   };
+
   // Delete Guest
-  const deleteGuest = id => {
-    dispatch({ type: DELETE_GUEST, payload: id });
+  const deleteGuest = async id => {
+    try {
+      await axois.delete(`/api/guests/${id}`);
+
+      dispatch({ type: DELETE_GUEST, payload: id });
+    } catch (error) {
+      dispatch({ type: GUEST_ERROR, payload: error.response.message });
+    }
+  };
+
+  // Update Guest
+  const updateGuest = async guest => {
+    console.log("update guest to sever-side", guest);
+    try {
+      const res = await axois.put(`/api/guests/${guest._id}`, guest);
+      dispatch({ type: UPDATE_GUEST, payload: res.data });
+    } catch (error) {
+      dispatch({ type: GUEST_ERROR, payload: error.response.message });
+    }
   };
 
   // Set Current Guest
@@ -63,11 +80,6 @@ const GuestState = props => {
   // Clear Current Guest
   const clearCurrent = () => {
     dispatch({ type: CLEAR_CURRENT });
-  };
-
-  // Update Guest
-  const updateGuest = guest => {
-    dispatch({ type: UPDATE_GUEST, payload: guest });
   };
 
   // Filter Guest

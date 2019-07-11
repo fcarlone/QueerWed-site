@@ -63,4 +63,84 @@ module.exports = function(app) {
       res.status(500).send("Server Error");
     }
   });
+
+  // Delete Guest
+  app.delete("/api/guests/:id", async (req, res) => {
+    try {
+      let guest = await Guest.findById(req.params.id);
+      console.log("delete guest routes", guest.user);
+      console.log("delete guest routes user:", req.user._id);
+
+      // If guest does not exists
+      if (!guest) {
+        return res.status(404).json({ msg: "Guest not found" });
+      }
+
+      // Verify user owns guest
+      // if (guest.user != req.user._id) {
+      //   return res.status(401).json({ msg: "User not authorized" });
+      // }
+
+      // Delete guest from database
+      await Guest.findByIdAndDelete(req.params.id);
+
+      // Catch error
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).send("Server Error");
+    }
+  });
+
+  // Update Guest
+  app.put("/api/guests/:id", async (req, res) => {
+    console.log(`Update id ${req.params.id} for guest: ${req.body}`);
+
+    const {
+      name,
+      address1,
+      address2,
+      city,
+      state,
+      zip,
+      email,
+      phone,
+      type
+    } = req.body;
+
+    // Build guest object
+    const guestFields = {};
+    if (name) guestFields.name = name;
+    if (address1) guestFields.address1 = address1;
+    if (address2) guestFields.address2 = address2;
+    if (city) guestFields.city = city;
+    if (state) guestFields.state = state;
+    if (zip) guestFields.zip = zip;
+    if (email) guestFields.email = email;
+    if (phone) guestFields.phone = phone;
+    if (type) guestFields.type = type;
+
+    try {
+      let guest = await Guest.findById(req.params.id);
+
+      // If guest does not exists
+      if (!guest) {
+        return res.status(404).json({ msg: "Guest not found" });
+      }
+
+      // Update guest in database
+      guest = await Guest.findByIdAndUpdate(
+        req.params.id,
+        { $set: guestFields },
+        { new: true }
+      );
+
+      // Return guest to the client
+      res.json(guest);
+
+      // Catch error
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).send("Server Error");
+    }
+  });
 };

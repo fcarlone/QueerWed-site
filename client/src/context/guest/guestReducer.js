@@ -22,20 +22,20 @@ export default (state, action) => {
     case ADD_GUEST:
       return {
         ...state,
-        guests: [...state.guests, action.payload]
+        guests: [action.payload, ...state.guests]
       };
     case DELETE_GUEST:
       return {
         ...state,
         guests: state.guests.filter(guest => {
-          return guest.id !== action.payload;
+          return guest._id !== action.payload;
         })
       };
     case UPDATE_GUEST: {
       return {
         ...state,
         guests: state.guests.map(guest => {
-          return guest.id === action.payload.id ? action.payload : guest;
+          return guest._id === action.payload._id ? action.payload : guest;
         })
       };
     }
