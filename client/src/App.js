@@ -8,7 +8,9 @@ import Vendor from "./components/pages/vendor/Vendor";
 import Website from "./components/pages/website/Website";
 import Signup from "./components/pages/join/Signup";
 import Login from "./components/pages/join/Login";
+import VendorSignup from "./components/pages/join/VendorSignup";
 import VendorLogin from "./components/pages/join/VendorLogin";
+
 
 
 function App() {
@@ -25,7 +27,9 @@ function App() {
           
           <Route exact path="/signup" component={Signup}/>
           <Route exact path="/login" component={Login}/>
+          <Route exact path="/signup/vendor" component={VendorSignup}/>
           <Route exact path="/login/vendor" component={VendorLogin}/>
+
 
         </Switch>
       </div>

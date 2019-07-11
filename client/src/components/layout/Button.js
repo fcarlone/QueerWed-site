@@ -3,7 +3,7 @@ import React from 'react';
 export const LinkedButton = (props) => (
     <a
         href={props.href}
-        class="btn waves-effect"
+        className="btn waves-effect"
         role="button"
         style={{ border: "2px solid #e91e63", backgroundColor: "#e91e63", width: `${props.width}`, float: `${props.float}` }}
     >
@@ -14,7 +14,7 @@ export const LinkedButton = (props) => (
 export const LinkedOutlinedButton = (props) => (
     <a
         href={props.href}
-        class="btn waves-effect"
+        className="btn waves-effect"
         role="button"
         style={{ border: "2px solid #e91e63", width: `${props.width}`, float: `${props.float}` }}
     >
@@ -26,7 +26,7 @@ export const Button = (props) => (
     <button
         type="button"
         className="btn waves-effect"
-        onclick={props.onclick}
+        onClick={props.onClick}
         style={{ border: "2px solid #e91e63", backgroundColor: "#e91e63", width: `${props.width}`, float: `${props.float}` }}
     >
         {props.value}
@@ -37,7 +37,7 @@ export const OutlinedButton = (props) => (
     <button
         type="button"
         className="btn waves-effect"
-        onclick={props.onclick}
+        onClick={props.onClick}
         style={{ border: "2px solid #e91e63", width: `${props.width}`, float: `${props.float}` }}
     >
         {props.value}

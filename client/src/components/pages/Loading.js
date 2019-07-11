@@ -35,7 +35,7 @@ class Loading extends React.Component {
                 value="Are You A Vendor?"
                 width="200px"
                 float="left"
-                href="/login/vendor"
+                href="/signup/vendor"
               />
 
             </div>
