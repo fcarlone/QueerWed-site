@@ -68,8 +68,8 @@ module.exports = function(app) {
   app.delete("/api/guests/:id", async (req, res) => {
     try {
       let guest = await Guest.findById(req.params.id);
-      console.log("delete guest routes", guest.user);
-      console.log("delete guest routes user:", req.user._id);
+      console.log(typeof guest.user);
+      console.log(typeof req.user._id);
 
       // If guest does not exists
       if (!guest) {
@@ -77,7 +77,7 @@ module.exports = function(app) {
       }
 
       //Verify user owns guest
-      if (guest.user != req.user._id) {
+      if (!guest.user.equals(req.user._id)) {
         return res.status(401).json({ msg: "User not authorized" });
       }
 
