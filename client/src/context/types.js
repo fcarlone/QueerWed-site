@@ -1,0 +1,12 @@
+export const GET_GUESTS = "GET_GUESTS";
+export const ADD_GUEST = "ADD_GUEST";
+export const DELETE_GUEST = "DELETE_GUEST";
+export const SET_CURRENT = "SET_CURRENT";
+export const CLEAR_CURRENT = "CLEAR_CURRENT";
+export const UPDATE_GUEST = "UPDATE_GUEST";
+export const FILTER_GUESTS = "FILTER_GUESTS";
+export const CLEAR_GUESTS = "CLEAR_GUESTS";
+export const CLEAR_FILTER = "CLEAR_FILTER";
+export const GUEST_ERROR = "GUEST_ERROR";
+export const SET_ALERT = "SET_ALERT";
+export const REMOVE_ALERT = "REMOVE_ALERT";
