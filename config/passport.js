@@ -5,9 +5,10 @@ const bcrypt = require("bcryptjs");
 
 // Load User model
 const User = require("../models/User");
+// const VendorUser = require("../models/VendorUser")
 
 // Use Local Strategy
-passport.use(
+passport.use('local',
   new LocalStrategy(
     // User sign in with email
     { usernameField: "email" },
@@ -35,13 +36,13 @@ passport.use(
   )
 );
 
-passport.use(
+passport.use('vendor-local',
   new LocalStrategy(
     // User sign in with email
     { usernameField: "email" },
     (email, password, done) => {
       // Match user
-      User.findOne({
+      VendorUser.findOne({
         email: email
       }).then(user => {
         if (!user) {

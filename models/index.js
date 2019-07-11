@@ -1,4 +1,6 @@
 // Exporting an object containing all the app's models
 module.exports = {
-  User: require("./User")
+  User: require("./User"),
+  VendorUser: require("./VendorUser")
+
 };
