@@ -16,8 +16,8 @@ const Guests = () => {
   return (
     <Fragment>
       {filtered !== null
-        ? filtered.map(guest => <GuestItem key={guest.id} guest={guest} />)
-        : guests.map(guest => <GuestItem key={guest.id} guest={guest} />)}
+        ? filtered.map(guest => <GuestItem key={guest._id} guest={guest} />)
+        : guests.map(guest => <GuestItem key={guest._id} guest={guest} />)}
     </Fragment>
   );
 };

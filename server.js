@@ -26,6 +26,7 @@ app.use(passport.session());
 
 // Define routes
 require("./routes/user")(app);
+require("./routes/guest")(app);
 
 // Route to load single HTML page
 // app.get("*", (req, res) => {

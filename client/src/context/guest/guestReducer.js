@@ -57,6 +57,11 @@ export default (state, action) => {
         ...state,
         filtered: null
       };
+    case GUEST_ERROR:
+      return {
+        ...state,
+        error: action.payload
+      };
     default:
       return state;
   }

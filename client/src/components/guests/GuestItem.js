@@ -7,7 +7,7 @@ const GuestItem = ({ guest }) => {
   const guestContext = useContext(GuestContext);
   const { deleteGuest, setCurrent, clearCurrent } = guestContext;
   const {
-    id,
+    _id,
     name,
     address1,
     address2,
@@ -20,7 +20,7 @@ const GuestItem = ({ guest }) => {
   } = guest;
 
   const handleDeleteGuest = () => {
-    deleteGuest(id);
+    deleteGuest(_id);
     clearCurrent();
   };
 
