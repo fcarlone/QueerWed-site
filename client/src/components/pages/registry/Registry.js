@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import RegistryTitle from "./RegistryTitle";
 import RegistryItem from "./RegistryItem";
-import "../../styles/registry.css";
+// import "../../styles/registry.css";
 
 class Registry extends React.Component {
   render() {

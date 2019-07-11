@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBIcon } from "mdbreact";
-import "../../styles/registryTitle.css";
+// import "../../styles/registryTitle.css";
 
 const RegistryTitle = () => {
   return (
