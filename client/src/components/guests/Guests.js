@@ -17,7 +17,7 @@ const Guests = () => {
     return <h4>Add guests here</h4>;
   }
 
-  console.log("guest component", guests);
+  console.log("React Guests Component", guests);
   return (
     <Fragment>
       {filtered !== null
