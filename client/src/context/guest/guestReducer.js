@@ -14,6 +14,11 @@ import {
 export default (state, action) => {
   // Switch statement to look for action-type
   switch (action.type) {
+    case GET_GUESTS:
+      return {
+        ...state,
+        guests: action.payload
+      };
     case ADD_GUEST:
       return {
         ...state,

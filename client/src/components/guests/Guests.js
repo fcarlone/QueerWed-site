@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import GuestItem from "./GuestItem";
 import GuestContext from "../../context/guest/guestContext";
 
@@ -6,7 +6,12 @@ const Guests = () => {
   // Initialize context
   const guestContext = useContext(GuestContext);
 
-  const { guests, filtered } = guestContext;
+  const { guests, filtered, getGuests } = guestContext;
+
+  useEffect(() => {
+    getGuests();
+    // eslint-disable-next-line
+  }, []);
 
   if (guests.length === 0) {
     return <h4>Add guests here</h4>;

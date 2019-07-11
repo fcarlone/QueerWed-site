@@ -1,6 +1,5 @@
 import React, { useReducer } from "react";
 import axois from "axios";
-import uuid from "uuid";
 import GuestContext from "./guestContext";
 import guestReducer from "./guestReducer";
 import {
@@ -22,11 +21,22 @@ const GuestState = props => {
     guests: [],
     current: null,
     filtered: null
+    // errros: null
   };
   // Pull-out state and dispatch
   const [state, dispatch] = useReducer(guestReducer, initialState);
 
   // **ACTIONS**
+
+  // Get Guests
+  const getGuests = async () => {
+    try {
+      const res = await axois.get("api/guests");
+      dispatch({ type: GET_GUESTS, payload: res.data });
+    } catch (error) {
+      dispatch({ type: GUEST_ERROR, payload: error.response.message });
+    }
+  };
 
   // Add Guest
   const addGuest = async guest => {
@@ -76,14 +86,15 @@ const GuestState = props => {
         guests: state.guests,
         current: state.current,
         filtered: state.filtered,
-        error: state.error,
+        // errors: state.errors,
         addGuest,
         deleteGuest,
         setCurrent,
         clearCurrent,
         updateGuest,
         filterGuests,
-        clearFilter
+        clearFilter,
+        getGuests
       }}
     >
       {props.children}
