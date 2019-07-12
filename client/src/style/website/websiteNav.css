@@ -1,13 +1,13 @@
 .nav {
-  height: 50px;
+  height: 45px;
   font-size: 20px;
   padding: 0px 0;
-  background:   #bcfcbf;
-  font-family: 'Bubblegum Sans';
-  font-size: 27px;
+  background:   #eefaef;
+  font-family: 'Handlee';
 }
 .logo {
   /* background:#f0f0f0; */
-  font-size: 30px;
-  /* margin-bottom: 10px; */
+  font-size: 20px;
+  font-family: 'Bubblegum Sans';
+  margin-top: 10px;
 }

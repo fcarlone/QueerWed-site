@@ -10,7 +10,6 @@ import Signup from "./components/pages/join/Signup";
 import Login from "./components/pages/join/Login";
 import VendorSignup from "./components/pages/join/VendorSignup";
 import VendorLogin from "./components/pages/join/VendorLogin";
-
 import GuestState from "./context/guest/GuestState";
 
 
@@ -32,6 +31,7 @@ function App() {
             <Route exact path="/signup/vendor" component={VendorSignup} />
 
           </Switch>
+          <Route exact path="/website/user/:id" component={WebsiteComplete} />
         </div>
       </Router>
     </GuestState>
