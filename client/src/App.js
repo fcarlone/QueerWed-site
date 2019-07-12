@@ -11,6 +11,7 @@ import Login from "./components/pages/join/Login";
 import VendorSignup from "./components/pages/join/VendorSignup";
 import VendorLogin from "./components/pages/join/VendorLogin";
 import GuestState from "./context/guest/GuestState";
+import WebsiteComplete from "./components/pages/websitecomplete/WebsiteComplete"
 
 
 function App() {
