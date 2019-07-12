@@ -31,6 +31,7 @@ if (process.env.NODE_ENV === "production") {
 require("./routes/user")(app);
 require("./routes/guest")(app);
 require("./routes/todo")(app);
+require("./routes/events")(app);
 
 // Route to load single HTML page
 // app.get("*", (req, res) => {
