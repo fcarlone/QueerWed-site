@@ -7,9 +7,7 @@ class TodoForm extends Component {
   };
 
   onSubmit = event => {
-    console.log("test from component");
     event.preventDefault();
-    console.log("test from component");
     // handle blank submit
     if (this.state.newItem.length < 1) {
       this.setState({ error: "Please provide an item" });
@@ -18,7 +16,7 @@ class TodoForm extends Component {
       this.props.addTodo(this.state);
 
       // Reset field
-      this.setState({ newItem: "" });
+      // this.setState({ newItem: "" });
     }
   };
 
