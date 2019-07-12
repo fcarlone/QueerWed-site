@@ -1,0 +1,26 @@
+section {
+  margin-bottom: 100px;
+}
+
+.image-container {
+  background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 1%,
+      rgba(0, 0, 0, 0.38) 53%,
+      rgba(0, 0, 0, 0.51) 70%
+    ),
+    url("https://cdn.mos.cms.futurecdn.net/diEadh9sgT5d32yn2za8bj-768-80.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 30rem;
+}
+
+.white-text {
+  padding-top: 7rem;
+  padding-left: 15rem;
+  font-size: 3rem;
+}
+.name-container {
+  padding-left: 15rem;
+}
