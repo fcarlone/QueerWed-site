@@ -4,7 +4,6 @@ import Container from "../../layout/Container"
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBCard, MDBCardBody } from 'mdbreact';
 import {Button} from "../../layout/Button"
 
-
 class Login extends React.Component {
   state = {
     email: "",
@@ -27,13 +26,17 @@ class Login extends React.Component {
       .post("user-login", userObject)
       .then(response => {
         console.log(response.data);
+        window.location.href = "/planning"
       })
       .then(
         this.setState({
           email: "",
           password: ""
         })
-      );
+      ).catch(function (error) {
+        console.log(error);
+        window.location.href = "/login"
+      });;
   };
 
   // Handle onSubmit
