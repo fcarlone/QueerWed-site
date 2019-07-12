@@ -73,7 +73,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((id, done) => {
   db.User.findById(id, function (err, user) {
     if (err) {
-      db.VendorUser.findById(id, function (err, usr) {
+      db.VendorUser.findById(id, function (err, user) {
         done(err, user)
       })
     } else {

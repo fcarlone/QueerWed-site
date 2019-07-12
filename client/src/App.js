@@ -16,33 +16,12 @@ import GuestState from "./context/guest/GuestState";
 
 function App() {
   return (
-<<<<<<< HEAD
-    <Router>
-      <div>
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={Loading} />+
-          <Route exact path="/planning" component={Planning} />
-          <Route exact path="/registry" component={Registry} />
-          <Route exact path="/vendor" component={Vendor} />
-          <Route exact path="/website" component={Website} />
-          
-          <Route exact path="/signup" component={Signup}/>
-          <Route exact path="/login" component={Login}/>
-          <Route exact path="/signup/vendor" component={VendorSignup}/>
-          <Route exact path="/login/vendor" component={VendorLogin}/>
-
-
-        </Switch>
-      </div>
-    </Router>
-=======
     <GuestState>
       <Router>
         <div>
           <Nav />
           <Switch>
-            <Route exact path="/" component={Loading} />+
+            <Route exact path="/" component={Loading} />
             <Route exact path="/planning" component={Planning} />
             <Route exact path="/registry" component={Registry} />
             <Route exact path="/vendor" component={Vendor} />
@@ -50,11 +29,12 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/login/vendor" component={VendorLogin} />
+            <Route exact path="/signup/vendor" component={VendorSignup} />
+
           </Switch>
         </div>
       </Router>
     </GuestState>
->>>>>>> 785ee651ccd8de114e3a85d7aaadacabdf5a0011
   );
 }
 

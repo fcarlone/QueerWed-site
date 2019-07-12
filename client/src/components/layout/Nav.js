@@ -26,7 +26,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                     <Router>
                         <MDBNavbar color="white" dark expand="md" fixed="top">
                             <MDBNavbarBrand>
-                                <a className="pink-text" href="/"><strong>allCouples</strong></a>
+                                <a className="pink-text" href="/"><strong>QueerWed</strong></a>
                             </MDBNavbarBrand>
                             {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
                             <MDBCollapse isOpen={this.state.collapse} navbar>
