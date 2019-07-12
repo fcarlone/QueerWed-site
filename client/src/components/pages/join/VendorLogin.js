@@ -23,7 +23,7 @@ class VendorLogin extends React.Component {
       return axios
         .post("/vendoruser-login", userObject)
         .then(response => {
-          console.log(response);
+          console.log(response.data);
         })
         .then(
           this.setState({

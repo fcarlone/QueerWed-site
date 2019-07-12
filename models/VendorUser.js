@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const VendorUserSchema = mongoose.Schema({
+  userType: {
+    type: String,
+    default: "vendor"
+  },
   email: {
     type: String,
     required: true
