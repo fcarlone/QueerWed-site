@@ -8,8 +8,11 @@ import Vendor from "./components/pages/vendor/Vendor";
 import Website from "./components/pages/website/Website";
 import Signup from "./components/pages/join/Signup";
 import Login from "./components/pages/join/Login";
+import VendorSignup from "./components/pages/join/VendorSignup";
 import VendorLogin from "./components/pages/join/VendorLogin";
 import GuestState from "./context/guest/GuestState";
+import WebsiteComplete from "./components/pages/websitecomplete/WebsiteComplete"
+
 
 function App() {
   return (
@@ -26,6 +29,8 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/login/vendor" component={VendorLogin} />
+            <Route exact path="/signup/vendor" component={VendorSignup} />
+
           </Switch>
           <Route exact path="/website/user/:id" component={WebsiteComplete} />
         </div>

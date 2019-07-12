@@ -7,7 +7,7 @@
   .container {
     overflow: hidden;
   }
-  p {
+  #guestListTitle {
     font-family: 'Bilbo Swash Caps';
     font-size: 45px;
     background-color: antiquewhite;

@@ -1,34 +1,72 @@
 import React from "react";
-import { MDBInput } from "mdbreact";
+import axios from "axios";
 import Container from "../../layout/Container"
 
 class VendorLogin extends React.Component {
-    render() {
-        return (
-            <Container>
-                <div className="container">
-                    <p>
-                        Hi, Welcome to XYZ, an app for LGBTQIA+ wedding professionals to connect with LGBTQIA+ folks who are getting married.
-                        XYZ is about promoting solidarity and commerce within the queer community, so we ask that you only proceed if
-                    </p>
-
-                    <MDBInput label="What kind of business are you in?" prepend="Options"
-                        inputs={
-                            <select className="browser-default custom-select">
-                                <option value="0">Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        } />
-                    <MDBInput label="What’s the name of your business?" />
-                    <MDBInput label="What’s your physical address?" />
-                    <MDBInput label="What’s your phone number?" />
-                    <MDBInput label="What’s your website?" prepend="https://" />
-                    <MDBInput type="textarea" label="Example label" />
-                </div>
-            </Container>
+    state = {
+      email: "",
+      password: ""
+    };
+    // Handle onSubmit
+    onSubmitLogin = event => {
+      event.preventDefault();
+  
+      console.log("onSubmit button pressed", this.state);
+  
+      const userObject = {
+        email: this.state.email,
+        password: this.state.password
+      };
+      console.log("handle get user ", event.target.value, userObject);
+  
+      // Save book to MongoDb
+      return axios
+        .post("/vendoruser-login", userObject)
+        .then(response => {
+          console.log(response);
+        })
+        .then(
+          this.setState({
+            email: "",
+            password: ""
+          })
         );
+    };
+    
+    // Handle onChange
+    onChangeEmail = event => {
+      this.setState({ email: event.target.value });
+    };
+  
+    onChangePassword = event => {
+      this.setState({ password: event.target.value });
+    };
+  
+    render() {
+      return (  
+        <Container>
+          <div>
+            <h3>Vendor Login</h3>
+            <form onSubmit={this.onSubmitLogin}>
+              <input
+                type="text"
+                name="email"
+                placeholder="Enter email"
+                value={this.state.email}
+                onChange={this.onChangeEmail}
+              />
+              <input
+                type="text"
+                name="password"
+                placeholder="Enter password"
+                value={this.state.password}
+                onChange={this.onChangePassword}
+              />
+              <input className="btn " type="submit" value="Login" />
+            </form>
+          </div>
+        </Container>
+      );
     }
-}
-export default VendorLogin;
+  }
+  export default VendorLogin;
