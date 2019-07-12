@@ -5,12 +5,19 @@ import axios from "axios";
 
 class Todos extends Component {
   state = {
-    items: [
-      { text: "Thing One", id: 1 },
-      { text: "Thing Two", id: 2 },
-      { text: "Thing Three", id: 3 }
-    ]
+    items: []
   };
+
+  // Lifecycle method - display saved todos
+  componentDidMount() {
+    console.log("todo component did mount");
+    axios.get("/api/todos").then(response => {
+      this.setState({
+        items: response.data
+      });
+      console.log("updated todos state", this.state);
+    });
+  }
 
   toggleComplete = id => {
     console.log(id);
@@ -43,11 +50,11 @@ class Todos extends Component {
         <TodoForm addTodo={this.handleNewTodo} />
         {this.state.items.map(item => (
           <TodoItem
-            key={this.state.items.indexOf(item)}
+            key={item._id}
             item={item}
-            toggleComplete={() => this.toggleComplete(item.id)}
-            onRemoveTodo={() => this.onRemoveTodo(item.id)}
-            onEditTodo={() => this.onEditTodo(item.id)}
+            toggleComplete={() => this.toggleComplete(item._id)}
+            onRemoveTodo={() => this.onRemoveTodo(item._id)}
+            onEditTodo={() => this.onEditTodo(item._id)}
           />
         ))}
       </Fragment>

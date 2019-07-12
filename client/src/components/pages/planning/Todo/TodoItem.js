@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 const TodoItems = props => (
   <Fragment>
     <div>
-      <h3>{props.item.text}</h3>
+      <h3>{props.item.todo}</h3>
       <button className="btn" onClick={props.toggleComplete}>
         Complete
       </button>
