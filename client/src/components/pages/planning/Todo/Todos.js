@@ -21,10 +21,16 @@ class Todos extends Component {
 
   toggleComplete = id => {
     console.log(id);
+    axios.put(`/api/todos/${id}`).then(response => {
+      console.log("Todo boolean change", response.data);
+    });
   };
 
   onRemoveTodo = id => {
     console.log(id);
+    axios.delete(`/api/todos/${id}`).then(response => {
+      console.log("Todo removed", response.data);
+    });
   };
 
   onEditTodo = id => {

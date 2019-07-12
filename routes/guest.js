@@ -68,8 +68,6 @@ module.exports = function(app) {
   app.delete("/api/guests/:id", async (req, res) => {
     try {
       let guest = await Guest.findById(req.params.id);
-      console.log(typeof guest.user);
-      console.log(typeof req.user._id);
 
       // If guest does not exists
       if (!guest) {

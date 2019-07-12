@@ -3,9 +3,13 @@ import React, { Fragment } from "react";
 const TodoItems = props => (
   <Fragment>
     <div>
-      <h3>{props.item.todo}</h3>
+      <span
+        style={{ textDecoration: props.item.completed ? "line-through" : "" }}
+      >
+        <h3>{props.item.todo}</h3>
+      </span>
       <button className="btn" onClick={props.toggleComplete}>
-        Complete
+        {props.item.completed ? "Undo" : "Completed"}
       </button>
       <button className="btn" onClick={props.onEditTodo}>
         Edit
