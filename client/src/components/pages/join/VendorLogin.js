@@ -24,13 +24,17 @@ class VendorLogin extends React.Component {
         .post("/vendoruser-login", userObject)
         .then(response => {
           console.log(response.data);
+          window.location.href="/vendor"
         })
         .then(
           this.setState({
             email: "",
             password: ""
           })
-        );
+        ).catch(function (error) {
+          console.log(error);
+          window.location.href="/login/vendor"
+        });;
     };
     
     // Handle onChange

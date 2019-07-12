@@ -1,6 +1,3 @@
-// const passport = require("passport")
-// require("../config/passport")(passport);
-
 const passport = require("../config/passport");
 const bcrypt = require("bcryptjs");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -8,17 +5,18 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 // Connect model
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Get user
-  app.get("/vendoruser", (req, res) => {
-    res.send(req.user);
+  app.get("/vendoruser-login/:id", (req, res) => {
+    res.json(req.user);
   });
 
   // User login
   app.post("/vendoruser-login", passport.authenticate('vendor-local'), (req, res) => {
     console.log("user login from client-side: ", req.user);
     // res.json(req.user);
-    res.redirect(`/vendoruser`);
+    // res.redirect(`/vendor/${req.user._id}`);
+    res.end()
   });
 
   // User signup
