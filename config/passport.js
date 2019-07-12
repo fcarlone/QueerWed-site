@@ -1,20 +1,19 @@
 const passport = require("passport");
-const LocalStrategy = require("passport-local");
+const LocalStrategy = require("passport-local").Strategy;
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
 // Load User model
-const User = require("../models/User");
-// const VendorUser = require("../models/VendorUser")
+const db = require("../models")
 
 // Use Local Strategy
-passport.use('local',
+passport.use('user-local',
   new LocalStrategy(
     // User sign in with email
     { usernameField: "email" },
     (email, password, done) => {
       // Match user
-      User.findOne({
+      db.User.findOne({
         email: email
       }).then(user => {
         if (!user) {
@@ -42,7 +41,7 @@ passport.use('vendor-local',
     { usernameField: "email" },
     (email, password, done) => {
       // Match user
-      VendorUser.findOne({
+      db.VendorUser.findOne({
         email: email
       }).then(user => {
         if (!user) {
@@ -72,9 +71,16 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id, function(err, user) {
-    done(err, user);
+  db.User.findById(id, function (err, user) {
+    if (err) {
+      db.VendorUser.findById(id, function (err, usr) {
+        done(err, user)
+      })
+    } else {
+      done(err, user);
+    }
   });
+
 });
 
 // Exporting configured passport

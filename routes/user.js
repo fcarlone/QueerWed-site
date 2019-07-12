@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
   // User login
-  app.post("/user-login", passport.authenticate("local"), (req, res) => {
+  app.post("/user-login", passport.authenticate("user-local"), (req, res) => {
     console.log("user login from client-side: ", req.user);
     // res.json(req.user);
     res.redirect(`/user`);

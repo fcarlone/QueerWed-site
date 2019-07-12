@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import { MDBInput } from "mdbreact";
+
 import Container from "../../layout/Container"
 import { Button } from "../../layout/Button"
 
@@ -14,7 +15,8 @@ class VendorSignup extends React.Component {
         address: "",
         phone: "",
         website: "",
-        description: ""
+        description: "",
+        selectedImage: null
     };
 
     handleInputChange = event => {
@@ -53,6 +55,17 @@ class VendorSignup extends React.Component {
             );
     };
 
+    fileSelectHandler = event => {
+        console.log(event.target.files[0])
+    }
+
+    fileUploadHandler = event => {
+        // const fd = new FormData();
+        axios.post("/api/photo").then(
+            console.log("image upload")
+        )
+    }
+
 
     render() {
         return (
@@ -70,6 +83,23 @@ class VendorSignup extends React.Component {
                     <MDBInput name="phone" value={this.state.phone} onChange={this.handleInputChange} label="What’s your phone number?" />
                     <MDBInput name="website" value={this.state.website} onChange={this.handleInputChange} label="What’s your website?" prepend="https://" />
                     <MDBInput name="description" value={this.state.description} onChange={this.handleInputChange} type="textarea" label="Anything else?(optional)" />
+                    <div className="input-group">
+                        <div className="input-group-prepend">
+                            <span className="input-group-text" id="inputGroupFileAddon01">
+                                Upload
+                            </span>
+                        </div>
+                        <div className="custom-file">
+                            <input
+                                type="file"
+                                className="custom-file-input"
+                                id="inputGroupFile01"
+                                aria-describedby="inputGroupFileAddon01"
+                                onChange={this.fileSelectHandler}
+                            />
+                            <button onClick={this.fileUploadHandler}>upload</button>
+                        </div>
+                    </div>
                     <Button value="Sign Up" onClick={this.onSubmitSignup} />
                 </div>
             </Container>

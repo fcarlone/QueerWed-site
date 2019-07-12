@@ -1,9 +1,12 @@
+// const passport = require("passport")
+// require("../config/passport")(passport);
+
 const passport = require("../config/passport");
 const bcrypt = require("bcryptjs");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // Connect model
-const VendorUser = require("../models/vendorUser");
+const db = require("../models");
 
 module.exports = function(app) {
   // Get user
@@ -27,13 +30,13 @@ module.exports = function(app) {
     // ***Check required fields***
 
     // Check if email already exists
-    let vendorUser = await VendorUser.findOne({ email: email }).then(user => {
+    let vendorUser = await db.VendorUser.findOne({ email: email }).then(user => {
       if (user) {
         return res.status(400).json({ msg: "User already exists" });
       } else {
         try {
           // Build user object - save to database
-          const newUser = new VendorUser({
+          const newUser = new db.VendorUser({
             email,
             password,
             category,

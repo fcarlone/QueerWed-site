@@ -34,17 +34,16 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                     <li><a className="mainMenu" href="/planning">Planning Tools</a>
                                         <ul className="subMenuContainer">
                                             <div className="subMenu subMenu1">
-                                                <li><a href="/planning/calender">Calender</a></li>
+                                                <li><a href="/planning/calendar">Calendar</a></li>
                                                 <li><a href="/planning/checklist">Check List</a></li>
                                                 <li><a href="/planning/guestlist">Guest List</a></li>
                                                 <li><a href="/planning/vendor">Manage Vendors</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/registry/create">Create Your Website</a></li>
-                                                <li><a href="/registry/find">Find A Couple</a></li>
+                                                <li><a href="/registry/create">Create Your Registry</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/website/create">Create Your Registry</a></li>
+                                                <li><a href="/website/create">Create Your Website</a></li>
                                                 <li><a href="/website/find">Find A Couple</a></li>
                                             </div>
                                             <div className="subMenu">
@@ -55,19 +54,18 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                     </li>
 
                                     <li><a className="mainMenu" href="/registry">Wedding Registry</a>
-                                    <ul className="subMenuContainer">
+                                        <ul className="subMenuContainer">
                                             <div className="subMenu subMenu1">
-                                                <li><a href="/planning/calender">Calender</a></li>
+                                                <li><a href="/planning/calendar">Calendar</a></li>
                                                 <li><a href="/planning/checklist">Check List</a></li>
                                                 <li><a href="/planning/guestlist">Guest List</a></li>
                                                 <li><a href="/planning/vendor">Manage Vendors</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/registry/create">Create Your Website</a></li>
-                                                <li><a href="/registry/find">Find A Couple</a></li>
+                                                <li><a href="/registry/create">Create Your Registry</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/website/create">Create Your Registry</a></li>
+                                                <li><a href="/website/create">Create Your Website</a></li>
                                                 <li><a href="/website/find">Find A Couple</a></li>
                                             </div>
                                             <div className="subMenu">
@@ -78,19 +76,18 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                     </li>
 
                                     <li><a className="mainMenu" href="/website">Wedding Website</a>
-                                    <ul className="subMenuContainer">
+                                        <ul className="subMenuContainer">
                                             <div className="subMenu subMenu1">
-                                                <li><a href="/planning/calender">Calender</a></li>
+                                                <li><a href="/planning/calendar">Calendar</a></li>
                                                 <li><a href="/planning/checklist">Check List</a></li>
                                                 <li><a href="/planning/guestlist">Guest List</a></li>
                                                 <li><a href="/planning/vendor">Manage Vendors</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/registry/create">Create Your Website</a></li>
-                                                <li><a href="/registry/find">Find A Couple</a></li>
+                                                <li><a href="/registry/create">Create Your Registry</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/website/create">Create Your Registry</a></li>
+                                                <li><a href="/website/create">Create Your Website</a></li>
                                                 <li><a href="/website/find">Find A Couple</a></li>
                                             </div>
                                             <div className="subMenu">
@@ -103,17 +100,16 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                     <li><a className="mainMenu" href="/vendor">Find Professionals</a>
                                         <ul className="subMenuContainer">
                                             <div className="subMenu subMenu1">
-                                                <li><a href="/planning/calender">Calender</a></li>
+                                                <li><a href="/planning/calendar">Calendar</a></li>
                                                 <li><a href="/planning/checklist">Check List</a></li>
                                                 <li><a href="/planning/guestlist">Guest List</a></li>
                                                 <li><a href="/planning/vendor">Manage Vendors</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/registry/create">Create Your Website</a></li>
-                                                <li><a href="/registry/find">Find A Couple</a></li>
+                                                <li><a href="/registry/create">Create Your Registry</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/website/create">Create Your Registry</a></li>
+                                                <li><a href="/website/create">Create Your Website</a></li>
                                                 <li><a href="/website/find">Find A Couple</a></li>
                                             </div>
                                             <div className="subMenu">
