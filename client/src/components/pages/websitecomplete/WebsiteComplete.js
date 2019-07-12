@@ -7,24 +7,18 @@ import GuestBook from './GuestBook.js';
 import Container from '../../layout/Container';
 import Rsvp from './Rsvp.js';
 import Faqs from './Faqs.js';
-import CreateButton from './CreateButton.js'
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 // import 'bootstrap-css-only/css/bootstrap.min.css';
 // import 'mdbreact/dist/css/mdb.css';
 
-class Website extends Component {
+class WebsiteComplete extends Component {
 
   state = {
-    name1: 'Your name',
-    name2: 'Your spouse name',
+    name1: 'enter your name',
+    name2: 'enter your spouse name',
     date: '',
     location: '',
-    guestList: [{ 
-      id: 1, 
-      first_name: "Enter Guest's First Name", 
-      last_name: "Enter Guest's Last Name",
-      table_number: 0, 
-      isEditing: false }],
+    guestList: [{ id: 1, first_name: "Enter Guest's First Name", last_name: "Enter Guest's Last Name", table_number: 0, isEditing: false }],
     current_guest: {
       id: 0,
       first_name: '',
@@ -34,42 +28,21 @@ class Website extends Component {
     }
   };
 
-  // Header: Add name1+name2 START from here
+  // Add name1+name2 START from here
 
   addName1 = () => {
     this.setState({
-      name1: [...this.state.name1, {
+      name1: [...this.state.guestList, {
         name1: ''
       }]
     })
-  }
-
-  addName2 = () => {
-    this.setState({
-      name2: [...this.state.name2, {
-        name2: ''
-      }]
-    })
-  }
-
-  handleAddNames = (field, value) => {
-    if (field === 'name1') {
-      this.setState({
-        name1: { ...this.state.name1, name1: value }
-      })
-    }
-    if (field === 'name2') {
-      this.setState({
-        name2: { ...this.state.name1, name1: value }
-      })
-    }
   }
 
   // Add name1 and name2 function END from here
 
 
 
-  // Guset List: START from here
+  // Guset List Functions START from here
 
   editGuest = (current_guest, isDone) => {
     current_guest.isEditing = !current_guest.isEditing;
@@ -102,6 +75,7 @@ class Website extends Component {
   }
 
   handleChange = (field, value) => {
+    console.log(value);
     if (field === 'first_name') {
       this.setState({
         current_guest: { ...this.state.current_guest, first_name: value }
@@ -140,18 +114,14 @@ class Website extends Component {
         <div className="App">
           <Nav />
 
-          <Header 
-          addName1={this.addName1}
-          addName2={this.addName2}
-          addNames={this.handleAddNames}
-          />
+          <Header />
 
           <div className="row align-items-center justify-content-center">
             <div className="col-10 text-center">
 
               <Details />
-
-              {/* <GuestList
+{/* 
+              <GuestList
                 addGuest={this.addGuest}
                 guestList={this.state.guestList}
                 currentGuest={this.state.current_guest}
@@ -166,7 +136,6 @@ class Website extends Component {
 
               <Rsvp />
 
-              <CreateButton />
             </div>
           </div>
         </div>
@@ -174,4 +143,4 @@ class Website extends Component {
     );
   }
 }
-export default Website;
+export default WebsiteComplete;

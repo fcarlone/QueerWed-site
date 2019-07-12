@@ -9,25 +9,26 @@ import Website from "./components/pages/website/Website";
 import Signup from "./components/pages/join/Signup";
 import Login from "./components/pages/join/Login";
 import VendorLogin from "./components/pages/join/VendorLogin";
-
+import WebsiteComplete from "./components/pages/websitecomplete/WebsiteComplete";
 
 function App() {
   return (
     <Router>
       <div>
-        <Nav />
+      <Nav />
         <Switch>
           <Route exact path="/" component={Loading} />+
           <Route exact path="/planning" component={Planning} />
           <Route exact path="/registry" component={Registry} />
           <Route exact path="/vendor" component={Vendor} />
           <Route exact path="/website" component={Website} />
-          
+
           <Route exact path="/signup" component={Signup}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/login/vendor" component={VendorLogin}/>
-
         </Switch>
+        <Route exact path="/website/user/:id" component={WebsiteComplete} />
+
       </div>
     </Router>
   );
