@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import TodoItem from "./TodoItem";
 import TodoForm from "./TodoForm";
+import axios from "axios";
 
 class Todos extends Component {
   state = {
@@ -25,8 +26,14 @@ class Todos extends Component {
 
   // Add new item to state
   handleNewTodo = newTodo => {
-    console.log("new item", newTodo);
-    // axios call;
+    console.log("new item", newTodo.newItem);
+    const itemObject = {
+      todo: newTodo.newItem
+    };
+    // axios call
+    axios.post("/api/todos", itemObject).then(response => {
+      console.log("new todo added", response);
+    });
   };
 
   render() {

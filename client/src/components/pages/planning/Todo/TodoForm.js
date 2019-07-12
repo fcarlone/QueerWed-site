@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import { networkInterfaces } from "os";
 
 class TodoForm extends Component {
   state = {
@@ -25,7 +24,6 @@ class TodoForm extends Component {
 
   onChange = event => {
     const newItemText = event.target.value;
-    console.log("input field", newItemText);
     this.setState({
       newItem: newItemText
     });
