@@ -36,9 +36,8 @@ class Loading extends React.Component {
                 value="Are You A Vendor?"
                 width="200px"
                 float="left"
-                href="/signup/vendor"
+                href="/login/vendor"
               />
-
             </div>
           </MDBMask>
         </MDBView>

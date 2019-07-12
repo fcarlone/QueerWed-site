@@ -5,7 +5,7 @@ export const LinkedButton = (props) => (
         href={props.href}
         className="btn waves-effect"
         role="button"
-        style={{ border: "2px solid #e91e63", backgroundColor: "#e91e63", width: `${props.width}`, float: `${props.float}` }}
+        style={{ border: "2px solid #e91e63", color: "#ffffff", backgroundColor: "#e91e63", width: `${props.width}`, float: `${props.float}` }}
     >
         {props.value}
     </a>
@@ -16,7 +16,7 @@ export const LinkedOutlinedButton = (props) => (
         href={props.href}
         className="btn waves-effect"
         role="button"
-        style={{ border: "2px solid #e91e63", width: `${props.width}`, float: `${props.float}` }}
+        style={{ border: "2px solid #e91e63", color: "#ffffff", width: `${props.width}`, float: `${props.float}` }}
     >
         {props.value}
     </a>
@@ -27,7 +27,7 @@ export const Button = (props) => (
         type="button"
         className="btn waves-effect"
         onClick={props.onClick}
-        style={{ border: "2px solid #e91e63", backgroundColor: "#e91e63", width: `${props.width}`, float: `${props.float}` }}
+        style={{ border: "2px solid #e91e63", color: "#ffffff", backgroundColor: "#e91e63", width: `${props.width}`, float: `${props.float}` }}
     >
         {props.value}
     </button>
@@ -38,7 +38,7 @@ export const OutlinedButton = (props) => (
         type="button"
         className="btn waves-effect"
         onClick={props.onClick}
-        style={{ border: "2px solid #e91e63", width: `${props.width}`, float: `${props.float}` }}
+        style={{ border: "2px solid #e91e63", color: "#ffffff", width: `${props.width}`, float: `${props.float}` }}
     >
         {props.value}
     </button>
