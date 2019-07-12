@@ -3,6 +3,8 @@ import ToDoItems from "./toDoItems";
 import Container from "../../layout/Container.js";
 import axios from "axios";
 import GuestList from "./GuestList";
+import Todos from "../planning/Todo/Todos";
+import EventsList from "./EventsList";
 
 // import "/index.css";
 
@@ -80,6 +82,7 @@ class Planning extends Component {
           <ToDoItems entries={this.state.items} />
         </div>
 
+        <Todos />
         <GuestList />
       </Container>
     );
