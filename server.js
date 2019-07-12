@@ -23,9 +23,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Serve static assets
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // Define routes
 require("./routes/user")(app);
+require("./routes/guest")(app);
 
 // Route to load single HTML page
 // app.get("*", (req, res) => {
