@@ -3,6 +3,7 @@ import axios from "axios";
 import Container from "../../layout/Container"
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBCard, MDBCardBody } from 'mdbreact';
 import {Button} from "../../layout/Button"
+import { withRouter} from "react-router-dom"
 
 class VendorLogin extends React.Component {
   state = {
@@ -26,7 +27,8 @@ class VendorLogin extends React.Component {
       .post("/vendoruser-login", userObject)
       .then(response => {
         console.log(response.data);
-        window.location.href = "/vendor"
+        // this.props.history.push("/vendor")
+        // window.location.href = "/vendor"
       })
       .then(
         this.setState({
@@ -35,7 +37,7 @@ class VendorLogin extends React.Component {
         })
       ).catch(function (error) {
         console.log(error);
-        window.location.href = "/login/vendor"
+        // window.location.href = "/login/vendor"
       });;
   };
 
@@ -95,4 +97,4 @@ class VendorLogin extends React.Component {
     );
   }
 }
-export default VendorLogin;
+export default withRouter(VendorLogin);

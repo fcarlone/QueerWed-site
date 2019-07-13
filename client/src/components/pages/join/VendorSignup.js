@@ -92,7 +92,7 @@ class VendorSignup extends React.Component {
                         </div>
                         <div className="custom-file">
                             <input
-                                name=""
+                                name="image"
                                 type="file"
                                 className="custom-file-input"
                                 id="inputGroupFile01"

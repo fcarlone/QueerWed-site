@@ -5,17 +5,14 @@ const TeamSearch = (props) => (
         <div className="form-row align-items-center">
             <div className="col-auto">
                 <div className="md-form">
-                    <input list="category" type="text" className="form-control mb-2" id="inlineFormInputMD"
-                        placeholder="Category" name="category" onChange={props.onChange}></input>
-                    <datalist id="category">
-                        <option value="Photography"></option>
-                        <option value="Flowers"></option>
-                        <option value="Catering"></option>
-                        <option value="DJing"></option>
-                        <option value="Music"></option>
-                        <option value="Decor"></option>
-                    </datalist>
-                    {/* <label className="sr-only" for="inlineFormInputMD">Name</label> */}
+                    <select className="form-control mb-2" id="inlineFormInputMD" name="category" size="1" style={{ color: "black" }} onChange={props.onChange}>
+                        <option value="All">All</option>
+                        <option value="Flowers">Flowers</option>
+                        <option value="Catering">Catering</option>
+                        <option value="DJing">DJing</option>
+                        <option value="Music">Music</option>
+                        <option value="Decor">Decor</option>
+                    </select>
                 </div>
             </div>
 
@@ -34,7 +31,7 @@ const TeamSearch = (props) => (
                 <button type="submit" className="btn btn-primary mb-0" onClick={props.onClick}>Search</button>
             </div>
         </div>
-    </form>
+    </form >
 )
 
 export default TeamSearch;

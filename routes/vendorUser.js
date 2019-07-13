@@ -15,15 +15,15 @@ module.exports = function (app) {
   app.post("/vendoruser-login", passport.authenticate('vendor-local'), (req, res) => {
     console.log("user login from client-side: ", req.user);
     // res.json(req.user);
-    // res.redirect(`/vendor/${req.user._id}`);
-    res.end()
+    // res.redirect("/");
+    // res.end()
   });
 
   // User signup
   app.post("/vendoruser-signup", async (req, res) => {
     // Get user data
     console.log("user signup from client-side", req.body);
-    const { email, password, category, name, address, phone, website, description } = req.body;
+    const { email, password, category, name, address, phone, website, description, image } = req.body;
 
     // ***Check required fields***
 
@@ -42,7 +42,8 @@ module.exports = function (app) {
             address,
             phone,
             website,
-            description
+            description,
+            image
           });
           console.log("Added user info:", newUser);
 
