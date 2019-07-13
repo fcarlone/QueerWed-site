@@ -7,7 +7,6 @@ const session = require("express-session");
 const passport = require("./config/passport");
 // For Image File upload
 const fs = require("fs");
-const multer = require("multer");
 
 const app = express();
 
