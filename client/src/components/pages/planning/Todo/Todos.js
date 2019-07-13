@@ -26,14 +26,24 @@ class Todos extends Component {
     });
   };
 
-  onRemoveTodo = id => {
+  handleRemoveTodo = id => {
     console.log(id);
     axios.delete(`/api/todos/${id}`).then(response => {
       console.log("Todo removed", response.data);
+      let removeTodo = response.data;
+
+      let state = [...this.state.items];
+      console.log("state", state);
+      let result = state.filter(item => item._id !== removeTodo._id);
+      console.log("result", result);
+
+      this.setState({
+        items: result
+      });
     });
   };
 
-  onEditTodo = id => {
+  handleEditTodo = id => {
     console.log(id);
   };
 
@@ -45,7 +55,7 @@ class Todos extends Component {
     };
     // axios call
     axios.post("/api/todos", itemObject).then(response => {
-      console.log("new todo added", response);
+      console.log("new todo added", response.data);
     });
   };
 
@@ -59,8 +69,8 @@ class Todos extends Component {
             key={item._id}
             item={item}
             toggleComplete={() => this.toggleComplete(item._id)}
-            onRemoveTodo={() => this.onRemoveTodo(item._id)}
-            onEditTodo={() => this.onEditTodo(item._id)}
+            handleRemoveTodo={() => this.handleRemoveTodo(item._id)}
+            handleEditTodo={() => this.handleEditTodo(item._id)}
           />
         ))}
       </Fragment>

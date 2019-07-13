@@ -52,7 +52,7 @@ module.exports = function(app) {
         return res.status(404).json({ msg: "Todo not found" });
       }
 
-      //Verify user owns todo
+      // Verify user owns todo
       if (!todo.user.equals(req.user._id)) {
         return res.status(401).json({ msg: "User not authorized" });
       }

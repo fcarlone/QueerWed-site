@@ -11,10 +11,10 @@ const TodoItems = props => (
       <button className="btn" onClick={props.toggleComplete}>
         {props.item.completed ? "Undo" : "Completed"}
       </button>
-      <button className="btn" onClick={props.onEditTodo}>
+      <button className="btn" onClick={props.handleEditTodo}>
         Edit
       </button>
-      <button className="btn" onClick={props.onRemoveTodo}>
+      <button className="btn" onClick={props.handleRemoveTodo}>
         Delete
       </button>
     </div>
