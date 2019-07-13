@@ -22,7 +22,7 @@ module.exports = function(app) {
   app.post("/user-signup", async (req, res) => {
     // Get user data
     console.log("user signup from client-side", req.body);
-    const { email, password } = req.body;
+    const { email, password, name, partnerName, dayOfWedding, howManyGuest, enjoyThing } = req.body;
 
     // ***Check required fields***
 
@@ -34,8 +34,13 @@ module.exports = function(app) {
         try {
           // Build user object - save to database
           const newUser = new User({
-            email: email,
-            password: password
+            email,
+            password,
+            name,
+            partnerName,
+            dayOfWedding,
+            howManyGuest,
+            enjoyThing
           });
           console.log("Added user info:", newUser);
 
