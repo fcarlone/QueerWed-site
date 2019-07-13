@@ -74,7 +74,6 @@ module.exports = function(app) {
   app.put("/api/todos/:id", async (req, res) => {
     try {
       const todo = await Todo.findById(req.params.id);
-      console.log("todo put route", todo.completed);
 
       // if completed = false - update to true
       if (!todo.completed) {

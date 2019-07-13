@@ -30,9 +30,18 @@ class Todos extends Component {
           let databaseCompleted = response.data.completed;
           console.log(databaseCompleted);
 
-          // Upate item with completed value from database
+          // Update item with "completed" value from database
           item.completed = databaseCompleted;
           console.log("updated item", item);
+
+          // Replace Object
+          this.setState(prevState => ({
+            items: prevState.items.map(item =>
+              item.key === item
+                ? { ...item, completed: databaseCompleted }
+                : item
+            )
+          }));
         }
       });
     });
