@@ -1,8 +1,15 @@
 import React from "react";
 import axios from "axios";
-import Container from "../../layout/Container"
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBCard, MDBCardBody } from 'mdbreact';
-import {Button} from "../../layout/Button"
+import Container from "../../layout/Container";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBCard,
+  MDBCardBody
+} from "mdbreact";
+import { Button } from "../../layout/Button";
 
 class Login extends React.Component {
   state = {
@@ -26,17 +33,18 @@ class Login extends React.Component {
       .post("user-login", userObject)
       .then(response => {
         console.log(response.data);
-        window.location.href = "/planning"
+        window.location.href = "/planning";
       })
       .then(
         this.setState({
           email: "",
           password: ""
         })
-      ).catch(function (error) {
+      )
+      .catch(function(error) {
         console.log(error);
-        window.location.href = "/login"
-      });;
+        window.location.href = "/login";
+      });
   };
 
   // Handle onSubmit
@@ -108,8 +116,10 @@ class Login extends React.Component {
                     </div>
                     <div className="text-center">
                       <Button onClick={this.onSubmitLogin} value="Login" />
-                      <br></br>
-                      <p className="mt-2">Not a member? <a href="/signup">Sign Up</a></p>
+                      <br />
+                      <p className="mt-2">
+                        Not a member? <a href="/signup">Sign Up</a>
+                      </p>
                     </div>
                   </form>
                 </MDBCardBody>

@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBIcon } from "mdbreact";
-// import "../../styles/registryTitle.css";
+import "../../../styles/registry/registryTitle.css";
 
 const RegistryTitle = () => {
   return (
@@ -16,7 +16,6 @@ const RegistryTitle = () => {
         <h3 className="py-3 text-left font-weight-bold name-container">
           <strong>APP NAME Registry</strong>
         </h3>
-        <p className="pb-3" />
       </div>
     </div>
   );

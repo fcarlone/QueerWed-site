@@ -1,8 +1,7 @@
 import React from "react";
 import axios from "axios";
-import Container from "../../layout/Container"
-import Carousel from "../../layout/Carousel"
-
+import Container from "../../layout/Container";
+import Carousel from "../../layout/Carousel";
 
 class Signup extends React.Component {
   state = {
@@ -38,7 +37,7 @@ class Signup extends React.Component {
         name: "password",
         sub: "Last thing!",
         question: "Set your password."
-      },
+      }
     ],
     email: "",
     password: "",
@@ -71,7 +70,7 @@ class Signup extends React.Component {
       .post("user-signup", userObject)
       .then(response => {
         console.log(response.data);
-        window.location.href = "/planning"
+        window.location.href = "/planning";
       })
       .then(
         this.setState({
@@ -108,7 +107,8 @@ class Signup extends React.Component {
         <Carousel
           list={this.state.questionArray}
           onChange={this.handleInputChange}
-          onClick={this.onSubmitSignup}>
+          onClick={this.onSubmitSignup}
+        >
           <h1>Congratulations on your big day coming up!</h1>
           <h4>Now for a few questions.</h4>
         </Carousel>
