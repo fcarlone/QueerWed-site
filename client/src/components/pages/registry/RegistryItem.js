@@ -1,6 +1,6 @@
 import React from "react";
-import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
-// import "../../styles/registryItem.css";
+import { MDBContainer } from "mdbreact";
+import "../../../styles/registry/registryItem.css";
 
 const RegistryItem = () => {
   return (
