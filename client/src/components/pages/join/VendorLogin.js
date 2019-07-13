@@ -27,7 +27,7 @@ class VendorLogin extends React.Component {
       .post("/vendoruser-login", userObject)
       .then(response => {
         console.log(response.data);
-        // this.props.history.push("/vendor")
+        this.props.history.push("/vendor")
         // window.location.href = "/vendor"
       })
       .then(
@@ -37,7 +37,7 @@ class VendorLogin extends React.Component {
         })
       ).catch(function (error) {
         console.log(error);
-        // window.location.href = "/login/vendor"
+        window.location.href = "/login/vendor"
       });;
   };
 

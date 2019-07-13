@@ -8,6 +8,7 @@ const passport = require("./config/passport");
 // For Image File upload
 const fs = require("fs");
 
+
 const app = express();
 
 const PORT = process.env.PORT || 5000;
@@ -35,6 +36,8 @@ if (process.env.NODE_ENV === "production") {
 require("./routes/user")(app);
 require("./routes/vendorUser")(app);
 require("./routes/guest")(app);
+require("./routes/website")(app);
+require("./routes/team")(app);
 require("./routes/todo")(app);
 require("./routes/events")(app);
 require("./routes/website")(app);
