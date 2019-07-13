@@ -6,12 +6,26 @@ function Header(props) {
   <div className="jumbotron d-flex text-center" id="header">
   <div className="container vertical-center">
     <h1 className="display-4">
-      <input type="text" id="name1" placeholder="Your name">{props.name1}</input> 
+      <input 
+      onChange={props.handleInputChange} 
+      value={props.value}
+      name= "name1"
+      type="text" id="name1" 
+      placeholder="Your name" />
       &amp; 
-      <input type="text" id="name2" placeholder="Your spouse name">{props.name2}</input>
+      <input 
+      onChange={props.handleInputChange}
+      value={props.value2}
+      name= "name2"
+      type="text" id="name2" 
+      placeholder="Your spouse name" />
     </h1>
-    <button onClick={props.handleAddNames} type="button" className="btn btn-info">Add</button>
+
+    <button onClick={props.handleAddButton} type="button" className="btn btn-info">Add</button>
     <button type="button" className="btn btn-light">Edit</button>
+    <br></br><br></br><br></br><br></br>
+    <button type="button" className="btn btn-secondary">Upload Your Cover Photo</button>
+
   </div>
   </div>
   )
