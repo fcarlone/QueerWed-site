@@ -20,9 +20,21 @@ class Todos extends Component {
   }
 
   toggleComplete = id => {
-    console.log(id);
     axios.put(`/api/todos/${id}`).then(response => {
       console.log("Todo boolean change", response.data);
+
+      this.state.items.map(item => {
+        if (item._id === response.data._id) {
+          console.log("state.item:", item);
+
+          let databaseCompleted = response.data.completed;
+          console.log(databaseCompleted);
+
+          // Upate item with completed value from database
+          item.completed = databaseCompleted;
+          console.log("updated item", item);
+        }
+      });
     });
   };
 
@@ -31,11 +43,8 @@ class Todos extends Component {
     axios.delete(`/api/todos/${id}`).then(response => {
       console.log("Todo removed", response.data);
       let removeTodo = response.data;
-
       let state = [...this.state.items];
-      console.log("state", state);
       let result = state.filter(item => item._id !== removeTodo._id);
-      console.log("result", result);
 
       this.setState({
         items: result
@@ -56,6 +65,9 @@ class Todos extends Component {
     // axios call
     axios.post("/api/todos", itemObject).then(response => {
       console.log("new todo added", response.data);
+      this.setState({
+        items: [...this.state.items, response.data]
+      });
     });
   };
 
