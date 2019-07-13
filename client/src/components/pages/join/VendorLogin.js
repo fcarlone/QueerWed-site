@@ -1,34 +1,100 @@
 import React from "react";
-import { MDBInput } from "mdbreact";
+import axios from "axios";
 import Container from "../../layout/Container"
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBCard, MDBCardBody } from 'mdbreact';
+import {Button} from "../../layout/Button"
+import { withRouter} from "react-router-dom"
 
 class VendorLogin extends React.Component {
-    render() {
-        return (
-            <Container>
-                <div className="container">
-                    <p>
-                        Hi, Welcome to XYZ, an app for LGBTQIA+ wedding professionals to connect with LGBTQIA+ folks who are getting married.
-                        XYZ is about promoting solidarity and commerce within the queer community, so we ask that you only proceed if
-                    </p>
+  state = {
+    email: "",
+    password: ""
+  };
+  // Handle onSubmit
+  onSubmitLogin = event => {
+    event.preventDefault();
 
-                    <MDBInput label="What kind of business are you in?" prepend="Options"
-                        inputs={
-                            <select className="browser-default custom-select">
-                                <option value="0">Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        } />
-                    <MDBInput label="What’s the name of your business?" />
-                    <MDBInput label="What’s your physical address?" />
-                    <MDBInput label="What’s your phone number?" />
-                    <MDBInput label="What’s your website?" prepend="https://" />
-                    <MDBInput type="textarea" label="Example label" />
-                </div>
-            </Container>
-        );
-    }
+    console.log("onSubmit button pressed", this.state);
+
+    const userObject = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    console.log("handle get user ", event.target.value, userObject);
+
+    // Save book to MongoDb
+    return axios
+      .post("/vendoruser-login", userObject)
+      .then(response => {
+        console.log(response.data);
+        // this.props.history.push("/vendor")
+        // window.location.href = "/vendor"
+      })
+      .then(
+        this.setState({
+          email: "",
+          password: ""
+        })
+      ).catch(function (error) {
+        console.log(error);
+        // window.location.href = "/login/vendor"
+      });;
+  };
+
+  // Handle onChange
+  onChangeEmail = event => {
+    this.setState({ email: event.target.value });
+  };
+
+  onChangePassword = event => {
+    this.setState({ password: event.target.value });
+  };
+
+  render() {
+    return (
+      <Container>
+        <MDBContainer>
+          <MDBRow>
+            <MDBCol md="4" className="mx-auto mt-5">
+              <MDBCard>
+                <MDBCardBody>
+                  <form>
+                    <p className="h5 text-center mb-5 mt-3">Vendor Log in</p>
+                    <div className="grey-text">
+                      <MDBInput
+                        label="Type your email"
+                        icon="envelope"
+                        group
+                        type="email"
+                        validate
+                        error="wrong"
+                        success="right"
+                        value={this.state.email}
+                        onChange={this.onChangeEmail}
+                      />
+                      <MDBInput
+                        label="Type your password"
+                        icon="lock"
+                        group
+                        type="password"
+                        validate
+                        value={this.state.password}
+                        onChange={this.onChangePassword}
+                      />
+                    </div>
+                    <div className="text-center">
+                      <Button onClick={this.onSubmitLogin} value="Login"/>
+                      <br></br>
+                      <p className="mt-2">Not a member? <a href="/signup/vendor">Sign Up</a></p>
+                    </div>
+                  </form>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </Container>
+    );
+  }
 }
-export default VendorLogin;
+export default withRouter(VendorLogin);

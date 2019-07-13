@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-const UserSchema = mongoose.Schema({
+const VendorUserSchema = mongoose.Schema({
   userType: {
     type: String,
-    default: "user"
+    default: "vendor"
   },
   email: {
     type: String,
@@ -13,40 +13,37 @@ const UserSchema = mongoose.Schema({
     type: String,
     require: true
   },
+  category: {
+    type: String,
+    require: true
+  },
   name: {
     type: String,
     require: true
   },
-  partnerName: {
+  address: {
     type: String,
     require: true
   },
-  dayOfWedding: {
+  phone: {
     type: String,
     require: true
   },
-  howManyGuest: {
+  website: {
     type: String,
     require: true
   },
-  enjoyThing: {
+  description: {
     type: String,
-    require: true
+  },
+  image: {
+    type: String,
   },
   date: {
     type: Date,
     default: Date.now
   }
-  // guestBook: [
-  //   {
-  //   type : Schema.Types.ObjectId,
-  //   ref: "guestBook"
-  // }],
-  // website: [
-  //   {
-  //   type : Schema.Types.ObjectId,
-  //   ref: "website"
-  // }]
 });
 
-module.exports = mongoose.model("users", UserSchema);
+const VendorUser = mongoose.model("vendorusers", VendorUserSchema);
+module.exports = VendorUser

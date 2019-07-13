@@ -7,26 +7,21 @@ import GuestBook from './GuestBook.js';
 import Container from '../../layout/Container';
 import Rsvp from './Rsvp.js';
 import Faqs from './Faqs.js';
-import CreateButton from './CreateButton.js';
 import axios from 'axios';
+
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 // import 'bootstrap-css-only/css/bootstrap.min.css';
 // import 'mdbreact/dist/css/mdb.css';
 
-class Website extends Component {
+class WebsiteComplete extends Component {
 
   state = {
     userId: '',
-    name1: '',
-    name2: '',
+    name1: 'enter your name',
+    name2: 'enter your spouse name',
     date: '',
     location: ''
-    // guestList: [{ 
-    //   id: 1, 
-    //   first_name: "Enter Guest's First Name", 
-    //   last_name: "Enter Guest's Last Name",
-    //   table_number: 0, 
-    //   isEditing: false }],
+    // guestList: [{ id: 1, first_name: "Enter Guest's First Name", last_name: "Enter Guest's Last Name", table_number: 0, isEditing: false }],
     // current_guest: {
     //   id: 0,
     //   first_name: '',
@@ -36,17 +31,21 @@ class Website extends Component {
     // }
   };
 
-  componentDidMount () {
-    this.getUserData()
-  } 
+  componentDidMount() {
+    this.loadData();
+  }
 
-  getUserData = async () => {
+  loadData = async () => {
     try {
         const response = await axios
             .get("/api/websitedata");
         console.log(response.data);
         this.setState({
           userId: response.data[0].user,
+          name1: response.data[0].name1,
+          name2: response.data[0].name2,
+          date: response.data[0].date,
+          location: response.data[0].location
         });
     }
     catch (error) {
@@ -54,55 +53,22 @@ class Website extends Component {
     };
 };
 
+  // Add name1+name2 START from here
 
-  // Start: Header - Add name1+name2 START from here
-
-  handleInputChange = (event) => {
-    event.preventDefault();
-    const { name, value } = event.target;
+  addName1 = () => {
     this.setState({
-      [name] : value
-    })
-    // console.log(this.state.name1);
-  }
-
-  handleAddButton = (event) => {
-    event.preventDefault();
-    console.log(this.state.name1, this.state.name2);
-  }
-
-  // End: Add name1 and name2
-
-
-  // Start: Date and Location
-
-  handleDate = (event) => {
-    event.preventDefault();
-    const { name, value } = event.target;
-    this.setState({
-      [name] : value
+      name1: [...this.state.guestList, {
+        name1: ''
+      }]
     })
   }
 
-  handleDateButton = (event) => {
-    event.preventDefault();
-    console.log(this.state.date);
-  }
+  // Add name1 and name2 function END from here
 
-  handleLocation = (event) => {
-    event.preventDefault();
-    const { name, value } = event.target;
-    this.setState({
-      [name] : value
-  })
-  }
 
-  handleLocationButton = (event) => {
-    event.preventDefault();
-    console.log(this.state.location);
-  }
 
-  // Guset List: START from here
+  // Guset List Functions START from here
+
   editGuest = (current_guest, isDone) => {
     current_guest.isEditing = !current_guest.isEditing;
     if (isDone) {
@@ -123,6 +89,7 @@ class Website extends Component {
       })
     }
   }
+
   removeGuest = (id) => {
     let newGuestList = this.state.guestList.filter((guest) => {
       return !(guest.id === id)
@@ -131,7 +98,9 @@ class Website extends Component {
       guestList: newGuestList
     })
   }
+
   handleChange = (field, value) => {
+    console.log(value);
     if (field === 'first_name') {
       this.setState({
         current_guest: { ...this.state.current_guest, first_name: value }
@@ -148,6 +117,7 @@ class Website extends Component {
       })
     }
   }
+
   addGuest = () => {
     this.setState({
       guestList: [...this.state.guestList, {
@@ -159,47 +129,31 @@ class Website extends Component {
       }]
     })
   }
-  // End : Guset List Functions 
 
-  // Start : create website
-
-  createWebsite = () => {
-    axios.post('/create-website', this.state)
-    .then(res => {
-      console.log(res)
-    })
-  }
-
-  // End : create website
-
+  // Guset List Functions END
 
   render() {
 
     return (
       <Container>
+        <div>
+          <p>{this.state.name1}</p>
+          <p>{this.state.name2}</p>
+          <p>{this.state.date}</p>
+          <p>{this.state.location}</p>
+
+        </div>
         <div className="App">
           <Nav />
 
-          <Header 
-          handleInputChange={this.handleInputChange}
-          handleAddButton={this.handleAddButton}
-          value={this.state.name1}
-          value2={this.state.name2}
-          />
+          <Header />
 
           <div className="row align-items-center justify-content-center">
             <div className="col-10 text-center">
 
-          <Details 
-          handleDate={this.handleDate}
-          handleLocation={this.handleLocation}
-          handleDateButton={this.handleDateButton}
-          handleLocationButton={this.handleLocationButton}
-          value1={this.state.date}
-          value2={this.state.location}
-          />
-
-              {/* <GuestList
+              <Details />
+{/* 
+              <GuestList
                 addGuest={this.addGuest}
                 guestList={this.state.guestList}
                 currentGuest={this.state.current_guest}
@@ -214,9 +168,6 @@ class Website extends Component {
 
               <Rsvp />
 
-              <CreateButton 
-              createWebsite={this.createWebsite}
-              userId={this.state.userId}/>
             </div>
           </div>
         </div>
@@ -224,4 +175,4 @@ class Website extends Component {
     );
   }
 }
-export default Website;
+export default WebsiteComplete;

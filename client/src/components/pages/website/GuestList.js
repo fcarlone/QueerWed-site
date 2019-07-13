@@ -6,7 +6,7 @@ function GuestList(props) {
   return(
     <div className="jumbotron d-flex align-items-center" id="guestlist">
       <div className="container vertical-center">
-      <p><span>Guest List</span></p>
+      <p id="guestListTitle"><span>Guest List</span></p>
         <div className="tab tab-1">
           <table id="table" border="1">
             <thead>

@@ -3,15 +3,29 @@ import "../../../style/website/header.css";
 
 function Header(props) {
   return(
-  <div className="jumbotron d-flex text-center">
+  <div className="jumbotron d-flex text-center" id="header">
   <div className="container vertical-center">
     <h1 className="display-4">
-      <input type="text" id="name1">{props.name1}</input> 
+      <input 
+      onChange={props.handleInputChange} 
+      value={props.value}
+      name= "name1"
+      type="text" id="name1" 
+      placeholder="Your name" />
       &amp; 
-      <input type="text" id="fname2">{props.name2}</input>
+      <input 
+      onChange={props.handleInputChange}
+      value={props.value2}
+      name= "name2"
+      type="text" id="name2" 
+      placeholder="Your spouse name" />
     </h1>
-    <button onClick={props.addName}>Add</button>
-    <button>Edit</button>
+
+    <button onClick={props.handleAddButton} type="button" className="btn btn-info">Add</button>
+    <button type="button" className="btn btn-light">Edit</button>
+    <br></br><br></br><br></br><br></br>
+    <button type="button" className="btn btn-secondary">Upload Your Cover Photo</button>
+
   </div>
   </div>
   )

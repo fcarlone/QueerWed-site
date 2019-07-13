@@ -1,6 +1,5 @@
 #guestlist {
     background-image: url("img_table.jpg");
-    opacity: 0.4;
    }
    .tab-1 {
      background-color: antiquewhite;
@@ -8,7 +7,7 @@
   .container {
     overflow: hidden;
   }
-  p {
+  #guestListTitle {
     font-family: 'Bilbo Swash Caps';
     font-size: 45px;
     background-color: antiquewhite;

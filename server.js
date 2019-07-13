@@ -5,6 +5,9 @@ const connectDB = require("./config/db");
 // Passport packages
 const session = require("express-session");
 const passport = require("./config/passport");
+// For Image File upload
+const fs = require("fs");
+const multer = require("multer");
 
 const app = express();
 
@@ -12,6 +15,8 @@ const PORT = process.env.PORT || 5000;
 
 // Connect database
 connectDB();
+
+const db = require("./models");
 
 // Middleware
 app.use(express.json({ extended: true }));
@@ -29,9 +34,12 @@ if (process.env.NODE_ENV === "production") {
 
 // Define routes
 require("./routes/user")(app);
+require("./routes/vendorUser")(app);
 require("./routes/guest")(app);
 require("./routes/todo")(app);
 require("./routes/events")(app);
+require("./routes/website")(app);
+require("./routes/team")(app);
 
 // Route to load single HTML page
 // app.get("*", (req, res) => {
@@ -42,6 +50,21 @@ require("./routes/events")(app);
 app.get("/", (req, res) => {
   res.send("test server");
 });
+
+// for Image Upload
+// app.use(multer({
+//   dest: "./uploads/",
+//   rename: function (fieldname, filename) {
+//     return filename;
+//   },
+// }));
+
+// app.post("/api/photo", function (req, res) {
+//   var newUpload = new db.Upload();
+//   newUpload.img.data = fs.readFileSync(req.files.userPhoto.path)
+//   newUpload.img.contentType = "image / png";
+//   newUpload.save();
+// });
 
 // Add listner
 app.listen(PORT, () => {
