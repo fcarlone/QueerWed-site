@@ -39,8 +39,13 @@ const UserSchema = mongoose.Schema({
   }
   // guestBook: [
   //   {
-  //   type : Schema.types.ObjectId,
-  //   ref: "GuestBook"
+  //   type : Schema.Types.ObjectId,
+  //   ref: "guestBook"
+  // }],
+  // website: [
+  //   {
+  //   type : Schema.Types.ObjectId,
+  //   ref: "website"
   // }]
 });
 

@@ -3,5 +3,6 @@ module.exports = {
   User: require("./User"),
   VendorUser: require("./VendorUser"),
   Upload:require("./Upload"),
-  Guest: require("./Guest")
+  Guest: require("./Guest"),
+  Website: require("./Website")
 };

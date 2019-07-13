@@ -37,8 +37,12 @@ if (process.env.NODE_ENV === "production") {
 require("./routes/user")(app);
 require("./routes/vendorUser")(app);
 require("./routes/guest")(app);
+<<<<<<< HEAD
+require("./routes/website")(app);
+=======
 require("./routes/team")(app);
 
+>>>>>>> 206fe2cce33b40823717ac24863d8d6b8b87c5d1
 
 // Route to load single HTML page
 // app.get("*", (req, res) => {
