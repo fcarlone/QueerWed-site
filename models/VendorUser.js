@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const VendorUserSchema = mongoose.Schema({
+  userType: {
+    type: String,
+    default: "vendor"
+  },
   email: {
     type: String,
     required: true
@@ -30,6 +34,9 @@ const VendorUserSchema = mongoose.Schema({
     require: true
   },
   description: {
+    type: String,
+  },
+  image: {
     type: String,
   },
   date: {

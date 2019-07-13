@@ -67,21 +67,38 @@ passport.use('vendor-local',
 // If authentication succeeds, a session will be established and
 // maintained via a cookie set in the user's browser.
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  var key = {
+    id: user.id,
+    type: user.userType
+  }
+  done(null, key);
 });
 
-passport.deserializeUser((id, done) => {
-  db.User.findById(id, function (err, user) {
-    if (err) {
-      db.VendorUser.findById(id, function (err, user) {
-        done(err, user)
-      })
-    } else {
-      done(err, user);
-    }
+passport.deserializeUser((key, done) => {
+  let Model = key.type === "user" ? db.User : db.VendorUser;
+  Model.findById({_id: key.id}, function (err, user) {
+    done(err,user)
   });
-
 });
+
+// passport.serializeUser((user, done) => {
+//   done(null, user.id);
+// });
+
+// passport.deserializeUser((id, done) => {
+//   db.User.findById(id, function (err, user) {
+//     if (err) {
+//       db.VendorUser.findById(id, function (err, user) {
+//         done(err, user)
+//       })
+//     } else {
+//       done(err, user);
+//     }
+//   });
+
+// });
+
+
 
 // Exporting configured passport
 module.exports = passport;

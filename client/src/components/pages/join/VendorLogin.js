@@ -1,72 +1,100 @@
 import React from "react";
 import axios from "axios";
 import Container from "../../layout/Container"
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBCard, MDBCardBody } from 'mdbreact';
+import {Button} from "../../layout/Button"
+import { withRouter} from "react-router-dom"
 
 class VendorLogin extends React.Component {
-    state = {
-      email: "",
-      password: ""
+  state = {
+    email: "",
+    password: ""
+  };
+  // Handle onSubmit
+  onSubmitLogin = event => {
+    event.preventDefault();
+
+    console.log("onSubmit button pressed", this.state);
+
+    const userObject = {
+      email: this.state.email,
+      password: this.state.password
     };
-    // Handle onSubmit
-    onSubmitLogin = event => {
-      event.preventDefault();
-  
-      console.log("onSubmit button pressed", this.state);
-  
-      const userObject = {
-        email: this.state.email,
-        password: this.state.password
-      };
-      console.log("handle get user ", event.target.value, userObject);
-  
-      // Save book to MongoDb
-      return axios
-        .post("/vendoruser-login", userObject)
-        .then(response => {
-          console.log(response);
+    console.log("handle get user ", event.target.value, userObject);
+
+    // Save book to MongoDb
+    return axios
+      .post("/vendoruser-login", userObject)
+      .then(response => {
+        console.log(response.data);
+        // this.props.history.push("/vendor")
+        // window.location.href = "/vendor"
+      })
+      .then(
+        this.setState({
+          email: "",
+          password: ""
         })
-        .then(
-          this.setState({
-            email: "",
-            password: ""
-          })
-        );
-    };
-    
-    // Handle onChange
-    onChangeEmail = event => {
-      this.setState({ email: event.target.value });
-    };
-  
-    onChangePassword = event => {
-      this.setState({ password: event.target.value });
-    };
-  
-    render() {
-      return (  
-        <Container>
-          <div>
-            <h3>Vendor Login</h3>
-            <form onSubmit={this.onSubmitLogin}>
-              <input
-                type="text"
-                name="email"
-                placeholder="Enter email"
-                value={this.state.email}
-                onChange={this.onChangeEmail}
-              />
-              <input
-                type="text"
-                name="password"
-                placeholder="Enter password"
-                value={this.state.password}
-                onChange={this.onChangePassword}
-              />
-              <input className="btn " type="submit" value="Login" />
-            </form>
-          </div>
-        </Container>
-      );
-    }
+      ).catch(function (error) {
+        console.log(error);
+        // window.location.href = "/login/vendor"
+      });;
+  };
+
+  // Handle onChange
+  onChangeEmail = event => {
+    this.setState({ email: event.target.value });
+  };
+
+  onChangePassword = event => {
+    this.setState({ password: event.target.value });
+  };
+
+  render() {
+    return (
+      <Container>
+        <MDBContainer>
+          <MDBRow>
+            <MDBCol md="4" className="mx-auto mt-5">
+              <MDBCard>
+                <MDBCardBody>
+                  <form>
+                    <p className="h5 text-center mb-5 mt-3">Vendor Log in</p>
+                    <div className="grey-text">
+                      <MDBInput
+                        label="Type your email"
+                        icon="envelope"
+                        group
+                        type="email"
+                        validate
+                        error="wrong"
+                        success="right"
+                        value={this.state.email}
+                        onChange={this.onChangeEmail}
+                      />
+                      <MDBInput
+                        label="Type your password"
+                        icon="lock"
+                        group
+                        type="password"
+                        validate
+                        value={this.state.password}
+                        onChange={this.onChangePassword}
+                      />
+                    </div>
+                    <div className="text-center">
+                      <Button onClick={this.onSubmitLogin} value="Login"/>
+                      <br></br>
+                      <p className="mt-2">Not a member? <a href="/signup/vendor">Sign Up</a></p>
+                    </div>
+                  </form>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </Container>
+    );
   }
-  export default VendorLogin;
+}
+export default withRouter(VendorLogin);

@@ -6,7 +6,7 @@ class Vendor extends React.Component {
     render() {
         return (
             <Container>
-            <h1>Vendor Page Test</h1>
+                <h1>Vendor Page Test</h1>
             </Container>
         );
     }

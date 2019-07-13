@@ -40,6 +40,7 @@ class VendorSignup extends React.Component {
             .post("/vendoruser-signup", userObject)
             .then(response => {
                 console.log(response.data);
+                window.location.href = "/vendor";
             })
             .then(
                 this.setState({
@@ -52,7 +53,7 @@ class VendorSignup extends React.Component {
                     website: "",
                     description: ""
                 })
-            );
+            )
     };
 
     fileSelectHandler = event => {
@@ -91,7 +92,7 @@ class VendorSignup extends React.Component {
                         </div>
                         <div className="custom-file">
                             <input
-                                name=""
+                                name="image"
                                 type="file"
                                 className="custom-file-input"
                                 id="inputGroupFile01"
