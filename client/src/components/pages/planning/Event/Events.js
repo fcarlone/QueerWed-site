@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import EventForm from "./EventForm";
 import EventItem from "./EventItem";
 import axios from "axios";
+import "../../../../styles/event/event.css";
 
 class Events extends Component {
   state = {
@@ -41,16 +42,18 @@ class Events extends Component {
   render() {
     return (
       <Fragment>
-        <h1>Events Component</h1>
-        <EventForm addEvent={this.handleNewEvent} />
-        {this.state.events.map(event => (
-          <EventItem
-            key={event._id}
-            event={event}
-            handleRemoveEvent={() => this.handleRemoveEvent(event._id)}
-            handleEditEvent={() => this.handleEditEvent(event._id)}
-          />
-        ))}
+        <div className="container-event">
+          <h1 className="event-title">Manage Your Venues</h1>
+          <EventForm addEvent={this.handleNewEvent} />
+          {this.state.events.map(event => (
+            <EventItem
+              key={event._id}
+              event={event}
+              handleRemoveEvent={() => this.handleRemoveEvent(event._id)}
+              handleEditEvent={() => this.handleEditEvent(event._id)}
+            />
+          ))}
+        </div>
       </Fragment>
     );
   }
