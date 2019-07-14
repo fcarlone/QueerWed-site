@@ -2,6 +2,10 @@
   margin-left: 5rem;
 }
 
+.guest-form-title {
+  text-align: center;
+}
+
 .form-input-name,
 .form-input-address1,
 .form-input-address2 {

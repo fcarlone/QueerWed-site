@@ -92,7 +92,10 @@ const GuestForm = () => {
   return (
     <div className="form-container">
       <Form onSubmit={onSubmit}>
-        <h2> {current ? "Edit Guest" : "Add Guest"}</h2>
+        <h2 className="guest-form-title">
+          {" "}
+          {current ? "Edit Guest" : "Add Guest"}
+        </h2>
 
         <Form.Group controlId="formName">
           <input

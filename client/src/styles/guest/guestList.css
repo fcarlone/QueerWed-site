@@ -1,3 +1,11 @@
 .guest-list-container {
   margin-top: 10rem;
 }
+
+.guest-list-form {
+  display: flex;
+}
+
+.guest-list-display {
+  margin-left: 10rem;
+}
