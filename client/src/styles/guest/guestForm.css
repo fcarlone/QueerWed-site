@@ -1,0 +1,28 @@
+.form-container {
+  margin-left: 5rem;
+}
+
+.form-input-name,
+.form-input-address1,
+.form-input-address2 {
+  width: 30rem;
+}
+
+.form-input-city {
+  width: 15.25rem;
+}
+.form-input-state {
+  width: 10rem;
+}
+
+.form-input-zip {
+  width: 5rem;
+}
+
+.form-input-email {
+  width: 17.25rem;
+}
+
+.form-input-phone {
+  width: 13rem;
+}

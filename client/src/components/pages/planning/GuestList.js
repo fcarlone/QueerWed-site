@@ -6,8 +6,8 @@ import "../../../styles/guest/guestList.css";
 
 const GuestList = () => {
   return (
-    <div className="grid-2">
-      <h1>Guest List Page</h1>
+    <div className="guest-list-container">
+      <h1 className="guest-list-title">Guest List Page</h1>
       <div>
         <GuestForm />
       </div>
