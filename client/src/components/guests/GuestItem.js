@@ -25,7 +25,7 @@ const GuestItem = ({ guest }) => {
   };
 
   return (
-    <div className="card">
+    <div className="card guest-item-card">
       <h3 className="text-primary text-left">
         {name}{" "}
         <span

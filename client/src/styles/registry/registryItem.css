@@ -4,7 +4,7 @@
   flex-wrap: wrap;
 }
 
-.card {
+.registry-items-container > .card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +16,7 @@
   margin: 1vw;
 }
 
-.card img {
+.registry-items-container .card img {
   max-width: 255px;
   max-height: 70px;
 }

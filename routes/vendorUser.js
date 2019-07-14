@@ -23,7 +23,7 @@ module.exports = function (app) {
   app.post("/vendoruser-signup", async (req, res) => {
     // Get user data
     console.log("user signup from client-side", req.body);
-    const { email, password, category, name, address, phone, website, description, image } = req.body;
+    const { email, password, category, name, address, city, state, zipcode, phone, website, description, image } = req.body;
 
     // ***Check required fields***
 
@@ -40,6 +40,9 @@ module.exports = function (app) {
             category,
             name,
             address,
+            city,
+            state,
+            zipcode,
             phone,
             website,
             description,
