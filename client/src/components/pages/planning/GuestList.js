@@ -13,6 +13,7 @@ const GuestList = () => {
           <GuestForm />
           <div className="guest-list-display">
             <GuestFilter />
+            <h3 className="guest-list-description">Guest List:</h3>
             <Guests />
           </div>
         </div>

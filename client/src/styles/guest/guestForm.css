@@ -30,3 +30,11 @@
 .form-input-phone {
   width: 13rem;
 }
+
+.guest-form-guest-types-title {
+  font-size: 2rem;
+}
+
+.guest-form-guest-types {
+  text-align: center;
+}

@@ -189,8 +189,8 @@ const GuestForm = () => {
           </Form.Group>
         </Form.Row>
 
-        <Form.Group controlId="formGridType">
-          <h5>Guest Type</h5>
+        <Form.Group className="guest-form-guest-types" controlId="formGridType">
+          <h5 className="guest-form-guest-types-title">Guest Type</h5>
           <input
             type="radio"
             name="type"

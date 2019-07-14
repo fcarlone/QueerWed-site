@@ -2,6 +2,11 @@
   margin-top: 10rem;
 }
 
+.guest-list-description {
+  margin-top: 2rem;
+  text-align: center;
+}
+
 .guest-list-form {
   display: flex;
 }
