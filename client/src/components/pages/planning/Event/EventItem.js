@@ -14,7 +14,7 @@ const EventItem = props => {
 
   return (
     <Fragment>
-      <div>
+      <div className="event-card">
         <h3>
           <strong>Place: </strong>
           {venue}
