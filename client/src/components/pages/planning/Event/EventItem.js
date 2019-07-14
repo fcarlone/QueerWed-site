@@ -34,7 +34,7 @@ const EventItem = props => {
             {timeFormat}
           </h3>
         </div>
-        <div event-item-btn-container>
+        <div className="event-item-btn-container">
           <button className="btn" onClick={props.handleEditEvent}>
             Edit
           </button>
