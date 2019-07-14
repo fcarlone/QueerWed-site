@@ -15,10 +15,9 @@ class TodoForm extends Component {
     } else {
       // Add new item
       this.props.addTodo(this.state);
-
-      // Reset field
-      // this.setState({ newItem: "" });
     }
+    // Reset field
+    this.setState({ newItem: "" });
   };
 
   onChange = event => {
