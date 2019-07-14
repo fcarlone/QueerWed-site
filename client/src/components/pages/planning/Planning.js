@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ToDoItems from "./toDoItems";
 import Container from "../../layout/Container.js";
 import GuestList from "./GuestList";
 import Todos from "../planning/Todo/Todos";

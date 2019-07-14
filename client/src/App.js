@@ -4,7 +4,7 @@ import Nav from "./components/layout/Nav";
 import Loading from "./components/pages/Loading";
 import Planning from "./components/pages/planning/Planning";
 import Events from "./components/pages/planning/Event/Events";
-import Guests from "./components/guests/Guests";
+import GuestList from "./components/pages/planning/GuestList";
 import Todos from "./components/pages/planning/Todo/Todos";
 import Registry from "./components/pages/registry/Registry";
 import Team from "./components/pages/team/Team";
@@ -28,7 +28,7 @@ function App() {
             <Route exact path="/planning" component={Planning} />
             <Route exact path="/planning/calendar" component={Events} />
             <Route exact path="/planning/checklist" component={Todos} />
-            <Route exact path="/planning/guestlist" component={Guests} />
+            <Route exact path="/planning/guestlist" component={GuestList} />
 
             <Route exact path="/registry" component={Registry} />
             <Route exact path="/team" component={Team} />

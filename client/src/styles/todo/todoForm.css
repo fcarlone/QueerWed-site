@@ -1,0 +1,14 @@
+.container-form {
+  border: none;
+  text-align: center;
+  margin: auto;
+}
+
+.input-todo {
+  width: 35rem;
+  color: black;
+}
+
+/* .input-todo:focus {
+  outline: none;
+} */

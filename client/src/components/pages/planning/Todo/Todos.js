@@ -2,6 +2,8 @@ import React, { Component, Fragment } from "react";
 import TodoItem from "./TodoItem";
 import TodoForm from "./TodoForm";
 import axios from "axios";
+import TodoMenu from "./TodoMenu";
+import "../../../../styles/todo/todo.css";
 
 class Todos extends Component {
   state = {
@@ -83,17 +85,24 @@ class Todos extends Component {
   render() {
     return (
       <Fragment>
-        <h1>Todo Component</h1>
-        <TodoForm addTodo={this.handleNewTodo} />
-        {this.state.items.map(item => (
-          <TodoItem
-            key={item._id}
-            item={item}
-            toggleComplete={() => this.toggleComplete(item._id)}
-            handleRemoveTodo={() => this.handleRemoveTodo(item._id)}
-            handleEditTodo={() => this.handleEditTodo(item._id)}
-          />
-        ))}
+        <div className="container-todo">
+          <h1 className="todo-title">Mangage Your Checklist</h1>
+          <div className="one">
+            <TodoMenu items={this.state.items} />
+            <div className="two">
+              <TodoForm addTodo={this.handleNewTodo} />
+              {this.state.items.map(item => (
+                <TodoItem
+                  key={item._id}
+                  item={item}
+                  toggleComplete={() => this.toggleComplete(item._id)}
+                  handleRemoveTodo={() => this.handleRemoveTodo(item._id)}
+                  handleEditTodo={() => this.handleEditTodo(item._id)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </Fragment>
     );
   }
