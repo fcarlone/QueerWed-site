@@ -1,14 +1,4 @@
-/* Global Styles */
-/* :root {
-  --primary-color: #003699;
-  --dark-color: #333333;
-  --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
-} */
-
-/* Cards */
-.card {
+.guest-card {
   padding: 1rem;
   border: #ccc 1px dotted;
   margin: 0.7rem 0;

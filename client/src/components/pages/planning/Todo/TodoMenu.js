@@ -12,14 +12,6 @@ class TodoMenu extends React.Component {
     };
   }
 
-  componentDidMount() {
-    // this.props.items.map(item => {
-    //   let checklistCompleted = 0
-    //   if (item.completed) {
-    //    (checklistCompleted += 1);
-    //   }
-  }
-
   render() {
     return (
       <Fragment>
@@ -30,9 +22,11 @@ class TodoMenu extends React.Component {
           </h3>
 
           <h3 className="todo-content">
-            Todos completed:{this.state.completed}
+            Todos completed: {this.state.completed}
           </h3>
-          <h3 className="todo-content">Todos outstanding: </h3>
+          <h3 className="todo-content">
+            Todos outstanding: {this.props.items.length - this.state.completed}{" "}
+          </h3>
         </div>
       </Fragment>
     );

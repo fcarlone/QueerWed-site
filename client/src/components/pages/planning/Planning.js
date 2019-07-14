@@ -13,10 +13,6 @@ class Planning extends Component {
             <h1>Planning Component</h1>
           </div>
         </div>
-
-        <Events />
-        <Todos />
-        <GuestList />
       </Container>
     );
   }

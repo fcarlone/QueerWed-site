@@ -31,7 +31,7 @@ const GuestState = props => {
   // Get Guests
   const getGuests = async () => {
     try {
-      const res = await axois.get("api/guests");
+      const res = await axois.get("/planning/api/guests");
       dispatch({ type: GET_GUESTS, payload: res.data });
     } catch (error) {
       console.log(error.message);
@@ -43,7 +43,7 @@ const GuestState = props => {
   const addGuest = async guest => {
     console.log("post guest to sever-side", guest);
     try {
-      const res = await axois.post("/api/guests", guest);
+      const res = await axois.post("/planning/api/guests", guest);
       dispatch({ type: ADD_GUEST, payload: res.data });
     } catch (error) {
       dispatch({ type: GUEST_ERROR, payload: error.response.message });
@@ -53,7 +53,7 @@ const GuestState = props => {
   // Delete Guest
   const deleteGuest = async id => {
     try {
-      await axois.delete(`/api/guests/${id}`);
+      await axois.delete(`/planning/api/guests/${id}`);
 
       dispatch({ type: DELETE_GUEST, payload: id });
     } catch (error) {
@@ -65,7 +65,7 @@ const GuestState = props => {
   const updateGuest = async guest => {
     console.log("update guest to sever-side", guest);
     try {
-      const res = await axois.put(`/api/guests/${guest._id}`, guest);
+      const res = await axois.put(`/planning/api/guests/${guest._id}`, guest);
       dispatch({ type: UPDATE_GUEST, payload: res.data });
     } catch (error) {
       dispatch({ type: GUEST_ERROR, payload: error.response.message });

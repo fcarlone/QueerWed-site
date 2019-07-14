@@ -6,8 +6,9 @@ const RegistryItem = () => {
   return (
     <MDBContainer>
       <div className="registry-items-container">
-        <div className="card">
+        <div className="registry-card">
           <img
+            className="registry-img"
             src="https://static.xoedge.com/xo-registry/retailer/logo/20160422224544007-Macys_2x.png"
             alt=""
           />
@@ -19,8 +20,9 @@ const RegistryItem = () => {
             Select Store
           </a>
         </div>
-        <div className="card">
+        <div className="registry-card">
           <img
+            className="registry-img"
             src="https://static.xoedge.com/xo-registry/retailer/retailerImage6d8a21e8-a904-471f-a6f5-371b3af2a2e5.png"
             alt=""
           />
@@ -32,8 +34,9 @@ const RegistryItem = () => {
             Select Store
           </a>
         </div>
-        <div className="card">
+        <div className="registry-card">
           <img
+            className="registry-img"
             src="https://static.xoedge.com/xo-registry/retailer/20160127183109557-Anthro_logo.png"
             alt=""
           />
@@ -45,8 +48,9 @@ const RegistryItem = () => {
             Select Store
           </a>
         </div>
-        <div className="card">
+        <div className="registry-card">
           <img
+            className="registry-img"
             src="https://static.xoedge.com/xo-registry/retailer/retailerImagec803ff67-f12c-41a1-991d-08bb169fe3ee.png"
             alt=""
           />
@@ -58,8 +62,9 @@ const RegistryItem = () => {
             Select Store
           </a>
         </div>
-        <div className="card">
+        <div className="registry-card">
           <img
+            className="registry-img"
             src="https://static.xoedge.com/xo-registry/retailer/logo/20180313114237329-BBB_Logo.png"
             alt=""
           />
@@ -71,8 +76,9 @@ const RegistryItem = () => {
             Select Store
           </a>
         </div>
-        <div className="card">
+        <div className="registry-card">
           <img
+            className="registry-img"
             src="https://static.xoedge.com/xo-registry/retailer/logo/20180726182959690-Williams_Sonoma_Logo.png"
             alt=""
           />
