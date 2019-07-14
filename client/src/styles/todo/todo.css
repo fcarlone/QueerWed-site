@@ -14,10 +14,12 @@
   font-weight: 400;
   margin-bottom: 1rem;
 }
-.one .two {
-}
+/* .one .two {
+} */
 .one {
+  display: flex;
 }
 .two {
+  width: 35rem;
   margin-left: 10rem;
 }

@@ -41,8 +41,8 @@ class TodoForm extends Component {
               autoFocus="autofocus"
               className="input-todo"
             />
-            <div>
-              <button className="btn">Add Item</button>
+            <div className="todo-btn-container">
+              <button className="btn btn-todo">Add Item</button>
             </div>
           </form>
         </div>

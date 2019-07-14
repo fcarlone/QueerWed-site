@@ -9,6 +9,14 @@
   color: black;
 }
 
+.todo-btn-container,
+.container-form {
+  width: 35rem;
+}
+
+.btn-todo {
+}
+
 /* .input-todo:focus {
   outline: none;
 } */
