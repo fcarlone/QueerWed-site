@@ -44,15 +44,20 @@ class Events extends Component {
       <Fragment>
         <div className="container-event">
           <h1 className="event-title">Manage Your Venues</h1>
-          <EventForm addEvent={this.handleNewEvent} />
-          {this.state.events.map(event => (
-            <EventItem
-              key={event._id}
-              event={event}
-              handleRemoveEvent={() => this.handleRemoveEvent(event._id)}
-              handleEditEvent={() => this.handleEditEvent(event._id)}
-            />
-          ))}
+          <div className="events-section-one">
+            <EventForm addEvent={this.handleNewEvent} />
+            <div className="events-section-two">
+              <h3 className="event-list-description">Event List:</h3>
+              {this.state.events.map(event => (
+                <EventItem
+                  key={event._id}
+                  event={event}
+                  handleRemoveEvent={() => this.handleRemoveEvent(event._id)}
+                  handleEditEvent={() => this.handleEditEvent(event._id)}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </Fragment>
     );
