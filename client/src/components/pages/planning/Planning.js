@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import Container from "../../layout/Container.js";
-import GuestList from "./GuestList";
-import Todos from "../planning/Todo/Todos";
-import Events from "./Event/Events";
 
 class Planning extends Component {
   render() {
