@@ -84,7 +84,7 @@ class EventForm extends Component {
               />
             </Form.Group>
 
-            <div>
+            <div className="event-btn-container">
               <button className="btn btn-event-form">Add Event</button>
             </div>
           </Form>
