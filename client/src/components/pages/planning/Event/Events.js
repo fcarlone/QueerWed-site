@@ -25,6 +25,11 @@ class Events extends Component {
     // axios call
     axios.post("/api/events", newEvent).then(response => {
       console.log("new event", response);
+
+      // Add new event to state
+      this.setState({
+        events: [...this.state.events, response.data]
+      });
     });
   };
 
@@ -32,6 +37,13 @@ class Events extends Component {
     console.log(id);
     axios.delete(`/api/events/${id}`).then(response => {
       console.log("delete event", response.data);
+
+      // Remove event from state
+      let result = this.state.events.filter(event => {
+        return event._id !== response.data._id;
+      });
+
+      this.setState({ events: result });
     });
   };
 
