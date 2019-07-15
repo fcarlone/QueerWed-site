@@ -15,12 +15,15 @@ class Team extends React.Component {
             category: "",
             location: "",
             result: [],
-            filtered: []
+            filtered: [],
+            isLogin: false,
+            userFavorite: []
         };
     }
 
     componentDidMount() {
         this.loadAllVendor();
+        this.loadFavorite();
     }
 
     handleInputChange = event => {
@@ -31,6 +34,28 @@ class Team extends React.Component {
             [name]: value
         });
     };
+
+    loadFavorite = async () => {
+        try {
+            const response = await axios
+                .get("/api/favorite");
+            let vendorIdArray = response.data.map(ele => ele.vendorUser)
+            console.log(vendorIdArray);
+
+            this.setState({
+                userFavorite: vendorIdArray
+            }, () => {
+                console.log(this.state)
+            });
+        }
+        catch (error) {
+            console.log(error);
+        };
+    }
+
+    readFavorite = (id) => {
+        return this.state.userFavorite.includes(id)
+    }
 
     loadAllVendor = async () => {
         try {
@@ -117,6 +142,7 @@ class Team extends React.Component {
                             website={ele.website}
                             image={ele.image}
                             vendorid={ele._id}
+                            favorite={this.readFavorite(ele._id)}
                         />
                     ))}
                 </div>

@@ -7,12 +7,10 @@ class Card extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            favorite:false
+            favoriteList:[],
+            favorite:false,
+            isLogin:false
         };
-    }
-
-    readFavorite = () => {
-        
     }
 
     addFavorite = (event) => {
@@ -52,7 +50,7 @@ class Card extends React.Component {
                     </div>
                     <div className="col-md-8 team-card-body">
                         <div className="card-body">
-                            {this.state.favorite ? <MDBIcon icon="heart" size="lg" className="pink-text" onClick={this.undoFavorite} data-vendorid={this.props.vendorid} />
+                            {this.props.favorite ? <MDBIcon icon="heart" size="lg" className="pink-text" onClick={this.undoFavorite} data-vendorid={this.props.vendorid} />
                                 : <MDBIcon far icon="heart" size="lg" className="indigo-text" onClick={this.addFavorite} data-vendorid={this.props.vendorid} />
                             }
                             <h5 className="card-title">{this.props.name}</h5>

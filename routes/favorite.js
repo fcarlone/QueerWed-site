@@ -5,8 +5,9 @@ module.exports = function (app) {
     // get Favorite
     app.get("/api/favorite", (req, res) => {
         console.log("get all favorite api route");
+        console.log(req.user)
         db.Favorite
-            .find({ user: req.user._id })
+            .find({user:req.user._id})
             .sort({ name: 1 })
             .then(result => res.json(result))
             .catch(err => res.status(500).json(err));
