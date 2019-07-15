@@ -27,7 +27,6 @@ class Todos extends Component {
     this.setState({
       items: this.state.items.map(item => {
         if (item._id === id) {
-          console.log("match", item);
           const changeCompleteValue = !item.completed;
           console.log("new completed value", changeCompleteValue);
 
@@ -35,7 +34,7 @@ class Todos extends Component {
           axios
             .put(`/api/todos/${id}`, { completed: changeCompleteValue })
             .then(response => {
-              console.log("return value from put request", response.data);
+              console.log("return value from put request");
             });
 
           // Update State
@@ -44,32 +43,6 @@ class Todos extends Component {
         return item;
       })
     });
-
-    // axios.put(`/api/todos/${id}`).then(response => {
-    //   console.log("Todo boolean change", response.data);
-
-    //   this.state.items.map(item => {
-    //     if (item._id === response.data._id) {
-    //       console.log("state.item:", item);
-
-    //       let databaseCompleted = response.data.completed;
-    //       console.log(databaseCompleted);
-
-    //       // Update item with "completed" value from database
-    //       item.completed = databaseCompleted;
-    //       console.log("updated item", item);
-
-    //       // Replace Object
-    //       this.setState(prevState => ({
-    //         items: prevState.items.map(item =>
-    //           item.key === item
-    //             ? { ...item, completed: databaseCompleted }
-    //             : item
-    //         )
-    //       }));
-    //     }
-    //   });
-    // });
   };
 
   handleRemoveTodo = id => {
