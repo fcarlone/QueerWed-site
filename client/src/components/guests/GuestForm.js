@@ -228,7 +228,7 @@ const GuestForm = () => {
           </Form.Group>
 
           {current && (
-            <div>
+            <div className="btn-clear">
               {" "}
               <button className="btn" onClick={clearAll}>
                 Clear
