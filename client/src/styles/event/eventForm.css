@@ -1,0 +1,16 @@
+.event-form-container {
+  margin-left: 5rem;
+}
+
+.event-form-venue,
+.event-form-description,
+.event-form-date,
+.event-form-time {
+  width: 20rem;
+  color: #757575;
+  padding-left: 7px;
+}
+
+.event-btn-container {
+  text-align: center;
+}

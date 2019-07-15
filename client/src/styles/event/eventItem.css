@@ -1,0 +1,10 @@
+.event-card {
+  padding: 1rem;
+  border: #ccc 1px solid;
+  margin: 0.7rem 0;
+  width: 35rem;
+}
+
+.event-item-btn-container {
+  text-align: center;
+}

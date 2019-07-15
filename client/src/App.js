@@ -2,18 +2,20 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/layout/Nav";
 import Loading from "./components/pages/Loading";
+import Planning from "./components/pages/planning/Planning";
 import Events from "./components/pages/planning/event/Events";
+import GuestList from "./components/pages/planning/GuestList";
+import Todos from "./components/pages/planning/todo/Todos";
+import Vendors from "./components/pages/planning/myVendors/Vendors";
 import Registry from "./components/pages/registry/Registry";
 import Team from "./components/pages/team/Team";
-import Website from "./components/pages/planning/todo/Todos";
+import Website from "./components/pages/website/Website";
 import Signup from "./components/pages/join/Signup";
 import Login from "./components/pages/join/Login";
 import VendorSignup from "./components/pages/join/VendorSignup";
 import VendorLogin from "./components/pages/join/VendorLogin";
 import GuestState from "./context/guest/GuestState";
-import WebsiteComplete from "./components/pages/websitecomplete/WebsiteComplete"
-import Vendor from "./components/pages/vendor/Vendor"
-
+import WebsiteComplete from "./components/pages/websitecomplete/WebsiteComplete";
 
 function App() {
   return (
@@ -23,7 +25,11 @@ function App() {
           <Nav />
           <Switch>
             <Route exact path="/" component={Loading} />
-            <Route exact path="/planning" component={planning} />
+            <Route exact path="/planning" component={Planning} />
+            <Route exact path="/planning/calendar" component={Events} />
+            <Route exact path="/planning/checklist" component={Todos} />
+            <Route exact path="/planning/guestlist" component={GuestList} />
+            <Route exact path="/planning/vendor" component={Vendors} />
             <Route exact path="/registry" component={Registry} />
             <Route exact path="/team" component={Team} />
             <Route exact path="/website" component={Website} />
@@ -31,9 +37,6 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/login/vendor" component={VendorLogin} />
             <Route exact path="/signup/vendor" component={VendorSignup} />
-            <Route exact path="/vendor" component={Vendor} />
-
-
           </Switch>
           <Route exact path="/website/user/:id" component={WebsiteComplete} />
         </div>
