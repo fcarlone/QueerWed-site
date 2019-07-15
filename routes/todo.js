@@ -75,20 +75,11 @@ module.exports = function(app) {
     try {
       const todo = await Todo.findById(req.params.id);
 
-      // if completed = false - update to true
-      if (!todo.completed) {
-        await Todo.findByIdAndUpdate(todo.id, { completed: true });
-      }
-
-      // if completed = true - update to false
-      if (todo.completed) {
-        await Todo.findByIdAndUpdate(todo.id, {
-          completed: false
-        });
-      }
+      // Update completed value
+      await Todo.findByIdAndUpdate(todo.id, req.body);
 
       // Return todo to the client
-      res.json(todo);
+      await res.json(todo);
 
       // Catch error
     } catch (error) {

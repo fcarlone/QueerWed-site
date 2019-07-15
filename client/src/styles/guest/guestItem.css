@@ -1,17 +1,8 @@
-/* Global Styles */
-/* :root {
-  --primary-color: #003699;
-  --dark-color: #333333;
-  --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
-} */
-
-/* Cards */
-.card {
+.guest-card {
   padding: 1rem;
-  border: #ccc 1px dotted;
+  border: #ccc 1px solid;
   margin: 0.7rem 0;
+  width: 30rem;
 }
 
 .bg-light {
@@ -26,15 +17,19 @@
 .text-primary {
   color: #003699;
 }
+.guest-list {
+  list-style-type: none;
+  padding-left: 0;
+}
 
 .badge {
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding: 0.2rem 0.7rem;
   text-align: center;
   margin: 0.3rem;
   background: #f4f4f4;
   color: #333;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .btn-primary,
@@ -51,4 +46,16 @@
 .alert-success {
   background: #28a745;
   color: #fff;
+}
+
+.btn-warning,
+.bg-warning,
+.badge-warning,
+.alert-warning {
+  background: #ffc107;
+  color: #fff;
+}
+
+.button-container {
+  text-align: center;
 }

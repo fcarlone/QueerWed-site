@@ -25,20 +25,24 @@ const GuestItem = ({ guest }) => {
   };
 
   return (
-    <div className="card">
+    <div className="guest-card">
       <h3 className="text-primary text-left">
         {name}{" "}
         <span
           style={{ float: "right" }}
           className={
             "badge " +
-            (type === "professional" ? "badge-success" : "badge-primary")
+            (type === "professional"
+              ? "badge-success"
+              : type === "family"
+              ? "badge-primary"
+              : "badge-warning")
           }
         >
           {type.charAt(0).toUpperCase() + type.slice(1)}
         </span>
       </h3>
-      <ul className="list">
+      <ul className="guest-list">
         <li>{address1}</li>
         {address2 && <li> {address2} </li>}
         <li>{city}</li>
@@ -47,7 +51,7 @@ const GuestItem = ({ guest }) => {
         {email && <li> {email} </li>}
         {phone && <li> {phone} </li>}
       </ul>
-      <p>
+      <p className="button-container">
         <button
           onClick={() => {
             setCurrent(guest);

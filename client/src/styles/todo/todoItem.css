@@ -1,0 +1,22 @@
+.container-todo-item {
+  justify-content: flex-start;
+  width: 35rem;
+  text-align: center;
+  border: 1px solid #d9d9d9;
+  padding: 1rem;
+  margin: auto;
+}
+
+.container-todo-item:hover {
+  border: 1px solid black;
+}
+
+.todo-description {
+  margin-bottom: 0px;
+  padding-left: 0px;
+}
+
+.page-title {
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}

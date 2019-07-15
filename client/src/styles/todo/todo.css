@@ -1,0 +1,25 @@
+.container-todo {
+  margin-top: 10rem;
+  margin-left: 2rem;
+}
+
+.todo-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.todo-content {
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+/* .one .two {
+} */
+.one {
+  display: flex;
+}
+.two {
+  width: 35rem;
+  margin-left: 10rem;
+}
