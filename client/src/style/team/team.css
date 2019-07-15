@@ -21,3 +21,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.team-card-body {
+  position: relative;
+}
+.team-card-body a {
+  position: absolute;
+  bottom: 0px;
+}
+.cardImageContainer {
+  height: 300px;
+  overflow: hidden;
+}

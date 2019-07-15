@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from "axios";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 import "../../style/nav.css"
@@ -8,10 +9,37 @@ class FullPageIntroWithFixedNavbar extends React.Component {
         super(props);
         this.state = {
             collapse: false,
-            isWideEnough: false
+            isWideEnough: false,
+            logIn: false
         };
         this.onClick = this.onClick.bind(this);
     }
+
+    componentDidMount() {
+        this.checkLogin();
+    }
+
+
+    checkLogin = async () => {
+        try {
+            const response = await axios
+                .get("/user");
+            console.log(response.data);
+
+            if (response.data) {
+                this.setState({
+                    logIn: true
+                });
+            } else {
+                return
+            }
+        }
+        catch (error) {
+            console.log(error);
+        };
+    };
+
+
 
     onClick() {
         this.setState({
@@ -47,8 +75,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 <li><a href="/website/find">Find A Couple</a></li>
                                             </div>
                                             <div className="subMenu">
-                                            <li><a href="/team">Find Your Team</a></li>
-                                                <li><a href="/team/recommend">Recommend Your Team</a></li>
+                                                <li><a href="/team">Find Your Team</a></li>
                                             </div>
                                         </ul>
                                     </li>
@@ -69,8 +96,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 <li><a href="/website/find">Find A Couple</a></li>
                                             </div>
                                             <div className="subMenu">
-                                            <li><a href="/team">Find Your Team</a></li>
-                                                <li><a href="/team/recommend">Recommend Your Team</a></li>
+                                                <li><a href="/team">Find Your Team</a></li>
                                             </div>
                                         </ul>
                                     </li>
@@ -92,7 +118,6 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                             </div>
                                             <div className="subMenu">
                                                 <li><a href="/team">Find Your Team</a></li>
-                                                <li><a href="/team/recommend">Recommend Your Team</a></li>
                                             </div>
                                         </ul>
                                     </li>
@@ -113,8 +138,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 <li><a href="/website/find">Find A Couple</a></li>
                                             </div>
                                             <div className="subMenu">
-                                            <li><a href="/team">Find Your Team</a></li>
-                                                <li><a href="/team/recommend">Recommend Your Team</a></li>
+                                                <li><a href="/team">Find Your Team</a></li>
                                             </div>
                                         </ul>
                                     </li>
@@ -122,11 +146,18 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                             </MDBCollapse>
                             <MDBNavbarNav right>
                                 <MDBNavItem>
-                                    <div className="joinMenuContainer">
-                                        <span className="m-1"><a className="joinMenu pink-text" href="/signup">Sign Up</a></span>
-                                        <span className="m-1"><a className="joinMenu pink-text" href="/login">Log In</a></span>
-                                        <span className="m-1"><a className="joinMenu grey-text" href="/login/vendor">Vendor</a></span>
-                                    </div>
+                                    {this.state.logIn ?
+                                        <div className="joinMenuContainer" style={{ float: "right" }}>
+                                            <span className="m-1"><a className="joinMenu pink-text" href="/logout">Log Out</a></span>
+                                            <span className="m-1"><a className="joinMenu grey-text" href="/login/vendor">Vendor</a></span>
+                                        </div>
+                                        :
+                                        <div className="joinMenuContainer" style={{ float: "right" }}>
+                                            <span className="m-1"><a className="joinMenu pink-text" href="/signup">Sign Up</a></span>
+                                            <span className="m-1"><a className="joinMenu pink-text" href="/login">Log In</a></span>
+                                            <span className="m-1"><a className="joinMenu grey-text" href="/login/vendor">Vendor</a></span>
+                                        </div>
+                                    }
                                 </MDBNavItem>
                             </MDBNavbarNav>
 

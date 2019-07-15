@@ -5,10 +5,16 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 // Connect model
 const User = require("../models/User");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Get user
   app.get("/user", (req, res) => {
     res.send(req.user);
+  });
+
+  // User logout
+  app.get("/logout", function (req, res) {
+    req.logout();
+    res.redirect("/");
   });
 
   // User login

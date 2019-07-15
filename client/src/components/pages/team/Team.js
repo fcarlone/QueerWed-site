@@ -98,7 +98,7 @@ class Team extends React.Component {
             <Container>
                 <div className="image-container">
                     <h2 className="centered"><strong>Find your Wedding professionals in your area!</strong></h2>
-                    <img src="http://stephgrantprod.wpengine.com/wp-content/uploads/2013/07/ShannonSeemaWedding-15345-800x533.jpg"></img>
+                    <img src="http://stephgrantprod.wpengine.com/wp-content/uploads/2013/07/ShannonSeemaWedding-15345-800x533.jpg" alt="Find your Team"></img>
                     {/* <img src="http://ericacamilleproductions.com/weddings/wp-content/uploads/2019/02/mymoon-brooklyn-weddingphotographer-lgbt001.jpg"></img> */}
 
                 </div>
