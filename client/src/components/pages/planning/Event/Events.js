@@ -39,18 +39,19 @@ class Events extends Component {
   };
 
   render() {
+    const {events}=this.state
     return (
       <Fragment>
         <h1>Events Component</h1>
         <EventForm addEvent={this.handleNewEvent} />
-        {this.state.events.map(event => (
+        {(events.length>0) ? this.state.events.map(event => (
           <EventItem
             key={event._id}
             event={event}
             handleRemoveEvent={() => this.handleRemoveEvent(event._id)}
             handleEditEvent={() => this.handleEditEvent(event._id)}
           />
-        ))}
+        )) : ""}
       </Fragment>
     );
   }
