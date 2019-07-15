@@ -7,10 +7,7 @@ const EventItem = props => {
 
   // Format date & time
   const dateFormat = moment(date).format("MMMM Do, YYYY");
-  console.log(dateFormat);
-
   const timeFormat = moment(date).format("h:mm A");
-  console.log(timeFormat);
 
   return (
     <Fragment>

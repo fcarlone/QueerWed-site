@@ -6,7 +6,8 @@ import "../../../../styles/event/event.css";
 
 class Events extends Component {
   state = {
-    events: []
+    events: [],
+    current: null
   };
 
   // Lifecycle method - display saved events
@@ -26,7 +27,7 @@ class Events extends Component {
     axios.post("/api/events", newEvent).then(response => {
       console.log("new event", response);
 
-      // Add new event to state
+      // Add event to state
       this.setState({
         events: [...this.state.events, response.data]
       });
@@ -49,6 +50,13 @@ class Events extends Component {
 
   handleEditEvent = id => {
     console.log(id);
+    // Filter through state to find matching event
+    let result = this.state.events.filter(event => {
+      return event._id === id;
+    });
+
+    console.log("edit result", result);
+    this.setState({ current: result });
   };
 
   render() {
@@ -57,7 +65,10 @@ class Events extends Component {
         <div className="container-event">
           <h1 className="event-title">Manage Your Venues</h1>
           <div className="events-section-one">
-            <EventForm addEvent={this.handleNewEvent} />
+            <EventForm
+              addEvent={this.handleNewEvent}
+              current={this.state.current}
+            />
             <div className="events-section-two">
               <h3 className="event-list-description">Event List:</h3>
               {this.state.events.map(event => (
