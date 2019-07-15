@@ -19,6 +19,12 @@ module.exports = function (app) {
     res.end()
   });
 
+  // User logout
+  app.get("/vendoruser-logout", function (req, res) {
+    req.logout();
+    res.redirect("/");
+  });
+
   // User signup
   app.post("/vendoruser-signup", async (req, res) => {
     // Get user data

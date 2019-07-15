@@ -89,10 +89,6 @@ class Team extends React.Component {
         }
     };
 
-    favoriteVendor = () => {
-
-    }
-
     render() {
         return (
             <Container>
@@ -119,7 +115,9 @@ class Team extends React.Component {
                             phone={ele.phone}
                             description={ele.description}
                             website={ele.website}
-                            image={ele.image} />
+                            image={ele.image}
+                            vendorid={ele._id}
+                        />
                     ))}
                 </div>
             </Container>

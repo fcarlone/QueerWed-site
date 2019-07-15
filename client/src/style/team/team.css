@@ -33,3 +33,10 @@
   height: 300px;
   overflow: hidden;
 }
+.team-card-body .card-body i {
+  position: absolute;
+  top: 0px;
+  right:15px;
+  margin: 20px;
+  cursor: pointer
+}

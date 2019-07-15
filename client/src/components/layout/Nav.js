@@ -10,17 +10,17 @@ class FullPageIntroWithFixedNavbar extends React.Component {
         this.state = {
             collapse: false,
             isWideEnough: false,
-            logIn: false
+            isLogIn: false
         };
         this.onClick = this.onClick.bind(this);
     }
 
     componentDidMount() {
-        this.checkLogin();
+        this.isLogin();
     }
 
 
-    checkLogin = async () => {
+    isLogin = async () => {
         try {
             const response = await axios
                 .get("/user");
@@ -28,7 +28,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
 
             if (response.data) {
                 this.setState({
-                    logIn: true
+                    isLogIn: true
                 });
             } else {
                 return
@@ -146,7 +146,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                             </MDBCollapse>
                             <MDBNavbarNav right>
                                 <MDBNavItem>
-                                    {this.state.logIn ?
+                                    {this.state.isLogIn ?
                                         <div className="joinMenuContainer" style={{ float: "right" }}>
                                             <span className="m-1"><a className="joinMenu pink-text" href="/logout">Log Out</a></span>
                                             <span className="m-1"><a className="joinMenu grey-text" href="/login/vendor">Vendor</a></span>
