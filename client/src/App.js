@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/layout/Nav";
 import Loading from "./components/pages/Loading";
-import Planning from "./components/pages/planning/Planning";
+import Events from "./components/pages/planning/event/Events";
 import Registry from "./components/pages/registry/Registry";
-import Team from "./components/pages/team/Team"
-import Website from "./components/pages/website/Website";
+import Team from "./components/pages/team/Team";
+import Website from "./components/pages/planning/todo/Todos";
 import Signup from "./components/pages/join/Signup";
 import Login from "./components/pages/join/Login";
 import VendorSignup from "./components/pages/join/VendorSignup";
@@ -23,7 +23,7 @@ function App() {
           <Nav />
           <Switch>
             <Route exact path="/" component={Loading} />
-            <Route exact path="/planning" component={Planning} />
+            <Route exact path="/planning" component={planning} />
             <Route exact path="/registry" component={Registry} />
             <Route exact path="/team" component={Team} />
             <Route exact path="/website" component={Website} />
