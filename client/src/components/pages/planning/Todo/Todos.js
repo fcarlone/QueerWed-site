@@ -22,30 +22,26 @@ class Todos extends Component {
   }
 
   toggleComplete = id => {
-    axios.put(`/api/todos/${id}`).then(response => {
-      console.log("Todo boolean change", response.data);
+    console.log("id", id);
 
-      this.state.items.map(item => {
-        if (item._id === response.data._id) {
-          console.log("state.item:", item);
+    this.setState({
+      items: this.state.items.map(item => {
+        if (item._id === id) {
+          const changeCompleteValue = !item.completed;
+          console.log("new completed value", changeCompleteValue);
 
-          let databaseCompleted = response.data.completed;
-          console.log(databaseCompleted);
+          // Update Database
+          axios
+            .put(`/api/todos/${id}`, { completed: changeCompleteValue })
+            .then(response => {
+              console.log("return value from put request");
+            });
 
-          // Update item with "completed" value from database
-          item.completed = databaseCompleted;
-          console.log("updated item", item);
-
-          // Replace Object
-          this.setState(prevState => ({
-            items: prevState.items.map(item =>
-              item.key === item
-                ? { ...item, completed: databaseCompleted }
-                : item
-            )
-          }));
+          // Update State
+          return { ...item, completed: changeCompleteValue };
         }
-      });
+        return item;
+      })
     });
   };
 
