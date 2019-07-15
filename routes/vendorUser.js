@@ -16,7 +16,7 @@ module.exports = function (app) {
     console.log("user login from client-side: ", req.user);
     // res.json(req.user);
     // res.redirect("/");
-    // res.end()
+    res.end()
   });
 
   // User signup
