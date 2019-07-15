@@ -14,10 +14,10 @@ class Loading extends React.Component {
         {/* <MDBView src="https://image.freepik.com/free-photo/newlywed-gay-couple-dancing-wedding-celebration_53876-46945.jpg"> */}
 
           <MDBMask overlay="black-light" className="flex-center flex-column text-white text-center">
-            <h2>QueerWed</h2>
+            <p className="queerwed">QueerWed</p>
             <br></br>
-            <p>A space for LGBTQIA+ couples to plan their weddings</p>
-            <p>and connect with LGBTQIA+ wedding professionals for the purpose of building solidarity and promoting commerce within our community.</p>
+            <h4><p className="description">An LGBTQIA+ space to plan weddings</p>
+            <p className="description">and promote solidarity and commerce within our community.</p></h4>
             <br />
             <div>
               <LinkedButton
