@@ -7,7 +7,8 @@ import GuestBook from './GuestBook.js';
 import Container from '../../layout/Container';
 import Rsvp from './Rsvp.js';
 import Faqs from './Faqs.js';
-import CreateButton from './CreateButton.js'
+import CreateButton from './CreateButton.js';
+import axios from 'axios';
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 // import 'bootstrap-css-only/css/bootstrap.min.css';
 // import 'mdbreact/dist/css/mdb.css';
@@ -15,62 +16,93 @@ import CreateButton from './CreateButton.js'
 class Website extends Component {
 
   state = {
-    name1: 'Your name',
-    name2: 'Your spouse name',
+    userId: '',
+    name1: '',
+    name2: '',
     date: '',
-    location: '',
-    guestList: [{ 
-      id: 1, 
-      first_name: "Enter Guest's First Name", 
-      last_name: "Enter Guest's Last Name",
-      table_number: 0, 
-      isEditing: false }],
-    current_guest: {
-      id: 0,
-      first_name: '',
-      last_name: '',
-      table_number: '',
-      isEditing: false
-    }
+    location: ''
+    // guestList: [{ 
+    //   id: 1, 
+    //   first_name: "Enter Guest's First Name", 
+    //   last_name: "Enter Guest's Last Name",
+    //   table_number: 0, 
+    //   isEditing: false }],
+    // current_guest: {
+    //   id: 0,
+    //   first_name: '',
+    //   last_name: '',
+    //   table_number: '',
+    //   isEditing: false
+    // }
   };
 
-  // Header: Add name1+name2 START from here
+  componentDidMount () {
+    this.getUserData()
+  } 
 
-  addName1 = () => {
+  getUserData = async () => {
+    try {
+        const response = await axios
+            .get("/api/websitedata");
+        console.log(response.data);
+        this.setState({
+          userId: response.data[0].user,
+        });
+    }
+    catch (error) {
+        console.log(error);
+    };
+};
+
+
+  // Start: Header - Add name1+name2 START from here
+
+  handleInputChange = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
     this.setState({
-      name1: [...this.state.name1, {
-        name1: ''
-      }]
+      [name] : value
+    })
+    // console.log(this.state.name1);
+  }
+
+  handleAddButton = (event) => {
+    event.preventDefault();
+    console.log(this.state.name1, this.state.name2);
+  }
+
+  // End: Add name1 and name2
+
+
+  // Start: Date and Location
+
+  handleDate = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
+    this.setState({
+      [name] : value
     })
   }
 
-  addName2 = () => {
+  handleDateButton = (event) => {
+    event.preventDefault();
+    console.log(this.state.date);
+  }
+
+  handleLocation = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
     this.setState({
-      name2: [...this.state.name2, {
-        name2: ''
-      }]
-    })
+      [name] : value
+  })
   }
 
-  handleAddNames = (field, value) => {
-    if (field === 'name1') {
-      this.setState({
-        name1: { ...this.state.name1, name1: value }
-      })
-    }
-    if (field === 'name2') {
-      this.setState({
-        name2: { ...this.state.name1, name1: value }
-      })
-    }
+  handleLocationButton = (event) => {
+    event.preventDefault();
+    console.log(this.state.location);
   }
-
-  // Add name1 and name2 function END from here
-
-
 
   // Guset List: START from here
-
   editGuest = (current_guest, isDone) => {
     current_guest.isEditing = !current_guest.isEditing;
     if (isDone) {
@@ -91,7 +123,6 @@ class Website extends Component {
       })
     }
   }
-
   removeGuest = (id) => {
     let newGuestList = this.state.guestList.filter((guest) => {
       return !(guest.id === id)
@@ -100,7 +131,6 @@ class Website extends Component {
       guestList: newGuestList
     })
   }
-
   handleChange = (field, value) => {
     if (field === 'first_name') {
       this.setState({
@@ -118,7 +148,6 @@ class Website extends Component {
       })
     }
   }
-
   addGuest = () => {
     this.setState({
       guestList: [...this.state.guestList, {
@@ -130,8 +159,19 @@ class Website extends Component {
       }]
     })
   }
+  // End : Guset List Functions 
 
-  // Guset List Functions END
+  // Start : create website
+
+  createWebsite = () => {
+    axios.post('/create-website', this.state)
+    .then(res => {
+      console.log(res)
+    })
+  }
+
+  // End : create website
+
 
   render() {
 
@@ -141,15 +181,23 @@ class Website extends Component {
           <Nav />
 
           <Header 
-          addName1={this.addName1}
-          addName2={this.addName2}
-          addNames={this.handleAddNames}
+          handleInputChange={this.handleInputChange}
+          handleAddButton={this.handleAddButton}
+          value={this.state.name1}
+          value2={this.state.name2}
           />
 
           <div className="row align-items-center justify-content-center">
             <div className="col-10 text-center">
 
-              <Details />
+          <Details 
+          handleDate={this.handleDate}
+          handleLocation={this.handleLocation}
+          handleDateButton={this.handleDateButton}
+          handleLocationButton={this.handleLocationButton}
+          value1={this.state.date}
+          value2={this.state.location}
+          />
 
               {/* <GuestList
                 addGuest={this.addGuest}
@@ -166,7 +214,9 @@ class Website extends Component {
 
               <Rsvp />
 
-              <CreateButton />
+              <CreateButton 
+              createWebsite={this.createWebsite}
+              userId={this.state.userId}/>
             </div>
           </div>
         </div>

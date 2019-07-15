@@ -1,6 +1,3 @@
-// const passport = require("passport")
-// require("../config/passport")(passport);
-
 const passport = require("../config/passport");
 const bcrypt = require("bcryptjs");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -8,24 +5,25 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 // Connect model
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Get user
-  app.get("/vendoruser", (req, res) => {
-    res.send(req.user);
+  app.get("/vendoruser-login/:id", (req, res) => {
+    res.json(req.user);
   });
 
   // User login
   app.post("/vendoruser-login", passport.authenticate('vendor-local'), (req, res) => {
     console.log("user login from client-side: ", req.user);
     // res.json(req.user);
-    res.redirect(`/vendoruser`);
+    // res.redirect("/");
+    res.end()
   });
 
   // User signup
   app.post("/vendoruser-signup", async (req, res) => {
     // Get user data
     console.log("user signup from client-side", req.body);
-    const { email, password, category, name, address, phone, website, description } = req.body;
+    const { email, password, category, name, address, phone, website, description, image } = req.body;
 
     // ***Check required fields***
 
@@ -44,7 +42,8 @@ module.exports = function(app) {
             address,
             phone,
             website,
-            description
+            description,
+            image
           });
           console.log("Added user info:", newUser);
 

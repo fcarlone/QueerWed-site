@@ -7,6 +7,8 @@ import GuestBook from './GuestBook.js';
 import Container from '../../layout/Container';
 import Rsvp from './Rsvp.js';
 import Faqs from './Faqs.js';
+import axios from 'axios';
+
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 // import 'bootstrap-css-only/css/bootstrap.min.css';
 // import 'mdbreact/dist/css/mdb.css';
@@ -14,19 +16,42 @@ import Faqs from './Faqs.js';
 class WebsiteComplete extends Component {
 
   state = {
+    userId: '',
     name1: 'enter your name',
     name2: 'enter your spouse name',
     date: '',
-    location: '',
-    guestList: [{ id: 1, first_name: "Enter Guest's First Name", last_name: "Enter Guest's Last Name", table_number: 0, isEditing: false }],
-    current_guest: {
-      id: 0,
-      first_name: '',
-      last_name: '',
-      table_number: '',
-      isEditing: false
-    }
+    location: ''
+    // guestList: [{ id: 1, first_name: "Enter Guest's First Name", last_name: "Enter Guest's Last Name", table_number: 0, isEditing: false }],
+    // current_guest: {
+    //   id: 0,
+    //   first_name: '',
+    //   last_name: '',
+    //   table_number: '',
+    //   isEditing: false
+    // }
   };
+
+  componentDidMount() {
+    this.loadData();
+  }
+
+  loadData = async () => {
+    try {
+        const response = await axios
+            .get("/api/websitedata");
+        console.log(response.data);
+        this.setState({
+          userId: response.data[0].user,
+          name1: response.data[0].name1,
+          name2: response.data[0].name2,
+          date: response.data[0].date,
+          location: response.data[0].location
+        });
+    }
+    catch (error) {
+        console.log(error);
+    };
+};
 
   // Add name1+name2 START from here
 
@@ -111,6 +136,13 @@ class WebsiteComplete extends Component {
 
     return (
       <Container>
+        <div>
+          <p>{this.state.name1}</p>
+          <p>{this.state.name2}</p>
+          <p>{this.state.date}</p>
+          <p>{this.state.location}</p>
+
+        </div>
         <div className="App">
           <Nav />
 

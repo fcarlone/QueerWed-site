@@ -5,9 +5,8 @@ const connectDB = require("./config/db");
 // Passport packages
 const session = require("express-session");
 const passport = require("./config/passport");
-// For Image File upload 
+// For Image File upload
 const fs = require("fs");
-const multer = require("multer");
 
 
 const app = express();
@@ -17,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 // Connect database
 connectDB();
 
-const db = require("./models")
+const db = require("./models");
 
 // Middleware
 app.use(express.json({ extended: true }));
@@ -37,6 +36,12 @@ if (process.env.NODE_ENV === "production") {
 require("./routes/user")(app);
 require("./routes/vendorUser")(app);
 require("./routes/guest")(app);
+require("./routes/website")(app);
+require("./routes/team")(app);
+require("./routes/todo")(app);
+require("./routes/events")(app);
+require("./routes/website")(app);
+require("./routes/team")(app);
 
 // Route to load single HTML page
 // app.get("*", (req, res) => {
