@@ -6,8 +6,6 @@ import TeamSearch from "./TeamSearch.js";
 import Card from "./Card"
 import '../../../style/team/team.css'
 
-
-
 class Team extends React.Component {
     constructor(props) {
         super(props);
@@ -34,28 +32,6 @@ class Team extends React.Component {
             [name]: value
         });
     };
-
-    loadFavorite = async () => {
-        try {
-            const response = await axios
-                .get("/api/favorite");
-            let vendorIdArray = response.data.map(ele => ele.vendorUser)
-            console.log(vendorIdArray);
-
-            this.setState({
-                userFavorite: vendorIdArray
-            }, () => {
-                console.log(this.state)
-            });
-        }
-        catch (error) {
-            console.log(error);
-        };
-    }
-
-    readFavorite = (id) => {
-        return this.state.userFavorite.includes(id)
-    }
 
     loadAllVendor = async () => {
         try {
@@ -114,6 +90,76 @@ class Team extends React.Component {
         }
     };
 
+    loadFavorite = async () => {
+        try {
+            const response = await axios
+                .get("/api/favorite");
+            let vendorIdArray = response.data.map(ele => ele.vendorUser)
+            console.log(vendorIdArray);
+
+            this.setState({
+                userFavorite: vendorIdArray
+            }, () => {
+                console.log(this.state)
+            });
+        }
+        catch (error) {
+            console.log(error);
+        };
+    }
+
+    readFavorite = (id) => {
+        return this.state.userFavorite.includes(id)
+    }
+
+    addFavorite = (event) => {
+        event.preventDefault();
+        // console.log(event.target.parentElement.dataset.favorite)
+        console.log("handle Favorite")
+        let favoriteObject = {
+            user: "",
+            vendorUser: event.target.dataset.vendorid
+        }
+        console.log(favoriteObject)
+
+        return axios
+            .post("/api/favorite", favoriteObject)
+            .then(response => {
+                console.log(response.data.vendorUser);
+                let vendorIdArray = this.state.userFavorite
+                // console.log(vendorIdArray)
+                vendorIdArray.push(response.data.vendorUser)
+                // console.log(vendorIdArray)
+
+                this.setState({
+                    userFavorite: vendorIdArray
+                }, () => {
+                    console.log(this.state)
+                });
+            })
+    }
+
+    undoFavorite = (event) => {
+        event.preventDefault();
+        let vendorid = event.target.dataset.vendorid
+        return axios
+            .delete(`/api/favorite/${event.target.dataset.vendorid}`)
+            .then(response => {
+                console.log(response.data);
+                let vendorIdArray = this.state.userFavorite
+                console.log(vendorIdArray)
+                console.log(vendorid)
+                vendorIdArray = vendorIdArray.filter(ele => ele !== vendorid )
+                console.log(vendorIdArray)
+
+                this.setState({
+                    userFavorite: vendorIdArray
+                }, () => {
+                    console.log(this.state)
+                });
+            })
+    }
+
     render() {
         return (
             <Container>
@@ -143,6 +189,8 @@ class Team extends React.Component {
                             image={ele.image}
                             vendorid={ele._id}
                             favorite={this.readFavorite(ele._id)}
+                            addFavorite={this.addFavorite}
+                            undoFavorite={this.undoFavorite}
                         />
                     ))}
                 </div>

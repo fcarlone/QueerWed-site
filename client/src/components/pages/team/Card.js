@@ -7,36 +7,8 @@ class Card extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            favoriteList:[],
-            favorite:false,
-            isLogin:false
+            isLogin: false
         };
-    }
-
-    addFavorite = (event) => {
-        event.preventDefault();
-        console.log(event.target.parentElement.dataset.favorite)
-
-        console.log("handle Favorite")
-        let favoriteObject = {
-            user:"",
-            vendorUser: event.target.dataset.vendorid
-        }
-        console.log(favoriteObject)
-
-        return axios
-            .post("/api/favorite", favoriteObject)
-            .then(response => {
-                console.log(response.data);
-                // window.location.href = "/vendor";
-            })
-    }
-
-    undoFavorite = (event) => {
-                event.preventDefault();
-        console.log(event.target.parentElement.dataset.favorite)
-
-
     }
 
     render() {
@@ -50,8 +22,8 @@ class Card extends React.Component {
                     </div>
                     <div className="col-md-8 team-card-body">
                         <div className="card-body">
-                            {this.props.favorite ? <MDBIcon icon="heart" size="lg" className="pink-text" onClick={this.undoFavorite} data-vendorid={this.props.vendorid} />
-                                : <MDBIcon far icon="heart" size="lg" className="indigo-text" onClick={this.addFavorite} data-vendorid={this.props.vendorid} />
+                            {this.props.favorite ? <MDBIcon icon="heart" size="lg" className="pink-text" onClick={this.props.undoFavorite} data-vendorid={this.props.vendorid} />
+                                : <MDBIcon far icon="heart" size="lg" className="indigo-text" onClick={this.props.addFavorite} data-vendorid={this.props.vendorid} />
                             }
                             <h5 className="card-title">{this.props.name}</h5>
                             <p className="card-text">{this.props.category}</p>

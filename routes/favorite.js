@@ -7,7 +7,7 @@ module.exports = function (app) {
         console.log("get all favorite api route");
         console.log(req.user)
         db.Favorite
-            .find({user:req.user._id})
+            .find({ user: req.user._id })
             .sort({ name: 1 })
             .then(result => res.json(result))
             .catch(err => res.status(500).json(err));
@@ -25,6 +25,16 @@ module.exports = function (app) {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     });
+
+    // delete Favorite
+    app.delete("/api/favorite/:vendorid", async (req, res) => {
+        console.log("delete favorite vendor");
+        db.Favorite
+            .remove({ user: req.user._id, vendorUser : req.params.vendorid })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    });
+
 
 
 };
