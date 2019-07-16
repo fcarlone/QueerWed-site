@@ -11,8 +11,9 @@ import Login from "./components/pages/join/Login";
 import VendorSignup from "./components/pages/join/VendorSignup";
 import VendorLogin from "./components/pages/join/VendorLogin";
 import GuestState from "./context/guest/GuestState";
-import WebsiteComplete from "./components/pages/websitecomplete/WebsiteComplete"
-import Vendor from "./components/pages/vendor/Vendor"
+import WebsiteComplete from "./components/pages/websitecomplete/WebsiteComplete";
+import Vendor from "./components/pages/vendor/Vendor";
+import myVendors from "./components/pages/planning/myVendors";
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={Loading} />
             <Route exact path="/planning" component={Planning} />
+            <Route exact path="/planning/team" component={myVendors} />
+
             <Route exact path="/registry" component={Registry} />
             <Route exact path="/team" component={Team} />
             <Route exact path="/website" component={Website} />
@@ -32,8 +35,6 @@ function App() {
             <Route exact path="/login/vendor" component={VendorLogin} />
             <Route exact path="/signup/vendor" component={VendorSignup} />
             <Route exact path="/vendor" component={Vendor} />
-
-
           </Switch>
           <Route exact path="/website/user/:id" component={WebsiteComplete} />
         </div>

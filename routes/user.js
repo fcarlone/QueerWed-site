@@ -10,7 +10,14 @@ module.exports = function (app) {
   app.get("/user", (req, res) => {
     res.send(req.user);
   });
-
+  // Get user
+  app.get("/user/:id", (req, res) => {
+    console.log("get user Info");
+    User
+      .find({ _id: req.params.id })
+      .then(result => res.json(result))
+      .catch(err => res.status(500).json(err));
+  });
   // User logout
   app.get("/logout", function (req, res) {
     req.logout();

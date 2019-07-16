@@ -29,7 +29,7 @@ const TeamSearch = (props) => (
                 </div>
 
                 <div className="col-auto">
-                    <button type="submit" className="btn btn-primary mb-0" onClick={props.onClick}>Search</button>
+                    <button type="submit" className="btn btn-pink mb-0" onClick={props.onClick}>Search</button>
                 </div>
             </div>
         </form>

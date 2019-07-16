@@ -7,8 +7,8 @@ const db = require("../models");
 
 module.exports = function (app) {
   // Get user
-  app.get("/vendoruser-login/:id", (req, res) => {
-    res.json(req.user);
+  app.get("/vendoruser", (req, res) => {
+    res.send(req.user);
   });
 
   // User login

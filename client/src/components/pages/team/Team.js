@@ -14,15 +14,35 @@ class Team extends React.Component {
             location: "",
             result: [],
             filtered: [],
-            isLogin: false,
+            isLogIn: false,
             userFavorite: []
         };
     }
 
     componentDidMount() {
+        this.isLogIn()
         this.loadAllVendor();
         this.loadFavorite();
     }
+
+    isLogIn = async () => {
+        try {
+            const response = await axios
+                .get("/user");
+            console.log(response.data);
+
+            if (response.data) {
+                this.setState({
+                    isLogIn: true
+                }, () => {console.log(this.state)});
+            } else {
+                return
+            }
+        }
+        catch (error) {
+            console.log(error);
+        };
+    };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -149,7 +169,7 @@ class Team extends React.Component {
                 let vendorIdArray = this.state.userFavorite
                 console.log(vendorIdArray)
                 console.log(vendorid)
-                vendorIdArray = vendorIdArray.filter(ele => ele !== vendorid )
+                vendorIdArray = vendorIdArray.filter(ele => ele !== vendorid)
                 console.log(vendorIdArray)
 
                 this.setState({
@@ -191,6 +211,7 @@ class Team extends React.Component {
                             favorite={this.readFavorite(ele._id)}
                             addFavorite={this.addFavorite}
                             undoFavorite={this.undoFavorite}
+                            isLogIn={this.state.isLogIn}
                         />
                     ))}
                 </div>

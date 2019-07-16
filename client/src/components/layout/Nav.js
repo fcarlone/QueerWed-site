@@ -10,6 +10,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
         this.state = {
             collapse: false,
             isWideEnough: false,
+            userEmail: "",
             isLogIn: false
         };
         this.onClick = this.onClick.bind(this);
@@ -28,6 +29,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
 
             if (response.data) {
                 this.setState({
+                    userEmail: response.data.email,
                     isLogIn: true
                 });
             } else {
@@ -59,13 +61,13 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                             {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
                             <MDBCollapse isOpen={this.state.collapse} navbar>
                                 <MDBNavbarNav left>
-                                    <li><a className="mainMenu" href="/planning">Planning Tools</a>
+                                    <li className="mainLi"><a className="mainMenu" href="/planning">Planning Tools</a>
                                         <ul className="subMenuContainer">
                                             <div className="subMenu subMenu1">
                                                 <li><a href="/planning/calendar">Calendar</a></li>
                                                 <li><a href="/planning/checklist">Check List</a></li>
                                                 <li><a href="/planning/guestlist">Guest List</a></li>
-                                                <li><a href="/planning/vendor">Manage Vendors</a></li>
+                                                <li><a href="/planning/team">Manage Vendors</a></li>
                                             </div>
                                             <div className="subMenu">
                                                 <li><a href="/registry/create">Create Your Registry</a></li>
@@ -80,13 +82,13 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                         </ul>
                                     </li>
 
-                                    <li><a className="mainMenu" href="/registry">Wedding Registry</a>
+                                    <li className="mainLi"><a className="mainMenu" href="/registry">Wedding Registry</a>
                                         <ul className="subMenuContainer">
                                             <div className="subMenu subMenu1">
                                                 <li><a href="/planning/calendar">Calendar</a></li>
                                                 <li><a href="/planning/checklist">Check List</a></li>
                                                 <li><a href="/planning/guestlist">Guest List</a></li>
-                                                <li><a href="/planning/vendor">Manage Vendors</a></li>
+                                                <li><a href="/planning/team">Manage Vendors</a></li>
                                             </div>
                                             <div className="subMenu">
                                                 <li><a href="/registry/create">Create Your Registry</a></li>
@@ -101,13 +103,13 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                         </ul>
                                     </li>
 
-                                    <li><a className="mainMenu" href="/website">Wedding Website</a>
+                                    <li className="mainLi"><a className="mainMenu" href="/website">Wedding Website</a>
                                         <ul className="subMenuContainer">
                                             <div className="subMenu subMenu1">
                                                 <li><a href="/planning/calendar">Calendar</a></li>
                                                 <li><a href="/planning/checklist">Check List</a></li>
                                                 <li><a href="/planning/guestlist">Guest List</a></li>
-                                                <li><a href="/planning/vendor">Manage Vendors</a></li>
+                                                <li><a href="/planning/team">Manage Vendors</a></li>
                                             </div>
                                             <div className="subMenu">
                                                 <li><a href="/registry/create">Create Your Registry</a></li>
@@ -122,13 +124,13 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                         </ul>
                                     </li>
 
-                                    <li><a className="mainMenu" href="/team">Find Professionals</a>
+                                    <li className="mainLi"><a className="mainMenu" href="/team">Find Professionals</a>
                                         <ul className="subMenuContainer">
                                             <div className="subMenu subMenu1">
                                                 <li><a href="/planning/calendar">Calendar</a></li>
                                                 <li><a href="/planning/checklist">Check List</a></li>
                                                 <li><a href="/planning/guestlist">Guest List</a></li>
-                                                <li><a href="/planning/vendor">Manage Vendors</a></li>
+                                                <li><a href="/planning/team">Manage Vendors</a></li>
                                             </div>
                                             <div className="subMenu">
                                                 <li><a href="/registry/create">Create Your Registry</a></li>
@@ -148,6 +150,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                 <MDBNavItem>
                                     {this.state.isLogIn ?
                                         <div className="joinMenuContainer" style={{ float: "right" }}>
+                                            <span className="m-1 joinMenu pink-text"><strong>{this.state.userEmail}</strong></span>
                                             <span className="m-1"><a className="joinMenu pink-text" href="/logout">Log Out</a></span>
                                             <span className="m-1"><a className="joinMenu grey-text" href="/login/vendor">Vendor</a></span>
                                         </div>

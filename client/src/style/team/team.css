@@ -29,9 +29,18 @@
   position: absolute;
   bottom: 0px;
 }
-.cardImageContainer {
+/* .cardImageContainer {
   height: 300px;
   overflow: hidden;
+} */
+.cardImageContainer {
+  height: 300px;
+}
+.cardImageContainer img {
+  object-fit: cover;
+  /* width: 300px; */
+  height: 300px;
+  
 }
 .team-card-body .card-body i {
   position: absolute;
