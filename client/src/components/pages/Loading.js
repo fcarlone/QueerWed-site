@@ -14,10 +14,10 @@ class Loading extends React.Component {
           {/* <MDBView src="https://image.freepik.com/free-photo/newlywed-gay-couple-dancing-wedding-celebration_53876-46945.jpg"> */}
 
           <MDBMask overlay="black-light" className="flex-center flex-column text-white text-center">
-            <h2>QueerWed</h2>
+            <p className="queerwed">QueerWed</p>
             <br></br>
-            <p>A space for LGBTQIA+ couples to plan their weddings</p>
-            <p>and connect with LGBTQIA+ wedding professionals for the purpose of building solidarity and promoting commerce within our community.</p>
+            <h4><p className="description">An LGBTQIA+ space to plan weddings</p>
+            <p className="description">and promote solidarity and commerce within our community.</p></h4>
             <br />
             <div>
               <LinkedButton
@@ -41,7 +41,43 @@ class Loading extends React.Component {
             </div>
           </MDBMask>
         </MDBView>
-      </>
+     
+       <section id="services">
+       <div class="container ">
+   
+   
+   
+         <div class="row">
+   
+           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+   
+             <h4 class="title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="">Plan</a></h4>
+   
+             <p class="description">Stay organized with your To Do List, Guest List, Favorite Vendor List and Registry </p>
+           </div>
+           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+             <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
+   
+             <h4 class="title"> <i class="fa fa-handshake-o" aria-hidden="true"></i>
+               <a href="">Community Power</a></h4>
+             <p class="description">Connect with LGBTQIA+ Photographers, DJs, Florists, Caterers, and more</p>
+           </div>
+   
+           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+             <div class="icon"><i class="ion-ios-people-outline"></i></div>
+   
+             <h4 class="title">
+               <i class="fa fa-heart" aria-hidden="true"></i>
+               <a href="">Share & Celebrate</a></h4>
+             <p class="description">Create a website for your wedding details to share information, updates, and photos
+               with guests</p>
+           </div>
+   
+         </div>
+         
+       </div>
+     </section>
+     </>
     );
   }
 }

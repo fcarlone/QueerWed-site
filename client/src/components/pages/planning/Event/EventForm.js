@@ -38,7 +38,7 @@ class EventForm extends Component {
     return (
       <Fragment>
         <div className="event-form-container">
-          <h2>Enter Venue Information</h2>
+          <h2>Enter Event Information</h2>
           <Form onSubmit={this.onSubmit}>
             <Form.Group>
               <input
