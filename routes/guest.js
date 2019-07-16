@@ -5,7 +5,7 @@ const Guest = require("../models/Guest");
 
 module.exports = function(app) {
   // Get guests
-  app.get("/api/guests", isAuthenticated, async (req, res, next) => {
+  app.get("/planning/api/guests", isAuthenticated, async (req, res, next) => {
     console.log("get guests api route");
 
     try {
@@ -19,7 +19,7 @@ module.exports = function(app) {
   });
 
   // Add guest
-  app.post("/api/guests", isAuthenticated, async (req, res, next) => {
+  app.post("/planning/api/guests", isAuthenticated, async (req, res, next) => {
     // Add req validation
     console.log("add new guest post route", req.body);
     console.log("get user post route", req.user);
@@ -65,7 +65,7 @@ module.exports = function(app) {
   });
 
   // Delete Guest
-  app.delete("/api/guests/:id", async (req, res) => {
+  app.delete("/planning/api/guests/:id", async (req, res) => {
     try {
       let guest = await Guest.findById(req.params.id);
 
@@ -93,7 +93,7 @@ module.exports = function(app) {
   });
 
   // Update Guest
-  app.put("/api/guests/:id", async (req, res) => {
+  app.put("/planning/api/guests/:id", async (req, res) => {
     console.log(`Update id ${req.params.id} for guest: ${req.body}`);
 
     const {

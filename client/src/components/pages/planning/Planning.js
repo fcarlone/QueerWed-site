@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import ToDoItems from "./toDoItems";
 import Container from "../../layout/Container.js";
-import GuestList from "./GuestList";
-import Todos from "../planning/Todo/Todos";
-import Events from "./Event/Events";
 
 class Planning extends Component {
   render() {
@@ -14,10 +10,6 @@ class Planning extends Component {
             <h1>Planning Component</h1>
           </div>
         </div>
-
-        <Events />
-        <Todos />
-        <GuestList />
       </Container>
     );
   }

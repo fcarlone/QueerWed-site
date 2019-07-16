@@ -1,6 +1,16 @@
-/* Grid */
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2rem;
+.guest-list-container {
+  margin-top: 10rem;
+}
+
+.guest-list-description {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.guest-list-form {
+  display: flex;
+}
+
+.guest-list-display {
+  margin-left: 10rem;
 }

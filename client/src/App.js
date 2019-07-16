@@ -3,8 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/layout/Nav";
 import Loading from "./components/pages/Loading";
 import Planning from "./components/pages/planning/Planning";
+import Events from "./components/pages/planning/event/Events";
+import GuestList from "./components/pages/planning/GuestList";
+import Todos from "./components/pages/planning/todo/Todos";
+import Vendors from "./components/pages/planning/myVendors/Vendors";
 import Registry from "./components/pages/registry/Registry";
-import Team from "./components/pages/team/Team"
+import Team from "./components/pages/team/Team";
 import Website from "./components/pages/website/Website";
 import Signup from "./components/pages/join/Signup";
 import Login from "./components/pages/join/Login";
@@ -25,6 +29,11 @@ function App() {
           <Switch>
             <Route exact path="/" component={Loading} />
             <Route exact path="/planning" component={Planning} />
+
+            <Route exact path="/planning/calendar" component={Events} />
+            <Route exact path="/planning/checklist" component={Todos} />
+            <Route exact path="/planning/guestlist" component={GuestList} />
+            <Route exact path="/planning/vendor" component={Vendors} />
             <Route exact path="/planning/team" component={myVendors} />
 
             <Route exact path="/registry" component={Registry} />

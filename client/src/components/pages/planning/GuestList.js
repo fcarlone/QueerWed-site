@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Guests from "../../guests/Guests";
 import GuestForm from "../../guests/GuestForm";
 import GuestFilter from "../../guests/GuestFilter";
@@ -6,16 +6,19 @@ import "../../../styles/guest/guestList.css";
 
 const GuestList = () => {
   return (
-    <div className="grid-2">
-      <h1>Guest List Page</h1>
-      <div>
-        <GuestForm />
+    <Fragment>
+      <div className="guest-list-container">
+        <h1 className="guest-list-title">Guest List Page</h1>
+        <div className="guest-list-form">
+          <GuestForm />
+          <div className="guest-list-display">
+            <GuestFilter />
+            <h3 className="guest-list-description">Guest List:</h3>
+            <Guests />
+          </div>
+        </div>
       </div>
-      <div>
-        <GuestFilter />
-        <Guests />
-      </div>
-    </div>
+    </Fragment>
   );
 };
 
