@@ -9,7 +9,7 @@
 }
 
 .input-todo {
-  width: 35rem;
+  width: 20rem;
   color: black;
 }
 
@@ -27,7 +27,14 @@
 } */
 
 body{
-  background-image: url(reuben-clay-gay-wedding-41.jpg);
+  /* background-image: url(reuben-clay-gay-wedding-41.jpg);
 background-repeat: no-repeat;
-background-size: 100%;
+background-size: 100%; */
+}
+
+.add-item{
+  justify-content: flex-start;
+}
+.input-group{
+  display: inline-block;
 }

@@ -4,6 +4,9 @@
   margin-left: 120px;
   margin-top: 60px;
   width: 35rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: white;
 }
 
 .event-item-btn-container {
