@@ -4,6 +4,7 @@ import axios from "axios";
 import { MDBInput } from "mdbreact";
 
 import Container from "../../layout/Container"
+import Nav from "../../layout/Nav";
 import { Button } from "../../layout/Button"
 
 class VendorSignup extends React.Component {
@@ -13,10 +14,14 @@ class VendorSignup extends React.Component {
         category: "",
         name: "",
         address: "",
+        city: "",
+        state: "",
+        zipcode: "",
         phone: "",
         website: "",
         description: "",
-        selectedImage: null
+        image: ""
+        // selectedImage: null
     };
 
     handleInputChange = event => {
@@ -40,7 +45,7 @@ class VendorSignup extends React.Component {
             .post("/vendoruser-signup", userObject)
             .then(response => {
                 console.log(response.data);
-                window.location.href = "/vendor";
+                // window.location.href = "/vendor";
             })
             .then(
                 this.setState({
@@ -49,9 +54,13 @@ class VendorSignup extends React.Component {
                     category: "",
                     name: "",
                     address: "",
+                    city: "",
+                    state: "",
+                    zipcode: "",
                     phone: "",
                     website: "",
-                    description: ""
+                    description: "",
+                    image: ""
                 })
             )
     };
@@ -70,6 +79,8 @@ class VendorSignup extends React.Component {
 
     render() {
         return (
+            <>
+            <Nav />
             <Container>
                 <div className="container">
                     <p>
@@ -81,10 +92,14 @@ class VendorSignup extends React.Component {
                     <MDBInput name="category" value={this.state.category} onChange={this.handleInputChange} label="What kind of business are you in?" prepend="Options" />
                     <MDBInput name="name" value={this.state.name} onChange={this.handleInputChange} label="What’s the name of your business?" />
                     <MDBInput name="address" value={this.state.address} onChange={this.handleInputChange} label="What’s your physical address?" />
+                    <MDBInput name="city" value={this.state.city} onChange={this.handleInputChange} label="City" />
+                    <MDBInput name="state" value={this.state.state} onChange={this.handleInputChange} label="State" />
+                    <MDBInput name="zipcode" value={this.state.zipcode} onChange={this.handleInputChange} label="Zip Code" />
                     <MDBInput name="phone" value={this.state.phone} onChange={this.handleInputChange} label="What’s your phone number?" />
                     <MDBInput name="website" value={this.state.website} onChange={this.handleInputChange} label="What’s your website?" prepend="https://" />
                     <MDBInput name="description" value={this.state.description} onChange={this.handleInputChange} type="textarea" label="Anything else?(optional)" />
-                    <div className="input-group">
+                    <MDBInput name="image" value={this.state.image} onChange={this.handleInputChange} label="Your Image URL" />
+                    {/* <div className="input-group">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="inputGroupFileAddon01">
                                 Upload
@@ -101,10 +116,11 @@ class VendorSignup extends React.Component {
                             />
                             <button onClick={this.fileUploadHandler}>upload</button>
                         </div>
-                    </div>
+                    </div> */}
                     <Button value="Sign Up" onClick={this.onSubmitSignup} />
                 </div>
             </Container>
+            </>
         );
     }
 }

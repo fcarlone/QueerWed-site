@@ -1,0 +1,33 @@
+.profile-img-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  .profile-img-container img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+  }
+
+  /* .background {
+    flex-direction: column;
+    justify-content: center;
+  } */
+.profile-container {
+  position: relative;
+}
+.profile-container > .profile-content-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.user-card-body .card-title {
+  color: #eac7dc;
+}

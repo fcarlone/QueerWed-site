@@ -26,11 +26,8 @@
   outline: none;
 } */
 
-body{
-  /* background-image: url(reuben-clay-gay-wedding-41.jpg);
-background-repeat: no-repeat;
-background-size: 100%; */
-}
+
+
 
 .add-item{
   justify-content: flex-start;
@@ -38,3 +35,4 @@ background-size: 100%; */
 .input-group{
   display: inline-block;
 }
+

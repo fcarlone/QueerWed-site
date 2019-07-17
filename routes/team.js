@@ -11,14 +11,4 @@ module.exports = function (app) {
             .then(result => res.json(result))
             .catch(err => res.status(500).json(err));
     });
-
-    // Get Filtered Vendors
-    app.get("/api/team/:category", (req, res) => {
-        console.log("get filtered vendors api route");
-        db.VendorUser
-            .find({ category: req.params.category })
-            .sort({ name: 1 })
-            .then(result => res.json(result))
-            .catch(err => res.status(500).json(err));
-    });
 };
