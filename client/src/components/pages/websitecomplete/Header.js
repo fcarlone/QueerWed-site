@@ -6,9 +6,9 @@ function Header(props) {
   <div className="jumbotron d-flex text-center" id="header">
   <div className="container vertical-center">
     <h1 className="display-4">
-      <h2 type="text" id="name1">{props.name1}</h2> 
+      <span type="text" id="name1">{props.name1}</span>
       &amp; 
-      <h2 type="text" id="fname2">{props.name2}</h2>
+      <span type="text" id="name2">{props.name2}</span>
     </h1>
   </div>
   </div>
