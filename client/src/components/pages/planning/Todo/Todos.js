@@ -20,6 +20,15 @@ class Todos extends Component {
       });
       console.log("updated todos state", this.state);
     });
+
+    this.state.items.map(item => {
+      let count = 0;
+      if (item.completed === true) {
+        count += 1;
+      }
+      console.log("count", count);
+      return count;
+    });
   }
 
   toggleComplete = id => {
