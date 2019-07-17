@@ -8,7 +8,7 @@ import Nav from "../../layout/Nav"
 const GuestList = () => {
   return (
     <Fragment>
-      <Nav />
+
       <div className="guest-list-container">
         <h1 className="guest-list-title">Manage Guest List</h1>
         <div className="guest-list-form">
@@ -19,6 +19,7 @@ const GuestList = () => {
             <Guests />
           </div>
         </div>
+      </div>
       </div>
     </Fragment>
   );

@@ -1,6 +1,15 @@
 .container-todo {
   margin-top: 19rem;
   margin-left: 2rem;
+  margin-top: 11rem;
+  margin-bottom: 0px;
+  font-family: 'Montserrat', sans-serif;
+ 
+}
+
+.whole-container-todo{
+  background-image: url(../todo/reuben-clay-gay-wedding-41.jpg);
+  background-size: 100%;
 }
 
 .todo-title {

@@ -82,6 +82,9 @@ class Todos extends Component {
   render() {
     return (
       <Fragment>
+
+        <div className="whole-container-todo">
+
         <Nav />
         <div className="container-todo">
           <h1 className="todo-title">Manage To Do List</h1>
@@ -100,6 +103,7 @@ class Todos extends Component {
               ))}
             </div>
           </div>
+        </div>
         </div>
       </Fragment>
     );
