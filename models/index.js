@@ -5,5 +5,6 @@ module.exports = {
   Todo: require("./Todo"),
   VendorUser: require("./VendorUser"),
   Upload: require("./Upload"),
-  Website: require("./Website")
+  Website: require("./Website"),
+  Favorite: require("./Favorite")
 };

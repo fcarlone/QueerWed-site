@@ -42,6 +42,8 @@ require("./routes/todo")(app);
 require("./routes/events")(app);
 require("./routes/website")(app);
 require("./routes/team")(app);
+require("./routes/favorite")(app);
+
 
 // Route to load single HTML page
 // app.get("*", (req, res) => {

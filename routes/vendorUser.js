@@ -7,8 +7,8 @@ const db = require("../models");
 
 module.exports = function (app) {
   // Get user
-  app.get("/vendoruser-login/:id", (req, res) => {
-    res.json(req.user);
+  app.get("/vendoruser", (req, res) => {
+    res.send(req.user);
   });
 
   // User login
@@ -19,11 +19,24 @@ module.exports = function (app) {
     res.end()
   });
 
+  // User logout
+  app.get("/vendoruser-logout", function (req, res) {
+    console.log("Vendor LOGOUT")
+    // req.logout();
+    // res.redirect("/");
+    req.session.destroy((err) => {
+      if(err) return next(err)
+    
+      req.logout()
+      res.end()
+    })
+  });
+
   // User signup
   app.post("/vendoruser-signup", async (req, res) => {
     // Get user data
     console.log("user signup from client-side", req.body);
-    const { email, password, category, name, address, phone, website, description, image } = req.body;
+    const { email, password, category, name, address, city, state, zipcode, phone, website, description, image } = req.body;
 
     // ***Check required fields***
 
@@ -40,6 +53,9 @@ module.exports = function (app) {
             category,
             name,
             address,
+            city,
+            state,
+            zipcode,
             phone,
             website,
             description,
