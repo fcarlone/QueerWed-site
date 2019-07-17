@@ -51,7 +51,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
         axios.get("/logout")
             .then(
                 () => {
-                    window.location.href="/"
+                    window.location.href = "/"
                 }
             )
     }
@@ -61,97 +61,186 @@ class FullPageIntroWithFixedNavbar extends React.Component {
             <div>
                 <header>
                     <Router>
-                        <MDBNavbar color="white" dark expand="md" fixed="top" style={{minWidth: "1070px"}}>
+                        <MDBNavbar color="white" dark expand="md" fixed="top" style={{ minWidth: "1070px" }}>
                             <MDBNavbarBrand>
-                                <a className="pink-text" href="/" style={{fontFamily:"montserrat", fontWeight:"bolder"}}><strong>QueerWed</strong></a>
+                                <a className="pink-text" href="/" style={{ fontFamily: "montserrat", fontWeight: "bolder" }}><strong>QueerWed</strong></a>
                             </MDBNavbarBrand>
                             {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
                             <MDBCollapse isOpen={this.state.collapse} navbar>
-                                <MDBNavbarNav left>
-                                    <li className="mainLi"><a className="mainMenu" href="/planning">Planning Tools</a>
-                                        <ul className="subMenuContainer">
-                                            <div className="subMenu subMenu1">
-                                                <li><a href="/planning/calendar">Calendar</a></li>
-                                                <li><a href="/planning/checklist">Check List</a></li>
-                                                <li><a href="/planning/guestlist">Guest List</a></li>
-                                                <li><a href="/planning/team">Manage Vendors</a></li>
-                                            </div>
-                                            <div className="subMenu">
-                                                <li><a href="/registry">Create Your Registry</a></li>
-                                            </div>
-                                            <div className="subMenu">
-                                                <li><a href="/website">Create Your Website</a></li>
-                                                <li><a href="/website/find">Find A Couple</a></li>
-                                            </div>
-                                            <div className="subMenu">
-                                                <li><a href="/team">Find Your Team</a></li>
-                                            </div>
-                                        </ul>
-                                    </li>
+                                {this.state.isLogIn ?
+                                    <MDBNavbarNav left>
+                                        <li className="mainLi"><a className="mainMenu" href="/planning">Planning Tools</a>
+                                            <ul className="subMenuContainer">
+                                                <div className="subMenu subMenu1">
+                                                    <li><a href="/planning/calendar">Calendar</a></li>
+                                                    <li><a href="/planning/checklist">Check List</a></li>
+                                                    <li><a href="/planning/guestlist">Guest List</a></li>
+                                                    <li><a href="/planning/team">Manage Vendors</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/registry">Create Your Registry</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/website">Create Your Website</a></li>
+                                                    <li><a href="/website/find">Find A Couple</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/team">Find Your Team</a></li>
+                                                </div>
+                                            </ul>
+                                        </li>
 
-                                    <li className="mainLi"><a className="mainMenu" href="/registry">Wedding Registry</a>
-                                    <ul className="subMenuContainer">
-                                            <div className="subMenu subMenu1">
-                                                <li><a href="/planning/calendar">Calendar</a></li>
-                                                <li><a href="/planning/checklist">Check List</a></li>
-                                                <li><a href="/planning/guestlist">Guest List</a></li>
-                                                <li><a href="/planning/team">Manage Vendors</a></li>
-                                            </div>
-                                            <div className="subMenu">
-                                                <li><a href="/registry">Create Your Registry</a></li>
-                                            </div>
-                                            <div className="subMenu">
-                                                <li><a href="/website">Create Your Website</a></li>
-                                                <li><a href="/website/find">Find A Couple</a></li>
-                                            </div>
-                                            <div className="subMenu">
-                                                <li><a href="/team">Find Your Team</a></li>
-                                            </div>
-                                        </ul>
-                                    </li>
+                                        <li className="mainLi"><a className="mainMenu" href="/registry">Wedding Registry</a>
+                                            <ul className="subMenuContainer">
+                                                <div className="subMenu subMenu1">
+                                                    <li><a href="/planning/calendar">Calendar</a></li>
+                                                    <li><a href="/planning/checklist">Check List</a></li>
+                                                    <li><a href="/planning/guestlist">Guest List</a></li>
+                                                    <li><a href="/planning/team">Manage Vendors</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/registry">Create Your Registry</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/website">Create Your Website</a></li>
+                                                    <li><a href="/website/find">Find A Couple</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/team">Find Your Team</a></li>
+                                                </div>
+                                            </ul>
+                                        </li>
 
-                                    <li className="mainLi"><a className="mainMenu" href="/website">Wedding Website</a>
-                                    <ul className="subMenuContainer">
-                                            <div className="subMenu subMenu1">
-                                                <li><a href="/planning/calendar">Calendar</a></li>
-                                                <li><a href="/planning/checklist">Check List</a></li>
-                                                <li><a href="/planning/guestlist">Guest List</a></li>
-                                                <li><a href="/planning/team">Manage Vendors</a></li>
-                                            </div>
-                                            <div className="subMenu">
-                                                <li><a href="/registry">Create Your Registry</a></li>
-                                            </div>
-                                            <div className="subMenu">
-                                                <li><a href="/website">Create Your Website</a></li>
-                                                <li><a href="/website/find">Find A Couple</a></li>
-                                            </div>
-                                            <div className="subMenu">
-                                                <li><a href="/team">Find Your Team</a></li>
-                                            </div>
-                                        </ul>
-                                    </li>
+                                        <li className="mainLi"><a className="mainMenu" href="/website">Wedding Website</a>
+                                            <ul className="subMenuContainer">
+                                                <div className="subMenu subMenu1">
+                                                    <li><a href="/planning/calendar">Calendar</a></li>
+                                                    <li><a href="/planning/checklist">Check List</a></li>
+                                                    <li><a href="/planning/guestlist">Guest List</a></li>
+                                                    <li><a href="/planning/team">Manage Vendors</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/registry">Create Your Registry</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/website">Create Your Website</a></li>
+                                                    <li><a href="/website/find">Find A Couple</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/team">Find Your Team</a></li>
+                                                </div>
+                                            </ul>
+                                        </li>
 
-                                    <li className="mainLi"><a className="mainMenu" href="/team">Find Professionals</a>
-                                    <ul className="subMenuContainer">
-                                            <div className="subMenu subMenu1">
-                                                <li><a href="/planning/calendar">Calendar</a></li>
-                                                <li><a href="/planning/checklist">Check List</a></li>
-                                                <li><a href="/planning/guestlist">Guest List</a></li>
-                                                <li><a href="/planning/team">Manage Vendors</a></li>
-                                            </div>
-                                            <div className="subMenu">
-                                                <li><a href="/registry">Create Your Registry</a></li>
-                                            </div>
-                                            <div className="subMenu">
-                                                <li><a href="/website">Create Your Website</a></li>
-                                                <li><a href="/website/find">Find A Couple</a></li>
-                                            </div>
-                                            <div className="subMenu">
-                                                <li><a href="/team">Find Your Team</a></li>
-                                            </div>
-                                        </ul>
-                                    </li>
-                                </MDBNavbarNav>
+                                        <li className="mainLi"><a className="mainMenu" href="/team">Find Professionals</a>
+                                            <ul className="subMenuContainer">
+                                                <div className="subMenu subMenu1">
+                                                    <li><a href="/planning/calendar">Calendar</a></li>
+                                                    <li><a href="/planning/checklist">Check List</a></li>
+                                                    <li><a href="/planning/guestlist">Guest List</a></li>
+                                                    <li><a href="/planning/team">Manage Vendors</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/registry">Create Your Registry</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/website">Create Your Website</a></li>
+                                                    <li><a href="/website/find">Find A Couple</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/team">Find Your Team</a></li>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                    </MDBNavbarNav>
+                                    :
+                                    <MDBNavbarNav left>
+                                        <li className="mainLi"><a className="mainMenu" href="/login">Planning Tools</a>
+                                            <ul className="subMenuContainer">
+                                                <div className="subMenu subMenu1">
+                                                    <li><a href="/login">Calendar</a></li>
+                                                    <li><a href="/login">Check List</a></li>
+                                                    <li><a href="/login">Guest List</a></li>
+                                                    <li><a href="/login">Manage Vendors</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/registry">Create Your Registry</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/login">Create Your Website</a></li>
+                                                    <li><a href="/website/find">Find A Couple</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/team">Find Your Team</a></li>
+                                                </div>
+                                            </ul>
+                                        </li>
+
+                                        <li className="mainLi"><a className="mainMenu" href="/registry">Wedding Registry</a>
+                                            <ul className="subMenuContainer">
+                                                <div className="subMenu subMenu1">
+                                                    <li><a href="/login">Calendar</a></li>
+                                                    <li><a href="/login">Check List</a></li>
+                                                    <li><a href="/login">Guest List</a></li>
+                                                    <li><a href="/login">Manage Vendors</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/registry">Create Your Registry</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/login">Create Your Website</a></li>
+                                                    <li><a href="/website/find">Find A Couple</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/team">Find Your Team</a></li>
+                                                </div>
+                                            </ul>
+                                        </li>
+
+                                        <li className="mainLi"><a className="mainMenu" href="/login">Wedding Website</a>
+                                            <ul className="subMenuContainer">
+                                                <div className="subMenu subMenu1">
+                                                    <li><a href="/login">Calendar</a></li>
+                                                    <li><a href="/login">Check List</a></li>
+                                                    <li><a href="/login">Guest List</a></li>
+                                                    <li><a href="/login">Manage Vendors</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/registry">Create Your Registry</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/login">Create Your Website</a></li>
+                                                    <li><a href="/website/find">Find A Couple</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/team">Find Your Team</a></li>
+                                                </div>
+                                            </ul>
+                                        </li>
+
+                                        <li className="mainLi"><a className="mainMenu" href="/team">Find Professionals</a>
+                                            <ul className="subMenuContainer">
+                                                <div className="subMenu subMenu1">
+                                                    <li><a href="/login">Calendar</a></li>
+                                                    <li><a href="/login">Check List</a></li>
+                                                    <li><a href="/login">Guest List</a></li>
+                                                    <li><a href="/login">Manage Vendors</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/registry">Create Your Registry</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/login">Create Your Website</a></li>
+                                                    <li><a href="/website/find">Find A Couple</a></li>
+                                                </div>
+                                                <div className="subMenu">
+                                                    <li><a href="/team">Find Your Team</a></li>
+                                                </div>
+                                            </ul>
+                                        </li>
+                                    </MDBNavbarNav>
+                                }
+
                             </MDBCollapse>
                             <MDBNavbarNav right>
                                 <MDBNavItem>

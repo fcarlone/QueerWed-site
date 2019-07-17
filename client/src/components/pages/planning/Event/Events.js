@@ -65,7 +65,7 @@ class Events extends Component {
       <Fragment>
         <Nav />
         <div className="container-event">
-          <h1 className="event-title">Manage Your Venues</h1>
+          <h1 className="event-title">Manage Your Events</h1>
           <div className="events-section-one">
             <EventForm
               addEvent={this.handleNewEvent}

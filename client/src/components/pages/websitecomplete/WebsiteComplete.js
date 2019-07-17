@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import Nav from './WebsiteNav.js'
 import Header from './Header.js';
 import Details from './Detail.js';
-import GuestBook from './GuestBook.js';
-// import GuestList from './GuestList.js';
-// import Container from '../../layout/Container';
+import Container from '../../layout/Container';
 import Rsvp from './Rsvp.js';
-import Faqs from './Faqs.js';
 import axios from 'axios';
 
 // import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -20,15 +17,9 @@ class WebsiteComplete extends Component {
     name1: 'enter your name',
     name2: 'enter your spouse name',
     date: '',
-    location: ''
-    // guestList: [{ id: 1, first_name: "Enter Guest's First Name", last_name: "Enter Guest's Last Name", table_number: 0, isEditing: false }],
-    // current_guest: {
-    //   id: 0,
-    //   first_name: '',
-    //   last_name: '',
-    //   table_number: '',
-    //   isEditing: false
-    // }
+    location: '',
+    rsvpdate: '',
+    guestname: ''
   };
 
   componentDidMount() {
@@ -37,141 +28,66 @@ class WebsiteComplete extends Component {
 
   loadData = async () => {
     try {
-        const response = await axios
-            .get("/api/websitedata");
-        console.log(response.data);
-        this.setState({
-          userId: response.data[0].user,
-          name1: response.data[0].name1,
-          name2: response.data[0].name2,
-          date: response.data[0].date,
-          location: response.data[0].location
-        });
+      const response = await axios
+        .get("/api/websitedata");
+      console.log(response.data);
+      this.setState({
+        userId: response.data[0].user,
+        name1: response.data[0].name1,
+        name2: response.data[0].name2,
+        date: response.data[0].date,
+        location: response.data[0].location,
+        rsvpdate: response.data[0].rsvpdate
+      });
     }
     catch (error) {
-        console.log(error);
+      console.log(error);
     };
-};
+  };
 
-  // Add name1+name2 START from here
+  // Rsvp : tpye guest name and rsvp
 
-  addName1 = () => {
+  handleRsvpName = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
     this.setState({
-      name1: [...this.state.guestList, {
-        name1: ''
-      }]
+      [name]: value
     })
   }
 
-  // Add name1 and name2 function END from here
-
-
-
-  // Guset List Functions START from here
-
-  editGuest = (current_guest, isDone) => {
-    current_guest.isEditing = !current_guest.isEditing;
-    if (isDone) {
-      let newGuestList = [...this.state.guestList];
-      newGuestList = newGuestList.map((guest) => {
-        if (guest.id === current_guest.id) {
-          return this.state.current_guest;
-        } else {
-          return guest;
-        }
-      });
-      this.setState({
-        guestList: newGuestList
-      })
-    } else {
-      this.setState({
-        current_guest: current_guest
-      })
-    }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state.guestname);
   }
-
-  removeGuest = (id) => {
-    let newGuestList = this.state.guestList.filter((guest) => {
-      return !(guest.id === id)
-    })
-    this.setState({
-      guestList: newGuestList
-    })
-  }
-
-  handleChange = (field, value) => {
-    console.log(value);
-    if (field === 'first_name') {
-      this.setState({
-        current_guest: { ...this.state.current_guest, first_name: value }
-      })
-    }
-    if (field === 'last_name') {
-      this.setState({
-        current_guest: { ...this.state.current_guest, last_name: value }
-      })
-    }
-    if (field === 'table_number') {
-      this.setState({
-        current_guest: { ...this.state.current_guest, table_number: value }
-      })
-    }
-  }
-
-  addGuest = () => {
-    this.setState({
-      guestList: [...this.state.guestList, {
-        id: this.state.guestList.length + 1,
-        first_name: '',
-        last_name: '',
-        table_number: '',
-        isEditing: false
-      }]
-    })
-  }
-
-  // Guset List Functions END
 
   render() {
 
     return (
-      <>
-        <div>
-          <p>{this.state.name1}</p>
-          <p>{this.state.name2}</p>
-          <p>{this.state.date}</p>
-          <p>{this.state.location}</p>
-
-        </div>
-        <div className="App">
+      <Container>
+        <div className="App" id="websitebody">
           <Nav />
-
-          <Header />
+          <Header
+            name1={this.state.name1}
+            name2={this.state.name2}
+          />
 
           <div className="row align-items-center justify-content-center">
             <div className="col-10 text-center">
+              <Details
+                date={this.state.date}
+                location={this.state.location} />
 
-              <Details />
-              {/* 
-              <GuestList
-                addGuest={this.addGuest}
-                guestList={this.state.guestList}
-                currentGuest={this.state.current_guest}
-                editGuest={this.editGuest}
-                handleChange={this.handleChange}
-                removeGuest={this.removeGuest}
-              /> */}
-
-              <GuestBook />
-
-              <Faqs />
-
-              <Rsvp />
+              <Rsvp
+                rsvpdate={this.state.rsvpdate}
+                handleRsvpName={this.handleRsvpName}
+                handleSubmit={this.handleSubmit}
+                value={this.state.guestname}
+              />
 
             </div>
           </div>
         </div>
-      </>
+      </Container>
     );
   }
 }
