@@ -28,7 +28,7 @@ class TodoMenu extends React.Component {
         <div className="menu-container">
           <h1 className="page-title">Checklist</h1>
           <h3 className="todo-content">
-            Checkist Total: {this.props.items.length}
+            Total Items: {this.props.items.length}
           </h3>
 
           <h3 className="todo-content">Todos completed: {count}</h3>

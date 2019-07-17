@@ -62,7 +62,7 @@ class TodoForm extends Component {
     return (
       <Fragment>
         <div className="container-form">
-          <h2>Checklist</h2>
+          <h2>To Do:</h2>
           <form onSubmit={this.onSubmit}>
             {this.props.current !== null ? (
               // true

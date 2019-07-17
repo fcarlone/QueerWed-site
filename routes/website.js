@@ -36,7 +36,8 @@ module.exports = function(app) {
       name1,
       name2,
       date,
-      location
+      location,
+      rsvpdate
     } = req.body;
 
    try {
@@ -45,6 +46,7 @@ module.exports = function(app) {
       name2,
       date,
       location,
+      rsvpdate,
       user: req.user._id
      });
 

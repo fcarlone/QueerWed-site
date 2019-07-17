@@ -15,8 +15,7 @@
     color: #ffffff
 }
 
-.answer,
-input:focus {
+.answer{
     border-radius: 0px;
     background-color: transparent;
     border: 0px solid;
@@ -24,8 +23,15 @@ input:focus {
     color: #ffffff
 }
 
-input, select, textarea{
+select, textarea{
     color: #ffffff;
+}
+
+.title-font {
+    font-family: "montserrat"
+}
+.content-font {
+    font-family: "Roboto, sans-serif"
 }
 
 

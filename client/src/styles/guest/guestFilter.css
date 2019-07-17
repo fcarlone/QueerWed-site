@@ -1,3 +1,12 @@
 .form-input-filter {
   width: 30rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: white;
+}
+
+.filterguest{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: white;
 }

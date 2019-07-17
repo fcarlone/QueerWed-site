@@ -14,7 +14,7 @@ const Guests = () => {
   }, []);
 
   if (guests.length === 0) {
-    return <h4 style={{ textAlign: "center" }}>Guest list currently empty</h4>;
+    return <h4 className ="filterguest"style={{ textAlign: "center" }}>Guest list currently empty</h4>;
   }
 
   return (

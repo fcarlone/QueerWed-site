@@ -1,12 +1,24 @@
 #header {
   background-image: url("headersample.jpeg");
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
  }
 
-.jumbotron {
-  height: 550px;
-}
 
 .display-4 {
   font-family: 'Bilbo Swash Caps';
   font-size: 35px;
+}
+
+#name1, #name2 {
+  font-size:80px;
+  margin: 20px;
+  color: white;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
 }

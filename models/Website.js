@@ -18,6 +18,9 @@ const WebsiteSchema = mongoose.Schema({
   },
   location: {
     type: String,
+  },
+  rsvpdate: {
+    type: String,
   }
 })
 
