@@ -5,7 +5,7 @@ class TodoForm extends Component {
   state = {
     newItem: "",
     error: "",
-    current: ""
+    current: null
   };
 
   onSubmit = event => {
@@ -30,7 +30,7 @@ class TodoForm extends Component {
       this.props.editTodo(this.state);
 
       // Reset field
-      this.setState({ newItem: "", current: "" });
+      this.setState({ newItem: "", current: null });
     }
   };
 
@@ -42,12 +42,20 @@ class TodoForm extends Component {
   };
 
   onChangeEdit = event => {
+    // let {editValue} = "on change edit button";
     console.log(event.target.value);
     console.log(this.state);
     this.setState({
       newItem: event.target.value,
       current: this.props.current
     });
+
+    // const { current } = { ...this.state };
+    // const currentState = current;
+    // const { name, value } = event.target;
+    // currentState[name] = value;
+
+    // this.setState({ current: currentState });
   };
 
   render() {
@@ -61,7 +69,8 @@ class TodoForm extends Component {
               <input
                 type="text"
                 placeholder="Add a new task"
-                value={this.props.current.todo}
+                // value="test"
+                // name="todo"
                 onChange={this.onChangeEdit}
                 autoFocus="autofocus"
                 className="input-todo"
