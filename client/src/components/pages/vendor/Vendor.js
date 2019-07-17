@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
 
-import Container from "../../layout/Container.js"
 import UserCard from "./UserCard"
 import ProfileCard from "./ProfileCard"
+import { withRouter } from "react-router-dom"
+
 
 
 class Vendor extends React.Component {
@@ -19,11 +20,11 @@ class Vendor extends React.Component {
         this.loadVendorProfile();
         this.loadUserWhoLikeYou();
     }
-    logOut() {
-        axios.get("/logout")
+    vendorLogOut() {
+        axios.get("/vendoruser-logout")
             .then(
                 () => {
-                    window.location.href="/"
+                    window.location.href = "/"
                 })
     }
     loadVendorProfile = async () => {
@@ -76,7 +77,7 @@ class Vendor extends React.Component {
         return (
             <>
                 <ProfileCard
-                    logOut={this.logOut}
+                    logOut={this.vendorLogOut}
                     name={this.state.vendorProfile.name}
                     email={this.state.vendorProfile.email}
                     category={this.state.vendorProfile.category}
@@ -90,7 +91,7 @@ class Vendor extends React.Component {
                 />
 
                 <div className="container">
-                    <h1>User Who Likes You!</h1>
+                    <h1 className="p-4 text-center title-font" style={{ color: "#eac7dc" }}>Couples Who Like You!</h1>
                     <div className="card-columns">
                         {this.state.userData.map((ele, index) =>
                             <UserCard
@@ -107,4 +108,4 @@ class Vendor extends React.Component {
         );
     }
 }
-export default Vendor;
+export default withRouter(Vendor);

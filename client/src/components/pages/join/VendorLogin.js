@@ -59,11 +59,11 @@ class VendorLogin extends React.Component {
         <Container>
           <MDBContainer>
             <MDBRow>
-              <MDBCol md="4" className="mx-auto mt-5">
+              <MDBCol sm="8" md="6" lg="4" className="mx-auto mt-5">
                 <MDBCard>
                   <MDBCardBody>
                     <form>
-                      <p className="h5 text-center mb-5 mt-3">Vendor Log in</p>
+                      <p className="h5 text-center mb-5 mt-3 title-text grey-text">VENDOR LOGIN</p>
                       <div className="grey-text">
                         <MDBInput
                           label="Type your email"

@@ -1,7 +1,7 @@
 .profile-img-container {
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     overflow: hidden;
     border-radius: 50%;
   }
@@ -14,10 +14,6 @@
     -webkit-transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
             transform: translate(-50%,-50%);
-  }
-  .profile-img-container img.portrait {
-    width: 100%;
-    height: auto;
   }
 
   /* .background {

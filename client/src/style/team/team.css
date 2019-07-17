@@ -42,7 +42,7 @@
   height: 300px;
   
 }
-.team-card-body .card-body i {
+.team-card-body .card-body .fa-heart {
   position: absolute;
   top: 0px;
   right:15px;

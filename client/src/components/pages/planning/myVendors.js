@@ -196,10 +196,11 @@ class MyVendor extends React.Component {
 
                     </div>
                     <div className="container">
-                        <TeamSearch
+                        {this.state.isLogIn && <TeamSearch
                             onClick={this.handleSearch}
                             onChange={this.handleInputChange}
-                            location={this.state.location} />
+                            location={this.state.location} />}
+                        
                         {this.state.filtered.map((ele, index) => (
                             <Card
                                 key={index}

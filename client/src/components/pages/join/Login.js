@@ -95,11 +95,11 @@ class Login extends React.Component {
         <Container>
           <MDBContainer>
             <MDBRow>
-              <MDBCol md="4" className="mx-auto mt-5">
+              <MDBCol sm="8" md="6" lg="4" className="mx-auto mt-5">
                 <MDBCard>
                   <MDBCardBody>
                     <form>
-                      <p className="h5 text-center mb-5 mt-3">Log in</p>
+                      <p className="h5 text-center mb-5 mt-3 title-text grey-text">LOGIN</p>
                       <div className="grey-text">
                         <MDBInput
                           label="Type your email"
@@ -123,10 +123,10 @@ class Login extends React.Component {
                         />
                       </div>
                       <div className="text-center">
-                        <Button onClick={this.onSubmitLogin} value="Login" />
+                        <Button className="btn-sm" onClick={this.onSubmitLogin} value="Login"  />
                         <br />
                         <p className="mt-2">
-                          Not a member? <a href="/signup">Sign Up</a>
+                          Not a member? <a href="/signup" >Sign Up</a>
                         </p>
                       </div>
                     </form>

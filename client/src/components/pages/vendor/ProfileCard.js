@@ -8,14 +8,15 @@ const ProfileCard = (props) => {
     return (
         <div className="background p-5" style={{ backgroundColor: "#eac7dc" }}>
             <div className="container">
+                <a className="white-text float-right mt-0 mr-0" onClick={props.logOut}>LogOut <i className="fas fa-sign-out-alt"></i></a>
+
                 <div className="row">
-                    <div className="col-sm-4 text-center">
+                    <div className="col-sm-12 col-md-6 col-lg-5 text-center">
                         <div className="profile-img-container mx-auto">
                             <img src={props.image} alt={props.name} style={{ height: "300px" }}></img>
                         </div>
                     </div>
-                    <div className="col-sm-8 profile-container">
-                        <a href="/logout" className="white-text float-right mt-0 mr-0" onClick={props.logOut}>LogOut <i className="fas fa-sign-out-alt"></i></a>
+                    <div className="col-sm-12 col-md-6 col-lg-7 profile-container">
 
                         <div className="profile-content-container">
                             <h1 className="white-text mb-3">Hi! {props.name}</h1>

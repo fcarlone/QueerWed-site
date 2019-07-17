@@ -21,8 +21,15 @@ module.exports = function (app) {
 
   // User logout
   app.get("/vendoruser-logout", function (req, res) {
-    req.logout();
-    res.redirect("/");
+    console.log("Vendor LOGOUT")
+    // req.logout();
+    // res.redirect("/");
+    req.session.destroy((err) => {
+      if(err) return next(err)
+    
+      req.logout()
+      res.end()
+    })
   });
 
   // User signup

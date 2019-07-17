@@ -30,7 +30,7 @@ import VendorLogin from "./components/pages/join/VendorLogin";
 
 // Vendor Pages
 import Vendor from "./components/pages/vendor/Vendor";
-import VendorTest from "./components/pages/vendor/VendorTest"
+// import VendorTest from "./components/pages/vendor/VendorTest"
 
 
 class App extends Component {
@@ -61,7 +61,7 @@ class App extends Component {
 
               <Route exact path="/registry" component={Registry} />
               <Route exact path="/website" component={Website} />
-              <Route exact path="/website/find" component={VendorTest} />
+              {/* <Route exact path="/website/find" component={VendorTest} /> */}
               <Route exact path="/team" component={Team} />
 
               <Route exact path="/signup" component={Signup} />

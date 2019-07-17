@@ -61,7 +61,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
             <div>
                 <header>
                     <Router>
-                        <MDBNavbar color="white" dark expand="md" fixed="top">
+                        <MDBNavbar color="white" dark expand="md" fixed="top" style={{minWidth: "1070px"}}>
                             <MDBNavbarBrand>
                                 <a className="pink-text" href="/" style={{fontFamily:"montserrat", fontWeight:"bolder"}}><strong>QueerWed</strong></a>
                             </MDBNavbarBrand>
@@ -158,7 +158,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                     {this.state.isLogIn ?
                                         <div className="joinMenuContainer" style={{ float: "right" }}>
                                             <span className="m-1 joinMenu pink-text"><strong>{this.state.userEmail}</strong></span>
-                                            <MDBBtn color="pink" size="sm" onClick={this.logOut}>Log Out</MDBBtn>
+                                            <MDBBtn className="z-depth-0" color="pink" size="sm" onClick={this.logOut}>Log Out</MDBBtn>
                                             {/* <span className="m-1"><button className="joinMenu pink-text" style={{backgroundColor: "#fffff"}} onClick={this.logOut}>Log Out</button></span> */}
                                             {/* <span className="m-1"><a className="joinMenu grey-text" href="/login/vendor">Vendor</a></span> */}
                                         </div>
