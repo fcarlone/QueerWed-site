@@ -29,30 +29,31 @@ class WebsiteComplete extends Component {
   loadData = async () => {
     try {
       const response = await axios
-      .get("/api/websitedata");
-  console.log(response.data);
-        this.setState({
-          userId: response.data[0].user,
-          name1: response.data[0].name1,
-          name2: response.data[0].name2,
-          date: response.data[0].date,
-          location: response.data[0].location,
-          rsvpdate: response.data[0].rsvpdate
-        });
+        .get("/api/websitedata");
+      console.log(response.data);
+      this.setState({
+        userId: response.data[0].user,
+        name1: response.data[0].name1,
+        name2: response.data[0].name2,
+        date: response.data[0].date,
+        location: response.data[0].location,
+        rsvpdate: response.data[0].rsvpdate
+      });
     }
     catch (error) {
-        console.log(error);
+      console.log(error);
     };
-};
+  };
 
-// Rsvp : tpye guest name and rsvp
+  // Rsvp : tpye guest name and rsvp
 
   handleRsvpName = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
     this.setState({
-      [name] : value
-    })}
+      [name]: value
+    })
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -65,24 +66,23 @@ class WebsiteComplete extends Component {
       <Container>
         <div className="App" id="websitebody">
           <Nav />
- 
-          <Header 
-           name1 = {this.state.name1}
-           name2 = {this.state.name2}
+          <Header
+            name1={this.state.name1}
+            name2={this.state.name2}
           />
 
           <div className="row align-items-center justify-content-center">
             <div className="col-10 text-center">
-          <Details 
-           date = {this.state.date}
-           location = {this.state.location}/>
+              <Details
+                date={this.state.date}
+                location={this.state.location} />
 
-          <Rsvp   
-          rsvpdate= {this.state.rsvpdate} 
-          handleRsvpName = {this.handleRsvpName}
-          handleSubmit = {this.handleSubmit}
-          value = {this.state.guestname}
-          />
+              <Rsvp
+                rsvpdate={this.state.rsvpdate}
+                handleRsvpName={this.handleRsvpName}
+                handleSubmit={this.handleSubmit}
+                value={this.state.guestname}
+              />
 
             </div>
           </div>

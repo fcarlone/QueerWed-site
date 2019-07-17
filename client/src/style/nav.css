@@ -18,7 +18,7 @@ nav ul {
   height: 60px;
 }
   
-nav ul li {
+nav ul .mainLi {
   /* display: inline-block; */
   width: 160px;
 }
@@ -76,7 +76,7 @@ nav > ul {
 }
 
 .subMenu1 {
-  margin-left: 125px;
+  margin-left: 141px;
 }
 
 .subMenu > li {
@@ -91,6 +91,9 @@ nav > ul {
   color: #9e9e9e;
 }
 
+.joinMenuContainer {
+  width: auto;
+}
 .joinMenu {
   font-size: 11px;
   padding: 0px 3px;

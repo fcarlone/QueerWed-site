@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import Container from "../../layout/Container.js";
+import Nav from "../../layout/Nav"
 
 class Planning extends Component {
   render() {
     return (
+      <>
+      <Nav />
       <Container>
         <div className="planningMain">
           <div className="header">
@@ -11,6 +14,7 @@ class Planning extends Component {
           </div>
         </div>
       </Container>
+      </>
     );
   }
 }
