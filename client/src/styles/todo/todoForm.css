@@ -1,0 +1,22 @@
+.container-form {
+  border: none;
+  text-align: center;
+  margin: auto;
+}
+
+.input-todo {
+  width: 35rem;
+  color: black;
+}
+
+.todo-btn-container,
+.container-form {
+  width: 35rem;
+}
+
+.btn-todo {
+}
+
+/* .input-todo:focus {
+  outline: none;
+} */

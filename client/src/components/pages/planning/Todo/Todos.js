@@ -2,6 +2,8 @@ import React, { Component, Fragment } from "react";
 import TodoItem from "./TodoItem";
 import TodoForm from "./TodoForm";
 import axios from "axios";
+import TodoMenu from "./TodoMenu";
+import "../../../../styles/todo/todo.css";
 
 class Todos extends Component {
   state = {
@@ -20,30 +22,26 @@ class Todos extends Component {
   }
 
   toggleComplete = id => {
-    axios.put(`/api/todos/${id}`).then(response => {
-      console.log("Todo boolean change", response.data);
+    console.log("id", id);
 
-      this.state.items.map(item => {
-        if (item._id === response.data._id) {
-          console.log("state.item:", item);
+    this.setState({
+      items: this.state.items.map(item => {
+        if (item._id === id) {
+          const changeCompleteValue = !item.completed;
+          console.log("new completed value", changeCompleteValue);
 
-          let databaseCompleted = response.data.completed;
-          console.log(databaseCompleted);
+          // Update Database
+          axios
+            .put(`/api/todos/${id}`, { completed: changeCompleteValue })
+            .then(response => {
+              console.log("return value from put request");
+            });
 
-          // Update item with "completed" value from database
-          item.completed = databaseCompleted;
-          console.log("updated item", item);
-
-          // Replace Object
-          this.setState(prevState => ({
-            items: prevState.items.map(item =>
-              item.key === item
-                ? { ...item, completed: databaseCompleted }
-                : item
-            )
-          }));
+          // Update State
+          return { ...item, completed: changeCompleteValue };
         }
-      });
+        return item;
+      })
     });
   };
 
@@ -83,17 +81,24 @@ class Todos extends Component {
   render() {
     return (
       <Fragment>
-        <h1>Todo Component</h1>
-        <TodoForm addTodo={this.handleNewTodo} />
-        {this.state.items.map(item => (
-          <TodoItem
-            key={item._id}
-            item={item}
-            toggleComplete={() => this.toggleComplete(item._id)}
-            handleRemoveTodo={() => this.handleRemoveTodo(item._id)}
-            handleEditTodo={() => this.handleEditTodo(item._id)}
-          />
-        ))}
+        <div className="container-todo">
+          <h1 className="todo-title">Mangage Your Checklist</h1>
+          <div className="one">
+            <TodoMenu items={this.state.items} />
+            <div className="two">
+              <TodoForm addTodo={this.handleNewTodo} />
+              {this.state.items.map(item => (
+                <TodoItem
+                  key={item._id}
+                  item={item}
+                  toggleComplete={() => this.toggleComplete(item._id)}
+                  handleRemoveTodo={() => this.handleRemoveTodo(item._id)}
+                  handleEditTodo={() => this.handleEditTodo(item._id)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </Fragment>
     );
   }

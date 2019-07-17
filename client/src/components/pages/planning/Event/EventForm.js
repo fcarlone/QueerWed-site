@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
+import Form from "react-bootstrap/Form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "../../../../styles/event/eventForm.css";
 
 class EventForm extends Component {
   state = {
@@ -35,41 +37,58 @@ class EventForm extends Component {
   render() {
     return (
       <Fragment>
-        <h1>Event Form Component</h1>
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="Enter venue"
-            name="venue"
-            value={this.state.venue}
-            onChange={this.onChange}
-            autoFocus="autofocus"
-          />
-          <input
-            type="text"
-            placeholder="Enter description"
-            name="description"
-            value={this.state.description}
-            onChange={this.onChange}
-            autoFocus="autofocus"
-          />
-          <DatePicker
-            selected={this.state.startDate}
-            onChange={this.handleDate}
-          />
-          <DatePicker
-            selected={this.state.startDate}
-            onChange={this.handleDate}
-            showTimeSelect
-            showTimeSelectOnly
-            timeIntervals={15}
-            dateFormat="h:mm aa"
-            timeCaption="Time"
-          />
-          <div>
-            <button className="btn">Add Event</button>
-          </div>
-        </form>
+        <div className="event-form-container">
+          <h2>Enter Venue Information</h2>
+          <Form onSubmit={this.onSubmit}>
+            <Form.Group>
+              <input
+                type="text"
+                placeholder="Enter venue"
+                name="venue"
+                value={this.state.venue}
+                onChange={this.onChange}
+                autoFocus="autofocus"
+                className="event-form-venue"
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <input
+                type="text"
+                placeholder="Enter description"
+                name="description"
+                value={this.state.description}
+                onChange={this.onChange}
+                className="event-form-description"
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <DatePicker
+                selected={this.state.startDate}
+                onChange={this.handleDate}
+                className="event-form-date"
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <DatePicker
+                selected={this.state.startDate}
+                onChange={this.handleDate}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={15}
+                dateFormat="h:mm aa"
+                timeCaption="Time"
+                className="event-form-time"
+              />
+            </Form.Group>
+
+            <div className="event-btn-container">
+              <button className="btn btn-event-form">Add Event</button>
+            </div>
+          </Form>
+        </div>
       </Fragment>
     );
   }

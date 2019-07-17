@@ -36,7 +36,7 @@ module.exports = function(app) {
       // Save event to database
       const event = await newEvent.save();
 
-      // Return event to clien
+      // Return event to client
       res.json(event);
 
       // Catch error
@@ -63,6 +63,9 @@ module.exports = function(app) {
 
       // Delete event from database
       await Event.findByIdAndDelete(req.params.id);
+
+      // Return event to client
+      res.json(event);
 
       // Catch error
     } catch (error) {

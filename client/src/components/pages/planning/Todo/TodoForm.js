@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import "../../../../styles/todo/todoForm.css";
 
 class TodoForm extends Component {
   state = {
@@ -14,10 +15,9 @@ class TodoForm extends Component {
     } else {
       // Add new item
       this.props.addTodo(this.state);
-
-      // Reset field
-      // this.setState({ newItem: "" });
     }
+    // Reset field
+    this.setState({ newItem: "" });
   };
 
   onChange = event => {
@@ -30,19 +30,22 @@ class TodoForm extends Component {
   render() {
     return (
       <Fragment>
-        <h1>TodoForm Component</h1>
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="Enter new item"
-            value={this.state.newItem}
-            onChange={this.onChange}
-            autoFocus="autofocus"
-          />
-          <div>
-            <button className="btn">Add Item</button>
-          </div>
-        </form>
+        <div className="container-form">
+          <h2>Checklist</h2>
+          <form onSubmit={this.onSubmit}>
+            <input
+              type="text"
+              placeholder="Add a new task"
+              value={this.state.newItem}
+              onChange={this.onChange}
+              autoFocus="autofocus"
+              className="input-todo"
+            />
+            <div className="todo-btn-container">
+              <button className="btn btn-todo">Add Item</button>
+            </div>
+          </form>
+        </div>
       </Fragment>
     );
   }

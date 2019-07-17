@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import "../../../../styles/event/eventItem.css";
 const moment = require("moment");
 
 const EventItem = props => {
@@ -6,23 +7,31 @@ const EventItem = props => {
 
   // Format date & time
   const dateFormat = moment(date).format("MMMM Do, YYYY");
-  console.log(dateFormat);
-
   const timeFormat = moment(date).format("h:mm A");
-  console.log(timeFormat);
 
   return (
     <Fragment>
-      <h1>Event Item Component</h1>
-      <div>
-        <h3>{venue}</h3>
-        <h3>{description}</h3>
+      <div className="event-card">
+        <h3>
+          <strong>Place: </strong>
+          {venue}
+        </h3>
+        <h3>
+          <strong>Venue description: </strong>
+          {description}
+        </h3>
         <div>
           {" "}
-          <h3>{dateFormat}</h3>
-          <h3>{timeFormat}</h3>
+          <h3>
+            <strong>Date: </strong>
+            {dateFormat}
+          </h3>
+          <h3>
+            <strong>Time: </strong>
+            {timeFormat}
+          </h3>
         </div>
-        <div>
+        <div className="event-item-btn-container">
           <button className="btn" onClick={props.handleEditEvent}>
             Edit
           </button>

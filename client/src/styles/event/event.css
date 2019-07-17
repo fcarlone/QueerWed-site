@@ -1,0 +1,23 @@
+.container-event {
+  margin-top: 10rem;
+}
+
+.event-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.event-list-description {
+  text-align: center;
+}
+
+.events-section-one {
+  display: flex;
+}
+
+.events-section-two {
+  width: 35rem;
+  margin-left: 10rem;
+}
