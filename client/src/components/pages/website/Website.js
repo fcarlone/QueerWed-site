@@ -21,7 +21,8 @@ class Website extends Component {
     name2: '',
     date: '',
     location: '',
-    rsvpdate: ''
+    rsvpdate: '',
+    guestname: ''
   };
 
   componentDidMount () {
@@ -57,6 +58,9 @@ class Website extends Component {
   handleAddButton = (event) => {
     event.preventDefault();
     console.log(this.state.name1, this.state.name2);
+    this.setState({
+      
+    })
   }
 
   // Header - End: Add name1 and name2

@@ -11,7 +11,7 @@ const WebsiteSchema = mongoose.Schema({
     type: String,
   },
   rsvp: {
-    type: Boolean
+    type: String
   }
 })
 

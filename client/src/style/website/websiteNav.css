@@ -1,9 +1,9 @@
 .nav {
-  height: 45px;
-  font-size: 20px;
+  height: 40px;
+  font-size: 17px;
   padding: 0px 0;
   background:   #eefaef;
-  font-family: 'Handlee';background-image: url("./img/background4.jpg")
+  font-family: 'montserrat';background-image: url("./img/background4.jpg")
 }
 .logo {
   /* background:#f0f0f0; */

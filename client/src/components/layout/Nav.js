@@ -65,8 +65,9 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 <li><a href="/registry/create">Create Your Registry</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/website/create">Create Your Website</a></li>
+                                                <li><a href="/website">Create Your Website</a></li>
                                                 <li><a href="/website/find">Find A Couple</a></li>
+                                                <li><a href="/website/mywebsite">See My Website</a></li>
                                             </div>
                                             <div className="subMenu">
                                             <li><a href="/team">Find Your Team</a></li>
@@ -87,8 +88,9 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 <li><a href="/registry/create">Create Your Registry</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/website/create">Create Your Website</a></li>
+                                                <li><a href="/website">Create Your Website</a></li>
                                                 <li><a href="/website/find">Find A Couple</a></li>
+                                                <li><a href="/website/mywebsite">See My Website</a></li>
                                             </div>
                                             <div className="subMenu">
                                                 <li><a href="/team">Find Your Team</a></li>
@@ -109,8 +111,9 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 <li><a href="/registry/create">Create Your Registry</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/website/create">Create Your Website</a></li>
+                                                <li><a href="/website">Create Your Website</a></li>
                                                 <li><a href="/website/find">Find A Couple</a></li>
+                                                <li><a href="/website/mywebsite">See My Website</a></li>
                                             </div>
                                             <div className="subMenu">
                                             <li><a href="/team">Find Your Team</a></li>
