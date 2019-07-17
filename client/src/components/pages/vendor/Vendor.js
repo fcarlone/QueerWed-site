@@ -74,7 +74,7 @@ class Vendor extends React.Component {
     };
     render() {
         return (
-            <Container>
+            <>
                 <ProfileCard
                     logOut={this.logOut}
                     name={this.state.vendorProfile.name}
@@ -103,7 +103,7 @@ class Vendor extends React.Component {
                                 email={ele.email} />)}
                     </div>
                 </div>
-            </Container>
+            </>
         );
     }
 }

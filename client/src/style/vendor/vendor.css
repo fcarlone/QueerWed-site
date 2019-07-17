@@ -24,3 +24,14 @@
     flex-direction: column;
     justify-content: center;
   } */
+.profile-container {
+  position: relative;
+}
+.profile-container > .profile-content-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.user-card-body .card-title {
+  color: #eac7dc;
+}

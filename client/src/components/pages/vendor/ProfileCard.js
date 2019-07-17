@@ -6,21 +6,28 @@ import "../../../style/vendor/vendor.css"
 
 const ProfileCard = (props) => {
     return (
-        <div className="background d-flex p-4" style={{ backgroundColor: "#007E33" }}>
-            <a href="/logout" className="white-text float-right mt-3 mr-3" onClick={props.logOut}>LogOut <MDBIcon icon="angle-right" /></a>
-            <div className="profile-img-container float-left mr-3">
-                <img src={props.image} alt={props.name} style={{ height: "300px" }}></img>
-            </div>
-            <div className="float-left ">
-                <h2 className="white-text">Hi! {props.name}</h2>
+        <div className="background p-5" style={{ backgroundColor: "#eac7dc" }}>
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-4 text-center">
+                        <div className="profile-img-container mx-auto">
+                            <img src={props.image} alt={props.name} style={{ height: "300px" }}></img>
+                        </div>
+                    </div>
+                    <div className="col-sm-8 profile-container">
+                        <a href="/logout" className="white-text float-right mt-0 mr-0" onClick={props.logOut}>LogOut <i className="fas fa-sign-out-alt"></i></a>
 
-                <p className="white-text">{props.email}</p>
-                <p className="white-text">{props.category}</p>
-                <p className="white-text">{props.phone}</p>
-                <p className="white-text">{props.address} {props.city} {props.state} {props.zipcode}</p>
-                <p className="white-text">{props.description}</p>
+                        <div className="profile-content-container">
+                            <h1 className="white-text mb-3">Hi! {props.name}</h1>
+                            <p className="white-text"><MDBIcon far icon="envelope mr-2" />{props.email}</p>
+                            <p className="white-text"><i className="fas fa-bars mr-2"></i>{props.category}</p>
+                            <p className="white-text"><i className="fas fa-mobile-alt mr-2"></i>{props.phone}</p>
+                            <p className="white-text"><i className="fas fa-map-marker-alt mr-2"></i>{props.address} {props.city} {props.state} {props.zipcode}</p>
+                            <p className="white-text"><i className="far fa-comment-alt mr-2"></i>{props.description}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
 
     )

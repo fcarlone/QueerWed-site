@@ -5,8 +5,8 @@ import { MDBIcon } from "mdbreact";
 const UserCard = (props) => (
     <div className="card">
                 {/* <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="CardImg"></img> */}
-                <div className="card-body">
-                    <h4 className="card-title">{props.name} & {props.partnerName}</h4>
+                <div className="card-body user-card-body text-center p-5">
+                    <h4 className="card-title mb-4">{props.name} & {props.partnerName}</h4>
                     <p className="card-text">Wedding Day : {props.dayOfWedding}</p>
                     <p className="card-text">Number of Guests : {props.howManyGuest}</p>
                     <p className="card-text">Couple's favorite thing: {props.enjoyThing}</p>
