@@ -7,16 +7,16 @@ import { PromiseProvider } from "mongoose";
 
 function Rsvp(props) {
 
-  const guestContext = useContext(GuestContext);
-  // const { deleteGuest, setCurrent, clearCurrent } = guestContext;
-  const { guests, getGuests } = guestContext;
+  // const guestContext = useContext(GuestContext);
+  // // const { deleteGuest, setCurrent, clearCurrent } = guestContext;
+  // const { guests, getGuests } = guestContext;
   
 
 
-  useEffect(() => {
-    getGuests();
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   getGuests();
+  //   // eslint-disable-next-line
+  // }, []);
 
   return(
     <div className="jumbotron d-flex" id="rsvp">
@@ -26,7 +26,7 @@ function Rsvp(props) {
       <h3 id="secondline">Please RSVP by : 
         <input 
         onChange={props.handleInputRsvp} 
-        value={props.value3}
+        value={props.value}
         name="rsvpdate"
         type="text"
         placeholder="Enter date"
@@ -37,11 +37,11 @@ function Rsvp(props) {
       <div className="guestnamelist">
       <h2>Your guest list and RSVP</h2>
       </div>
-      <h3>
+      {/* <h3>
         {guests.map((guest) => (
           console.log(guest.name)
         ))}
-      </h3>
+      </h3> */}
     </div>
     </div>
   )

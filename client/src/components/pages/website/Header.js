@@ -6,14 +6,14 @@ function Header(props) {
   <div className="jumbotron d-flex text-center" id="header">
   <div className="container vertical-center">
     <h1 className="display-4">
-      <input 
+      <input className="text-center"
       onChange={props.handleInputChange} 
       value={props.value}
       name= "name1"
       type="text"  
       placeholder="Your name" />
       &amp; 
-      <input 
+      <input className="text-center"
       onChange={props.handleInputChange}
       value={props.value2}
       name= "name2"
@@ -22,7 +22,7 @@ function Header(props) {
     </h1>
 
     <button onClick={props.handleAddButton} type="button" className="btn btn-info">Add</button>
-    <button type="button" className="btn btn-light">Edit</button>
+    {/* <button type="button" className="btn btn-light">Edit</button> */}
     <br></br>
     <button type="button" className="btn btn-secondary">Upload Your Cover Photo</button>
 

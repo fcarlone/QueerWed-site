@@ -1,5 +1,5 @@
 #rsvp {
-  font-family: 'Bilbo Swash Caps';
+  font-family: 'Montserrat';
   background-image: url("./img/background10.jpg");
   height: 600px;
   background-position: center;
@@ -21,7 +21,7 @@
   width: 220px;
   margin: 20px;
   font-size: 20px;
-  font-family: 'Bad Script'
+  font-family: 'Montserrat'
 }
 
 #rsvpbutton {
