@@ -68,7 +68,7 @@ class TodoForm extends Component {
               // true
               <input
                 type="text"
-                placeholder="Add a new task"
+                placeholder={this.props.current[0].todo}
                 // value="test"
                 // name="todo"
                 onChange={this.onChangeEdit}
@@ -89,7 +89,7 @@ class TodoForm extends Component {
 
             <div className="todo-btn-container">
               <button className="btn btn-todo">
-                {this.props.current !== null ? "Edit Item" : "Add Item"}
+                {this.props.current !== null ? "Update Task" : "Add Task"}
               </button>
             </div>
           </form>

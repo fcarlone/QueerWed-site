@@ -111,6 +111,7 @@ class Todos extends Component {
         return item;
       })
     });
+    this.setState({ current: null });
   };
 
   render() {
