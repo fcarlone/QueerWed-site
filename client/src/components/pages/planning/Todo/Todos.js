@@ -82,7 +82,7 @@ class Todos extends Component {
     return (
       <Fragment>
         <div className="container-todo">
-          <h1 className="todo-title">Mangage Your Checklist</h1>
+          <h1 className="todo-title">Manage To Do List</h1>
           <div className="one">
             <TodoMenu items={this.state.items} />
             <div className="two">

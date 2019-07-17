@@ -24,7 +24,7 @@ const GuestFilter = () => {
 
   return (
     <Fragment>
-      <h2 style={{ textAlign: "center" }}>Filter Guest</h2>
+      <h2 className ="filterguest"style={{ textAlign: "center" }}>Filter Guest</h2>
       <form>
         <input
           ref={text}

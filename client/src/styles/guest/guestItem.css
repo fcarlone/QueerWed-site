@@ -3,6 +3,10 @@
   border: #ccc 1px solid;
   margin: 0.7rem 0;
   width: 30rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: white;
+  padding-left: 80px;
 }
 
 .bg-light {

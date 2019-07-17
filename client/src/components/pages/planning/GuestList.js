@@ -8,7 +8,7 @@ const GuestList = () => {
   return (
     <Fragment>
       <div className="guest-list-container">
-        <h1 className="guest-list-title">Guest List Page</h1>
+        <h1 className="guest-list-title">Manage Guest List</h1>
         <div className="guest-list-form">
           <GuestForm />
           <div className="guest-list-display">

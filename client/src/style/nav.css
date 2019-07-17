@@ -24,7 +24,7 @@ nav ul li {
 }
   
 nav ul li .mainMenu {
-  color:#9e9e9e;
+  color:#131212;
   font-size: 15px;
   display:block;
   padding:0px 10px;
@@ -33,6 +33,9 @@ nav ul li .mainMenu {
   height: 60px;
   line-height: 60px;
   /* text-align: left */
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+
 }
   
 /* nav ul li:hover {
@@ -89,12 +92,19 @@ nav > ul {
 }
 
 .joinMenu {
-  font-size: 13px;
-  padding:0px 3px;
+  font-size: 11px;
+  padding: 0px 3px;
   text-decoration:none;
   /* float: left; */
-  height: 60px;
+  /* height: 60px; */
   line-height: 60px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+
 }
+
+
+
+
 
   
