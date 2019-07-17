@@ -1,23 +1,35 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "./components/layout/Nav";
+// import Nav from "./components/layout/Nav";
+import GuestState from "./context/guest/GuestState";
+
+// Planning Pages
 import Loading from "./components/pages/Loading";
 import Planning from "./components/pages/planning/Planning";
 import Events from "./components/pages/planning/Event/Events";
 import GuestList from "./components/pages/planning/GuestList";
 import Todos from "./components/pages/planning/Todo/Todos";
-import Vendors from "./components/pages/planning/myVendors/Vendors";
+import myVendors from "./components/pages/planning/myVendors";
+// import Vendors from "./components/pages/planning/myVendors/Vendors";
+
+// Registry Pages
 import Registry from "./components/pages/registry/Registry";
-import Team from "./components/pages/team/Team";
+
+// Website Pages
 import Website from "./components/pages/website/Website";
+import WebsiteComplete from "./components/pages/websitecomplete/WebsiteComplete";
+
+// Team Pages
+import Team from "./components/pages/team/Team";
+
+// Join Pages
 import Signup from "./components/pages/join/Signup";
 import Login from "./components/pages/join/Login";
 import VendorSignup from "./components/pages/join/VendorSignup";
 import VendorLogin from "./components/pages/join/VendorLogin";
-import GuestState from "./context/guest/GuestState";
-import WebsiteComplete from "./components/pages/websitecomplete/WebsiteComplete";
+
+// Vendor Pages
 import Vendor from "./components/pages/vendor/Vendor";
-import myVendors from "./components/pages/planning/myVendors";
 import VendorTest from "./components/pages/vendor/VendorTest"
 
 
@@ -36,26 +48,27 @@ class App extends Component {
       <GuestState>
         <Router>
           <div>
-            <Nav readPath={this.readPath} />
+            {/* <Nav readPath={this.readPath} /> */}
             <Switch>
               <Route exact path="/" component={Loading} />
-              <Route exact path="/planning" component={Planning} />
 
+              <Route exact path="/planning" component={Planning} />
               <Route exact path="/planning/calendar" component={Events} />
               <Route exact path="/planning/checklist" component={Todos} />
               <Route exact path="/planning/guestlist" component={GuestList} />
-              <Route exact path="/planning/vendor" component={Vendors} />
               <Route exact path="/planning/team" component={myVendors} />
+              {/* <Route exact path="/planning/vendor" component={Vendors} /> */}
 
               <Route exact path="/registry" component={Registry} />
-              <Route exact path="/team" component={Team} />
               <Route exact path="/website" component={Website} />
               <Route exact path="/website/find" component={VendorTest} />
+              <Route exact path="/team" component={Team} />
 
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={() => <Login currentPath={this.state.currentPath} />} />
               <Route exact path="/login/vendor" component={VendorLogin} />
               <Route exact path="/signup/vendor" component={VendorSignup} />
+              
               <Route exact path="/vendor" component={Vendor} />
             </Switch>
             <Route exact path="/website/user/:id" component={WebsiteComplete} />

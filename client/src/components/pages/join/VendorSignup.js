@@ -4,6 +4,7 @@ import axios from "axios";
 import { MDBInput } from "mdbreact";
 
 import Container from "../../layout/Container"
+import Nav from "../../layout/Nav";
 import { Button } from "../../layout/Button"
 
 class VendorSignup extends React.Component {
@@ -78,6 +79,8 @@ class VendorSignup extends React.Component {
 
     render() {
         return (
+            <>
+            <Nav />
             <Container>
                 <div className="container">
                     <p>
@@ -117,6 +120,7 @@ class VendorSignup extends React.Component {
                     <Button value="Sign Up" onClick={this.onSubmitSignup} />
                 </div>
             </Container>
+            </>
         );
     }
 }

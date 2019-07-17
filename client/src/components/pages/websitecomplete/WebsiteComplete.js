@@ -4,7 +4,7 @@ import Header from './Header.js';
 import Details from './Detail.js';
 import GuestBook from './GuestBook.js';
 // import GuestList from './GuestList.js';
-import Container from '../../layout/Container';
+// import Container from '../../layout/Container';
 import Rsvp from './Rsvp.js';
 import Faqs from './Faqs.js';
 import axios from 'axios';
@@ -135,7 +135,7 @@ class WebsiteComplete extends Component {
   render() {
 
     return (
-      <Container>
+      <>
         <div>
           <p>{this.state.name1}</p>
           <p>{this.state.name2}</p>
@@ -152,7 +152,7 @@ class WebsiteComplete extends Component {
             <div className="col-10 text-center">
 
               <Details />
-{/* 
+              {/* 
               <GuestList
                 addGuest={this.addGuest}
                 guestList={this.state.guestList}
@@ -171,7 +171,7 @@ class WebsiteComplete extends Component {
             </div>
           </div>
         </div>
-      </Container>
+      </>
     );
   }
 }

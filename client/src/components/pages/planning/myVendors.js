@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 
 import Container from "../../layout/Container.js"
+import Nav from "../../layout/Nav"
+
 import TeamSearch from "../../pages/team/TeamSearch";
 import Card from "../../pages/team/Card"
 import '../../../style/team/team.css'
@@ -34,7 +36,7 @@ class MyVendor extends React.Component {
             if (response.data) {
                 this.setState({
                     isLogIn: true
-                }, () => {console.log(this.state)});
+                }, () => { console.log(this.state) });
             } else {
                 return
             }
@@ -184,40 +186,43 @@ class MyVendor extends React.Component {
 
     render() {
         return (
-            <Container>
-                <div className="image-container">
-                    <h2 className="centered"><strong>Your Favorite Professionals!</strong></h2>
-                    <img src="http://stephgrantprod.wpengine.com/wp-content/uploads/2013/07/ShannonSeemaWedding-15345-800x533.jpg" alt="Find your Team"></img>
-                    {/* <img src="http://ericacamilleproductions.com/weddings/wp-content/uploads/2019/02/mymoon-brooklyn-weddingphotographer-lgbt001.jpg"></img> */}
+            <>
+                <Nav />
+                <Container>
+                    <div className="main-image-container">
+                        <h2 className="centered"><strong>Your Favorite Professionals!</strong></h2>
+                        <img src="http://stephgrantprod.wpengine.com/wp-content/uploads/2013/07/ShannonSeemaWedding-15345-800x533.jpg" alt="Find your Team"></img>
+                        {/* <img src="http://ericacamilleproductions.com/weddings/wp-content/uploads/2019/02/mymoon-brooklyn-weddingphotographer-lgbt001.jpg"></img> */}
 
-                </div>
-                <div className="container">
-                    <TeamSearch
-                        onClick={this.handleSearch}
-                        onChange={this.handleInputChange}
-                        location={this.state.location} />
-                    {this.state.filtered.map((ele, index) => (
-                        <Card
-                            key={index}
-                            name={ele.name}
-                            category={ele.category}
-                            address={ele.address}
-                            city={ele.city}
-                            state={ele.state}
-                            zipcode={ele.zipcode}
-                            phone={ele.phone}
-                            description={ele.description}
-                            website={ele.website}
-                            image={ele.image}
-                            vendorid={ele._id}
-                            favorite={this.readFavorite(ele._id)}
-                            addFavorite={this.addFavorite}
-                            undoFavorite={this.undoFavorite}
-                            isLogIn={this.state.isLogIn}
-                        />
-                    ))}
-                </div>
-            </Container>
+                    </div>
+                    <div className="container">
+                        <TeamSearch
+                            onClick={this.handleSearch}
+                            onChange={this.handleInputChange}
+                            location={this.state.location} />
+                        {this.state.filtered.map((ele, index) => (
+                            <Card
+                                key={index}
+                                name={ele.name}
+                                category={ele.category}
+                                address={ele.address}
+                                city={ele.city}
+                                state={ele.state}
+                                zipcode={ele.zipcode}
+                                phone={ele.phone}
+                                description={ele.description}
+                                website={ele.website}
+                                image={ele.image}
+                                vendorid={ele._id}
+                                favorite={this.readFavorite(ele._id)}
+                                addFavorite={this.addFavorite}
+                                undoFavorite={this.undoFavorite}
+                                isLogIn={this.state.isLogIn}
+                            />
+                        ))}
+                    </div>
+                </Container>
+            </>
         );
     }
 }

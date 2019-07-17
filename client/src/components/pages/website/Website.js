@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Nav from './WebsiteNav.js'
+import WebsiteNavNav from './WebsiteNav.js'
 import Header from './Header.js';
 import Details from './Detail.js';
 import GuestBook from './GuestBook.js';
 // import GuestList from './GuestList.js';
 import Container from '../../layout/Container';
+import Nav from '../../layout/Nav';
 import Rsvp from './Rsvp.js';
 import Faqs from './Faqs.js';
 import CreateButton from './CreateButton.js';
@@ -36,23 +37,23 @@ class Website extends Component {
     // }
   };
 
-  componentDidMount () {
+  componentDidMount() {
     this.getUserData()
-  } 
+  }
 
   getUserData = async () => {
     try {
-        const response = await axios
-            .get("/api/websitedata");
-        console.log(response.data);
-        this.setState({
-          userId: response.data[0].user,
-        });
+      const response = await axios
+        .get("/api/websitedata");
+      console.log(response.data);
+      this.setState({
+        userId: response.data[0].user,
+      });
     }
     catch (error) {
-        console.log(error);
+      console.log(error);
     };
-};
+  };
 
 
   // Start: Header - Add name1+name2 START from here
@@ -61,7 +62,7 @@ class Website extends Component {
     event.preventDefault();
     const { name, value } = event.target;
     this.setState({
-      [name] : value
+      [name]: value
     })
     // console.log(this.state.name1);
   }
@@ -80,7 +81,7 @@ class Website extends Component {
     event.preventDefault();
     const { name, value } = event.target;
     this.setState({
-      [name] : value
+      [name]: value
     })
   }
 
@@ -93,8 +94,8 @@ class Website extends Component {
     event.preventDefault();
     const { name, value } = event.target;
     this.setState({
-      [name] : value
-  })
+      [name]: value
+    })
   }
 
   handleLocationButton = (event) => {
@@ -165,9 +166,9 @@ class Website extends Component {
 
   createWebsite = () => {
     axios.post('/create-website', this.state)
-    .then(res => {
-      console.log(res)
-    })
+      .then(res => {
+        console.log(res)
+      })
   }
 
   // End : create website
@@ -176,30 +177,32 @@ class Website extends Component {
   render() {
 
     return (
-      <Container>
-        <div className="App">
-          <Nav />
+      <>
+        <Nav />
+        <Container>
+          <div className="App">
+            <WebsiteNavNav />
 
-          <Header 
-          handleInputChange={this.handleInputChange}
-          handleAddButton={this.handleAddButton}
-          value={this.state.name1}
-          value2={this.state.name2}
-          />
+            <Header
+              handleInputChange={this.handleInputChange}
+              handleAddButton={this.handleAddButton}
+              value={this.state.name1}
+              value2={this.state.name2}
+            />
 
-          <div className="row align-items-center justify-content-center">
-            <div className="col-10 text-center">
+            <div className="row align-items-center justify-content-center">
+              <div className="col-10 text-center">
 
-          <Details 
-          handleDate={this.handleDate}
-          handleLocation={this.handleLocation}
-          handleDateButton={this.handleDateButton}
-          handleLocationButton={this.handleLocationButton}
-          value1={this.state.date}
-          value2={this.state.location}
-          />
+                <Details
+                  handleDate={this.handleDate}
+                  handleLocation={this.handleLocation}
+                  handleDateButton={this.handleDateButton}
+                  handleLocationButton={this.handleLocationButton}
+                  value1={this.state.date}
+                  value2={this.state.location}
+                />
 
-              {/* <GuestList
+                {/* <GuestList
                 addGuest={this.addGuest}
                 guestList={this.state.guestList}
                 currentGuest={this.state.current_guest}
@@ -208,19 +211,20 @@ class Website extends Component {
                 removeGuest={this.removeGuest}
               /> */}
 
-              <GuestBook />
+                <GuestBook />
 
-              <Faqs />
+                <Faqs />
 
-              <Rsvp />
+                <Rsvp />
 
-              <CreateButton 
-              createWebsite={this.createWebsite}
-              userId={this.state.userId}/>
+                <CreateButton
+                  createWebsite={this.createWebsite}
+                  userId={this.state.userId} />
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </>
     );
   }
 }

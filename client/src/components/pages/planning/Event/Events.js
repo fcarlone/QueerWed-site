@@ -3,6 +3,7 @@ import EventForm from "./EventForm";
 import EventItem from "./EventItem";
 import axios from "axios";
 import "../../../../styles/event/event.css";
+import Nav from "../../../layout/Nav"
 
 class Events extends Component {
   state = {
@@ -62,6 +63,7 @@ class Events extends Component {
   render() {
     return (
       <Fragment>
+        <Nav />
         <div className="container-event">
           <h1 className="event-title">Manage Your Venues</h1>
           <div className="events-section-one">

@@ -27,6 +27,13 @@ select, textarea{
     color: #ffffff;
 }
 
+.title-font {
+    font-family: "montserrat"
+}
+.content-font {
+    font-family: "Roboto, sans-serif"
+}
+
 
 /* .carousel-item.active {
     display:block;

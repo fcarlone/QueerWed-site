@@ -1,4 +1,4 @@
-.image-container {
+.main-image-container {
   display: inline-block;
   position: relative;
   width: 100%;
@@ -10,7 +10,7 @@
   color: white;
 }
 
-.image-container > img {
+.main-image-container > img {
   width: 100%;
   margin-top: -250px;
 }

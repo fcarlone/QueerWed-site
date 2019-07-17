@@ -71,26 +71,26 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                     <li className="mainLi"><a className="mainMenu" href="/planning">Planning Tools</a>
                                         <ul className="subMenuContainer">
                                             <div className="subMenu subMenu1">
-                                                <li><a href="/planning/calendar" onClick={() => this.props.readPath("/planning/calendar")}>Calendar</a></li>
+                                                <li><a href="/planning/calendar">Calendar</a></li>
                                                 <li><a href="/planning/checklist">Check List</a></li>
                                                 <li><a href="/planning/guestlist">Guest List</a></li>
                                                 <li><a href="/planning/team">Manage Vendors</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/registry/create">Create Your Registry</a></li>
+                                                <li><a href="/registry">Create Your Registry</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/website/create">Create Your Website</a></li>
+                                                <li><a href="/website">Create Your Website</a></li>
                                                 <li><a href="/website/find">Find A Couple</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/team" onClick={() => this.props.readPath("/team")}>Find Your Team</a></li>
+                                                <li><a href="/team">Find Your Team</a></li>
                                             </div>
                                         </ul>
                                     </li>
 
                                     <li className="mainLi"><a className="mainMenu" href="/registry">Wedding Registry</a>
-                                        <ul className="subMenuContainer">
+                                    <ul className="subMenuContainer">
                                             <div className="subMenu subMenu1">
                                                 <li><a href="/planning/calendar">Calendar</a></li>
                                                 <li><a href="/planning/checklist">Check List</a></li>
@@ -98,20 +98,20 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 <li><a href="/planning/team">Manage Vendors</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/registry/create">Create Your Registry</a></li>
+                                                <li><a href="/registry">Create Your Registry</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/website/create">Create Your Website</a></li>
+                                                <li><a href="/website">Create Your Website</a></li>
                                                 <li><a href="/website/find">Find A Couple</a></li>
                                             </div>
                                             <div className="subMenu">
-                                            <li><a href="/team" onClick={() => this.props.readPath("/team")}>Find Your Team</a></li>
+                                                <li><a href="/team">Find Your Team</a></li>
                                             </div>
                                         </ul>
                                     </li>
 
                                     <li className="mainLi"><a className="mainMenu" href="/website">Wedding Website</a>
-                                        <ul className="subMenuContainer">
+                                    <ul className="subMenuContainer">
                                             <div className="subMenu subMenu1">
                                                 <li><a href="/planning/calendar">Calendar</a></li>
                                                 <li><a href="/planning/checklist">Check List</a></li>
@@ -119,10 +119,10 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 <li><a href="/planning/team">Manage Vendors</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/registry/create">Create Your Registry</a></li>
+                                                <li><a href="/registry">Create Your Registry</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/website/create">Create Your Website</a></li>
+                                                <li><a href="/website">Create Your Website</a></li>
                                                 <li><a href="/website/find">Find A Couple</a></li>
                                             </div>
                                             <div className="subMenu">
@@ -132,7 +132,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                     </li>
 
                                     <li className="mainLi"><a className="mainMenu" href="/team">Find Professionals</a>
-                                        <ul className="subMenuContainer">
+                                    <ul className="subMenuContainer">
                                             <div className="subMenu subMenu1">
                                                 <li><a href="/planning/calendar">Calendar</a></li>
                                                 <li><a href="/planning/checklist">Check List</a></li>
@@ -140,10 +140,10 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 <li><a href="/planning/team">Manage Vendors</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/registry/create">Create Your Registry</a></li>
+                                                <li><a href="/registry">Create Your Registry</a></li>
                                             </div>
                                             <div className="subMenu">
-                                                <li><a href="/website/create">Create Your Website</a></li>
+                                                <li><a href="/website">Create Your Website</a></li>
                                                 <li><a href="/website/find">Find A Couple</a></li>
                                             </div>
                                             <div className="subMenu">

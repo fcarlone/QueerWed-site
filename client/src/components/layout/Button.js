@@ -38,8 +38,8 @@ export const OutlinedButton = (props) => (
         type="button"
         className="btn waves-effect"
         onClick={props.onClick}
-        style={{ border: "2px solid #e91e63", color: "#ffffff", width: `${props.width}`, float: `${props.float}` }}
+        style={{ border: "2px solid #e91e63", color: "#e91e63", backgroundColor: "#ffffff", width: `${props.width}`, float: `${props.float}` }}
     >
-        {props.value}
+        {props.children}
     </button>
 );
