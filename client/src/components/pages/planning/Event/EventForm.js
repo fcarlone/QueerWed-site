@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from "react";
-import Form from "react-bootstrap/Form";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import React, { Component, Fragment } from "./node_modules/react";
+import Form from "./node_modules/react-bootstrap/Form";
+import DatePicker from "./node_modules/react-datepicker";
+import "./node_modules/react-datepicker/dist/react-datepicker.css";
 import "../../../../styles/event/eventForm.css";
 
 class EventForm extends Component {
