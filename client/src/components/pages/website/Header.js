@@ -10,20 +10,20 @@ function Header(props) {
       onChange={props.handleInputChange} 
       value={props.value}
       name= "name1"
-      type="text" id="name1" 
+      type="text"  
       placeholder="Your name" />
       &amp; 
       <input 
       onChange={props.handleInputChange}
       value={props.value2}
       name= "name2"
-      type="text" id="name2" 
+      type="text" 
       placeholder="Your spouse name" />
     </h1>
 
     <button onClick={props.handleAddButton} type="button" className="btn btn-info">Add</button>
     <button type="button" className="btn btn-light">Edit</button>
-    <br></br><br></br><br></br><br></br>
+    <br></br>
     <button type="button" className="btn btn-secondary">Upload Your Cover Photo</button>
 
   </div>

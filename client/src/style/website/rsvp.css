@@ -1,0 +1,29 @@
+#rsvp {
+  font-family: 'Bilbo Swash Caps';
+  background-image: url("./img/background10.jpg");
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#secondline {
+  margin: 50px;
+  font-family: 'Montserrat'
+}
+
+#thirdline {
+  font-size: 30px;
+  
+}
+
+#findname {
+  width: 220px;
+  margin: 20px;
+  font-size: 20px;
+  font-family: 'Bad Script'
+}
+
+#rsvpbutton {
+  margin: 60px;
+}

@@ -1,6 +1,10 @@
 .details {
   font-family: 'Bilbo Swash Caps';
   height: 300px;
+  background-image: url("./img/background6.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 button {
@@ -9,15 +13,35 @@ button {
   margin-left: 5px;
 }
 
-h1 {
+#date1{
   font-size: 45px;
 }
 
-h4 {
-  font-size: 30px;
+#date2 {
+  font-size: 22px;
+  font-family: 'Montserrat'
 }
 
+#location1 {
+  font-size: 22px;
+  font-family: 'Montserrat'
+}
+
+
 #location, #date {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat';
   font-size: 25px;
+}
+
+#location {
+  width: 500px;
+}
+
+#date1 {
+  color: white;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
 }

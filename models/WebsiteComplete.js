@@ -7,20 +7,11 @@ const WebsiteSchema = mongoose.Schema({
       type : Schema.Types.ObjectId,
       ref: "users"
   },
-  name1: {
+  guestName: {
     type: String,
   },
-  name2: {
-    type: String,
-  },
-  date: {
-    type: String,
-  },
-  location: {
-    type: String,
-  },
-  rsvpdate: {
-    type: String,
+  rsvp: {
+    type: Boolean
   }
 })
 
