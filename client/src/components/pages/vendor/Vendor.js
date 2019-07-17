@@ -19,6 +19,13 @@ class Vendor extends React.Component {
         this.loadVendorProfile();
         this.loadUserWhoLikeYou();
     }
+    logOut() {
+        axios.get("/logout")
+            .then(
+                () => {
+                    window.location.href="/"
+                })
+    }
     loadVendorProfile = async () => {
         try {
             const response = await axios
@@ -45,7 +52,9 @@ class Vendor extends React.Component {
                 userWhoLikeYou: userIdArray
             }, () => {
                 console.log(this.state.userWhoLikeYou)
-                this.getUserData()
+                for (let i = 0; i < this.state.userWhoLikeYou.length; i++) {
+                    this.getEachUserData(this.state.userWhoLikeYou[i])
+                }
             });
         }
         catch (error) {
@@ -56,60 +65,42 @@ class Vendor extends React.Component {
         await axios
             .get(`/user/${userId}`)
             .then((response) => {
-                console.log(response.data[0])
                 let userData = response.data[0]
-                return userData
+
+                this.setState(prevState => ({
+                    userData: [...prevState.userData, userData]
+                }), () => { console.log(this.state.userData) })
             })
-    };
-    getUserData = async () => {
-        try {
-            let userDataArray = await Promise.all(this.state.userWhoLikeYou.map((ele) => {
-                console.log(ele)
-                let result = this.getEachUserData(ele)
-                console.log(result)
-                return result
-            }));
-            console.log(userDataArray)
-            this.setState({
-                userData: userDataArray
-            }, () => { console.log(this.state.userData) })
-        }
-        catch (error) {
-            console.log(error);
-        };
     };
     render() {
         return (
             <Container>
-                <ProfileCard 
-                name={this.state.vendorProfile.name}
-                email={this.state.vendorProfile.email}
-                category={this.state.vendorProfile.category}
-                address={this.state.vendorProfile.address}
-                city={this.state.vendorProfile.city}
-                state={this.state.vendorProfile.state}
-                zipcode={this.state.vendorProfile.zipcode}
-                website={this.state.vendorProfile.website}
-                description={this.state.vendorProfile.description}
-                image={this.state.vendorProfile.image}
+                <ProfileCard
+                    logOut={this.logOut}
+                    name={this.state.vendorProfile.name}
+                    email={this.state.vendorProfile.email}
+                    category={this.state.vendorProfile.category}
+                    address={this.state.vendorProfile.address}
+                    city={this.state.vendorProfile.city}
+                    state={this.state.vendorProfile.state}
+                    zipcode={this.state.vendorProfile.zipcode}
+                    website={this.state.vendorProfile.website}
+                    description={this.state.vendorProfile.description}
+                    image={this.state.vendorProfile.image}
                 />
 
                 <div className="container">
                     <h1>User Who Likes You!</h1>
                     <div className="card-columns">
-                        <UserCard
-                            name="Gina"
-                            partnerName="Moon"
-                            dayOfWedding="06/20/2020"
-                            howManyGuest="100"
-                            enjoyThing="Travel"
-                            email="nnjh12@gmail.com" />
-                        {/* <UserCard
-                            name={this.state.userData[0].name}
-                            partnerName={this.state.userData[0].partnerName}
-                            dayOfWedding={this.state.userData[0].dayOfWedding}
-                            email={this.state.userData[0].email}
-                        /> */}
+                        {this.state.userData.map((ele, index) =>
+                            <UserCard
+                                key={index}
+                                name={ele.name}
+                                partnerName={ele.partnerName}
+                                dayOfWedding={ele.dayOfWedding}
+                                howManyGuest={ele.howManyGuest}
+                                enjoyThing={ele.enjoyThing}
+                                email={ele.email} />)}
                     </div>
                 </div>
             </Container>

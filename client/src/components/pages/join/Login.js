@@ -12,15 +12,19 @@ import {
 import { Button } from "../../layout/Button";
 
 class Login extends React.Component {
-  state = {
-    email: "",
-    password: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
+    };
+  }
+  
   // Handle onSubmit
   onSubmitLogin = event => {
     event.preventDefault();
 
-    console.log("onSumit button pressed", this.state);
+    console.log("onSubmit button pressed", this.state);
 
     const userObject = {
       email: this.state.email,
@@ -33,7 +37,7 @@ class Login extends React.Component {
       .post("user-login", userObject)
       .then(response => {
         console.log(response.data);
-        window.location.href = "/planning";
+        window.location.href = this.props.currentPath;
       })
       .then(
         this.setState({

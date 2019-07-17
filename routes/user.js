@@ -20,8 +20,16 @@ module.exports = function (app) {
   });
   // User logout
   app.get("/logout", function (req, res) {
-    req.logout();
-    res.redirect("/");
+    console.log("LOGOUT")
+    // req.logout();
+    // res.redirect("/");
+    req.session.destroy((err) => {
+      if(err) return next(err)
+    
+      req.logout()
+    
+      res.redirect("/")
+    })
   });
 
   // User login

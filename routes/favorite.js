@@ -20,7 +20,11 @@ module.exports = function (app) {
         db.Favorite
             .find({ vendorUser: req.user._id })
             .sort({ name: 1 })
-            .then(result => res.json(result))
+            // .populate("users")
+            .then(result => {
+                console.log(result);
+                return res.json(result)
+            })
             .catch(err => res.status(500).json(err));
     });
 
