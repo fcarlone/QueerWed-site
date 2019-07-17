@@ -63,12 +63,20 @@ class TodoForm extends Component {
       <Fragment>
         <div className="container-form">
           <h2>To Do:</h2>
+          
+          <div className="add-item">
+            
           <form onSubmit={this.onSubmit}>
+
             {this.props.current !== null ? (
               // true
+      
+          <div class="input-group mb-3">
               <input
                 type="text"
                 placeholder={this.props.current[0].todo}
+                aria-label="Add a new task"
+                aria-describedby="basic-addon2"
                 // value="test"
                 // name="todo"
                 onChange={this.onChangeEdit}
@@ -77,23 +85,34 @@ class TodoForm extends Component {
               />
             ) : (
               // false
+      
+          <div class="input-group mb-3">
               <input
                 type="text"
                 placeholder="Add a new task"
+                aria-label="Add a new task"
+                aria-describedby="basic-addon2"
                 value={this.state.newItem}
                 onChange={this.onChange}
                 autoFocus="autofocus"
                 className="input-todo"
               />
             )}
+            />
+             <div class="input-group-append">
 
             <div className="todo-btn-container">
               <button className="btn btn-todo">
                 {this.props.current !== null ? "Update Task" : "Add Task"}
               </button>
             </div>
+            </div>
+            </div>
           </form>
+          
         </div>
+        </div>
+        
       </Fragment>
     );
   }

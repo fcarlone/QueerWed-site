@@ -9,6 +9,10 @@
   font-weight: 600;
   color: white;
 }
+.whole-guest-container{
+  background-image: url(../todo/reuben-clay-gay-wedding-41.jpg);
+  background-size: 100%;
+}
 
 .guest-list-form {
   display: flex;
@@ -27,6 +31,3 @@
   padding-top: 120px;
 }
 
-.guest-list-form{
-  
-}
