@@ -2,10 +2,14 @@
   border: none;
   text-align: center;
   margin: auto;
+  color: white;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 .input-todo {
-  width: 35rem;
+  width: 20rem;
   color: black;
 }
 
@@ -15,8 +19,20 @@
 }
 
 .btn-todo {
+  
 }
 
 /* .input-todo:focus {
   outline: none;
 } */
+
+
+
+
+.add-item{
+  justify-content: flex-start;
+}
+.input-group{
+  display: inline-block;
+}
+

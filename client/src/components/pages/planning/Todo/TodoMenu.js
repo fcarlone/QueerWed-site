@@ -6,26 +6,34 @@ class TodoMenu extends React.Component {
     super(props);
 
     this.state = {
-      total: 0,
+      count: 0,
       completed: 0,
       open: 0
     };
   }
 
   render() {
+    let count = 0;
+    this.props.items.map(item => {
+      if (item.completed === true) {
+        count++;
+        console.log("count", count);
+      }
+      console.log("final count", count);
+      return count;
+    });
+
     return (
       <Fragment>
         <div className="menu-container">
           <h1 className="page-title">Checklist</h1>
           <h3 className="todo-content">
-            Checkist Total: {this.props.items.length}
+            Total Items: {this.props.items.length}
           </h3>
 
+          <h3 className="todo-content">Todos completed: {count}</h3>
           <h3 className="todo-content">
-            Todos completed: {this.state.completed}
-          </h3>
-          <h3 className="todo-content">
-            Todos outstanding: {this.props.items.length - this.state.completed}{" "}
+            Todos outstanding: {this.props.items.length - count}{" "}
           </h3>
         </div>
       </Fragment>

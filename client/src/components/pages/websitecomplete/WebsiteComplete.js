@@ -45,11 +45,11 @@ class WebsiteComplete extends Component {
         });
     }
     catch (error) {
-        console.log(error);
+      console.log(error);
     };
-};
+  };
 
-// Rsvp : tpye guest name and rsvp
+  // Rsvp : tpye guest name and rsvp
 
   handleRsvpName = (event) => {
     event.preventDefault();
@@ -78,17 +78,16 @@ class WebsiteComplete extends Component {
       <Container>
         <div className="App" id="websitebody">
           <Nav />
- 
-          <Header 
-           name1 = {this.state.name1}
-           name2 = {this.state.name2}
+          <Header
+            name1={this.state.name1}
+            name2={this.state.name2}
           />
 
           <div className="row align-items-center justify-content-center">
             <div className="col-10 text-center">
-          <Details 
-           date = {this.state.date}
-           location = {this.state.location}/>
+              <Details
+                date={this.state.date}
+                location={this.state.location} />
 
           <Rsvp   
           rsvpdate= {this.state.rsvpdate} 
@@ -96,6 +95,7 @@ class WebsiteComplete extends Component {
           handleRsvpSubmitButton = {this.handleRsvpSubmitButton}
           value = {this.state.guestname}
           />
+
 
             </div>
           </div>

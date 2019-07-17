@@ -4,10 +4,12 @@ import TodoForm from "./TodoForm";
 import axios from "axios";
 import TodoMenu from "./TodoMenu";
 import "../../../../styles/todo/todo.css";
+import Nav from "../../../layout/Nav"
 
 class Todos extends Component {
   state = {
-    items: []
+    items: [],
+    current: null
   };
 
   // Lifecycle method - display saved todos
@@ -18,6 +20,15 @@ class Todos extends Component {
         items: response.data
       });
       console.log("updated todos state", this.state);
+    });
+
+    this.state.items.map(item => {
+      let count = 0;
+      if (item.completed === true) {
+        count += 1;
+      }
+      console.log("count", count);
+      return count;
     });
   }
 
@@ -61,6 +72,11 @@ class Todos extends Component {
 
   handleEditTodo = id => {
     console.log(id);
+    let result = this.state.items.filter(item => {
+      return item._id === id;
+    });
+    this.setState({ current: result });
+    console.log("new state", this.state);
   };
 
   // Add new item to state
@@ -78,15 +94,53 @@ class Todos extends Component {
     });
   };
 
+  handleEditChange = editTodo => {
+    console.log(editTodo);
+    let editText = editTodo.newItem;
+    let editedTodo = editTodo.newItem;
+    let editedTodoId = editTodo.current[0]._id;
+
+    console.log("edit text", editText);
+    console.log("edit orignal state", editedTodo);
+    console.log("edit id", editedTodoId);
+
+    // Add edit to do to state
+    this.setState({
+      items: this.state.items.map(item => {
+        if (item._id === editedTodoId) {
+          // Update database
+          console.log(`/api/todos/${editedTodoId}`);
+          axios
+            .put(`/api/todos/${editedTodoId}`, { todo: editText })
+            .then(response => {
+              console.log("return editted todo response");
+            });
+          // Update state
+          return { ...item, todo: editText };
+        }
+        return item;
+      })
+    });
+    this.setState({ current: null });
+  };
+
   render() {
     return (
       <Fragment>
+
+        <div className="whole-container-todo">
+
+        <Nav />
         <div className="container-todo">
-          <h1 className="todo-title">Mangage Your Checklist</h1>
+          <h1 className="todo-title">Manage To Do List</h1>
           <div className="one">
             <TodoMenu items={this.state.items} />
             <div className="two">
-              <TodoForm addTodo={this.handleNewTodo} />
+              <TodoForm
+                addTodo={this.handleNewTodo}
+                editTodo={this.handleEditChange}
+                current={this.state.current}
+              />
               {this.state.items.map(item => (
                 <TodoItem
                   key={item._id}
@@ -98,6 +152,7 @@ class Todos extends Component {
               ))}
             </div>
           </div>
+        </div>
         </div>
       </Fragment>
     );

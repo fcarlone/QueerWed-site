@@ -25,6 +25,18 @@ const VendorUserSchema = mongoose.Schema({
     type: String,
     require: true
   },
+  city: {
+    type: String,
+    require: true
+  },
+  state: {
+    type: String,
+    require: true
+  },
+  zipcode: {
+    type: String,
+    require: true
+  },
   phone: {
     type: String,
     require: true

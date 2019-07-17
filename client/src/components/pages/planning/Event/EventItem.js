@@ -13,11 +13,11 @@ const EventItem = props => {
     <Fragment>
       <div className="event-card">
         <h3>
-          <strong>Place: </strong>
+          <strong>Location: </strong>
           {venue}
         </h3>
         <h3>
-          <strong>Venue description: </strong>
+          <strong>Event description: </strong>
           {description}
         </h3>
         <div>

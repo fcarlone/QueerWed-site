@@ -2,4 +2,7 @@
   border: 1px solid #d9d9d9;
   width: 25rem;
   padding: 2rem;
+  background-image: url(../event/notebook.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }

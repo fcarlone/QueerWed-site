@@ -15,7 +15,7 @@
     color: #ffffff
 }
 
-.answer {
+.answer{
     border-radius: 0px;
     background-color: transparent;
     border: 0px solid;
@@ -25,6 +25,13 @@
 
 select, textarea{
     color: #ffffff;
+}
+
+.title-font {
+    font-family: "montserrat"
+}
+.content-font {
+    font-family: "Roboto, sans-serif"
 }
 
 
