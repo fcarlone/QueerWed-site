@@ -5,6 +5,9 @@ import Details from './Detail.js';
 import Container from '../../layout/Container';
 import Rsvp from './Rsvp.js';
 import axios from 'axios';
+import { array } from 'prop-types';
+import { lstat } from 'fs';
+// import { eventNames } from 'cluster';
 
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 // import 'bootstrap-css-only/css/bootstrap.min.css';
@@ -19,7 +22,8 @@ class WebsiteComplete extends Component {
     date: '',
     location: '',
     rsvpdate: '',
-    guestname: ''
+    guestname: '',
+    rsvp: ''
   };
 
   componentDidMount() {
@@ -29,16 +33,16 @@ class WebsiteComplete extends Component {
   loadData = async () => {
     try {
       const response = await axios
-        .get("/api/websitedata");
-      console.log(response.data);
-      this.setState({
-        userId: response.data[0].user,
-        name1: response.data[0].name1,
-        name2: response.data[0].name2,
-        date: response.data[0].date,
-        location: response.data[0].location,
-        rsvpdate: response.data[0].rsvpdate
-      });
+      .get("/api/websitedata");
+  console.log(response.data);
+        this.setState({
+          userId: response.data[0].user,
+          name1: response.data[response.data.length-1].name1,
+          name2: response.data[response.data.length-1].name2,
+          date: response.data[response.data.length-1].date,
+          location: response.data[response.data.length-1].location,
+          rsvpdate: response.data[response.data.length-1].rsvpdate
+        });
     }
     catch (error) {
       console.log(error);
@@ -51,13 +55,21 @@ class WebsiteComplete extends Component {
     event.preventDefault();
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name] : value
     })
   }
 
-  handleSubmit = (event) => {
+  handleYesName = (event) => {
     event.preventDefault();
+    console.log(this.state.name)
+  }
+
+  handleRsvpSubmitButton = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
     console.log(this.state.guestname);
+    console.log(this.state.name)
+    // console.log(this.state.rsvp)
   }
 
   render() {
@@ -77,12 +89,13 @@ class WebsiteComplete extends Component {
                 date={this.state.date}
                 location={this.state.location} />
 
-              <Rsvp
-                rsvpdate={this.state.rsvpdate}
-                handleRsvpName={this.handleRsvpName}
-                handleSubmit={this.handleSubmit}
-                value={this.state.guestname}
-              />
+          <Rsvp   
+          rsvpdate= {this.state.rsvpdate} 
+          handleRsvpName = {this.handleRsvpName}
+          handleRsvpSubmitButton = {this.handleRsvpSubmitButton}
+          value = {this.state.guestname}
+          />
+
 
             </div>
           </div>

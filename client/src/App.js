@@ -6,9 +6,9 @@ import GuestState from "./context/guest/GuestState";
 // Planning Pages
 import Loading from "./components/pages/Loading";
 import Planning from "./components/pages/planning/Planning";
-import Events from "./components/pages/planning/Event/Events";
+import Events from "./components/pages/planning/event/Events";
 import GuestList from "./components/pages/planning/GuestList";
-import Todos from "./components/pages/planning/Todo/Todos";
+import Todos from "./components/pages/planning/todo/Todos";
 import myVendors from "./components/pages/planning/myVendors";
 
 // Registry Pages
@@ -31,17 +31,15 @@ import VendorLogin from "./components/pages/join/VendorLogin";
 import Vendor from "./components/pages/vendor/Vendor";
 // import VendorTest from "./components/pages/vendor/VendorTest"
 
-
 class App extends Component {
   state = {
     currentPath: "/planning"
-  }
-  readPath = (path) => {
+  };
+  readPath = path => {
     this.setState({
       currentPath: path
-    })
-
-  }
+    });
+  };
   render() {
     return (
       <GuestState>
@@ -64,19 +62,22 @@ class App extends Component {
               <Route exact path="/team" component={Team} />
 
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/login" component={() => <Login currentPath={this.state.currentPath} />} />
+              <Route
+                exact
+                path="/login"
+                component={() => <Login currentPath={this.state.currentPath} />}
+              />
               <Route exact path="/login/vendor" component={VendorLogin} />
               <Route exact path="/signup/vendor" component={VendorSignup} />
-              
+
               <Route exact path="/vendor" component={Vendor} />
             </Switch>
             <Route exact path="/website/user/:id" component={WebsiteComplete} />
           </div>
         </Router>
       </GuestState>
-    )
+    );
   }
 }
-
 
 export default App;

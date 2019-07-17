@@ -67,6 +67,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                             </MDBNavbarBrand>
                             {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
                             <MDBCollapse isOpen={this.state.collapse} navbar>
+
                                 {this.state.isLogIn ?
                                     <MDBNavbarNav left>
                                         <li className="mainLi"><a className="mainMenu" href="/planning">Planning Tools</a>
@@ -232,7 +233,6 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                         </li>
                                     </MDBNavbarNav>
                                 }
-
                             </MDBCollapse>
                             <MDBNavbarNav right>
                                 <MDBNavItem>
