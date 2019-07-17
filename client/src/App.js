@@ -10,7 +10,6 @@ import Events from "./components/pages/planning/Event/Events";
 import GuestList from "./components/pages/planning/GuestList";
 import Todos from "./components/pages/planning/Todo/Todos";
 import myVendors from "./components/pages/planning/myVendors";
-// import Vendors from "./components/pages/planning/myVendors/Vendors";
 
 // Registry Pages
 import Registry from "./components/pages/registry/Registry";

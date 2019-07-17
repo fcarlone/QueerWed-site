@@ -88,6 +88,8 @@ class Vendor extends React.Component {
                     website={this.state.vendorProfile.website}
                     description={this.state.vendorProfile.description}
                     image={this.state.vendorProfile.image}
+                    phone={this.state.vendorProfile.phone}
+
                 />
 
                 <div className="container">
