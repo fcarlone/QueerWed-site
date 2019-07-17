@@ -51,7 +51,7 @@ class Loading extends React.Component {
    
            <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
    
-             <h4 class="title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="">Plan</a></h4>
+             <h4 class="title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href=""> Plan</a></h4>
    
              <p class="description">Stay organized with your To Do List, Guest List, Favorite Vendor List and Registry </p>
            </div>
@@ -59,7 +59,7 @@ class Loading extends React.Component {
              <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
    
              <h4 class="title"> <i class="fa fa-handshake-o" aria-hidden="true"></i>
-               <a href="">Community Power</a></h4>
+               <a href=""> Community Power</a></h4>
              <p class="description">Connect with LGBTQIA+ Photographers, DJs, Florists, Caterers, and more</p>
            </div>
    
@@ -68,7 +68,7 @@ class Loading extends React.Component {
    
              <h4 class="title">
                <i class="fa fa-heart" aria-hidden="true"></i>
-               <a href="">Share & Celebrate</a></h4>
+               <a href=""> Share & Celebrate</a></h4>
              <p class="description">Create a website for your wedding details to share information, updates, and photos
                with guests</p>
            </div>

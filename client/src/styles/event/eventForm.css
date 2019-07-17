@@ -1,5 +1,8 @@
 .event-form-container {
   margin-left: 5rem;
+  background-image: url(notebook.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .event-form-venue,
@@ -7,10 +10,24 @@
 .event-form-date,
 .event-form-time {
   width: 20rem;
-  color: #757575;
+  color:black;
   padding-left: 7px;
+  background-color: rgb(233, 222, 222);
+  
 }
 
 .event-btn-container {
   text-align: center;
 }
+
+.btn-event-form{
+  color: black;
+  background-color: rgb(233, 222, 222);
+}
+
+.enterevent{
+  color: black;
+  background-size: 90%;
+  background-repeat: no-repeat;
+}
+
