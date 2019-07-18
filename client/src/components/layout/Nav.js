@@ -10,6 +10,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
         this.state = {
             collapse: false,
             isWideEnough: false,
+            userId:"",
             userEmail: "",
             isLogIn: false
         };
@@ -29,6 +30,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
 
             if (response.data) {
                 this.setState({
+                    userId: response.data._id,
                     userEmail: response.data.email,
                     isLogIn: true
                 });
@@ -82,7 +84,8 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                     <li><a href="/registry">Create Your Registry</a></li>
                                                 </div>
                                                 <div className="subMenu">
-                                                    <li><a href="/website">Create Your Website</a></li>
+                                                    <li><a href="/website">Create Your Website</a></li>                                                
+                                                    <li><a href={`/website/user/${this.state.userId}`}>Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -103,6 +106,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/website">Create Your Website</a></li>
+                                                    <li><a href={`/website/user/${this.state.userId}`}>Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -123,6 +127,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/website">Create Your Website</a></li>
+                                                    <li><a href={`/website/user/${this.state.userId}`}>Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -143,6 +148,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/website">Create Your Website</a></li>
+                                                    <li><a href={`/website/user/${this.state.userId}`}>Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -165,6 +171,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/login">Create Your Website</a></li>
+                                                    <li><a href="/login">Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -185,6 +192,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/login">Create Your Website</a></li>
+                                                    <li><a href="/login">Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -205,6 +213,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/login">Create Your Website</a></li>
+                                                    <li><a href="/login">Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -225,6 +234,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/login">Create Your Website</a></li>
+                                                    <li><a href="/login">Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
