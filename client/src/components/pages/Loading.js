@@ -53,42 +53,25 @@ class Loading extends React.Component {
    
            <div className="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
    
-<<<<<<< HEAD
-             <h4 className="title"><i className="fa fa-pencil-square-o" aria-hidden="true"></i><a href=""> Plan</a></h4>
-=======
              <h4 class="title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="/planning"> Plan</a></h4>
->>>>>>> 7fa73ae1df6109d58a598a293fdb3add8f73ea8e
    
              <p className="description">Stay organized with your To Do List, Guest List, Favorite Vendor List and Registry </p>
            </div>
            <div className="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
              <div className="icon"><i className="ion-ios-bookmarks-outline"></i></div>
    
-<<<<<<< HEAD
-             <h4 className="title"> <i className="fa fa-handshake-o" aria-hidden="true"></i>
-               <a href=""> Community Power</a></h4>
-             <p className="description">Connect with LGBTQIA+ Photographers, DJs, Florists, Caterers, and more</p>
-=======
              <h4 class="title"> <i class="fa fa-handshake-o" aria-hidden="true"></i>
                <a href="/team"> Community Power</a></h4>
              <p class="description">Connect with LGBTQIA+ Photographers, DJs, Florists, Caterers, and more</p>
->>>>>>> 7fa73ae1df6109d58a598a293fdb3add8f73ea8e
            </div>
    
            <div className="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
              <div className="icon"><i className="ion-ios-people-outline"></i></div>
    
-<<<<<<< HEAD
-             <h4 className="title">
-               <i className="fa fa-heart" aria-hidden="true"></i>
-               <a href=""> Share & Celebrate</a></h4>
-             <p className="description">Create a website for your wedding details to share information, updates, and photos
-=======
              <h4 class="title">
                <i class="fa fa-heart" aria-hidden="true"></i>
                <a href="/website/create"> Share & Celebrate</a></h4>
              <p class="description">Create a website for your wedding details to share information, updates, and photos
->>>>>>> 7fa73ae1df6109d58a598a293fdb3add8f73ea8e
                with guests</p>
            </div>
    
