@@ -5,7 +5,7 @@ import "../../styles/guest/guestItem.css";
 
 const GuestItem = ({ guest }) => {
   const guestContext = useContext(GuestContext);
-  const { deleteGuest, setCurrent, clearCurrent } = guestContext;
+  const { deleteGuest, setCurrent, clearCurrent, clearFilter } = guestContext;
   const {
     _id,
     name,
@@ -22,6 +22,7 @@ const GuestItem = ({ guest }) => {
   const handleDeleteGuest = () => {
     deleteGuest(_id);
     clearCurrent();
+    clearFilter();
   };
 
   return (

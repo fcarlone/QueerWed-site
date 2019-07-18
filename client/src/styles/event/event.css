@@ -1,6 +1,7 @@
 /* body{
   margin-top: -115px;
 } */
+<<<<<<< HEAD
 .main-image-container {
   display: inline-block;
   position: relative;
@@ -12,6 +13,8 @@
   color: white;
   font-family: 'Montserrat', sans-serif;
 }
+=======
+>>>>>>> 0c3deb923264e48a85ae739d9db57da52d63d3b2
 
 .container-event {
  
