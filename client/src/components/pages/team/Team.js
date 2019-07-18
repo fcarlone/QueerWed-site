@@ -4,7 +4,8 @@ import axios from "axios";
 import Container from "../../layout/Container.js"
 import TeamSearch from "./TeamSearch.js";
 import Card from "./Card"
-
+import '../../../style/team/team.css'
+import Nav from "../../layout/Nav";
 
 class Team extends React.Component {
     constructor(props) {
@@ -13,13 +14,36 @@ class Team extends React.Component {
             category: "",
             location: "",
             result: [],
-            filtered: []
+            filtered: [],
+            isLogIn: false,
+            userFavorite: []
         };
     }
 
     componentDidMount() {
+        this.isLogIn()
         this.loadAllVendor();
+        this.loadFavorite();
     }
+
+    isLogIn = async () => {
+        try {
+            const response = await axios
+                .get("/user");
+            console.log(response.data);
+
+            if (response.data) {
+                this.setState({
+                    isLogIn: true
+                }, () => { console.log(this.state) });
+            } else {
+                return
+            }
+        }
+        catch (error) {
+            console.log(error);
+        };
+    };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -36,6 +60,8 @@ class Team extends React.Component {
                 .get("/api/team");
             console.log(response.data);
             this.setState({
+                category: "",
+                location: "",
                 result: response.data,
                 filtered: response.data
             });
@@ -48,10 +74,16 @@ class Team extends React.Component {
     handleSearch = (event) => {
         event.preventDefault()
         console.log("handle Search")
-
-        if (this.state.category === "All") {
-            this.loadAllVendor()
-        } else {
+        // when user filter nothing
+        if (this.state.category === "" && this.state.location === "") {
+            let filtered = this.state.result;
+            console.log(filtered)
+            this.setState({
+                filtered: filtered
+            })
+        }
+        // when user filter category only
+        else if (this.state.category !== "" && this.state.location === "") {
             let filtered = this.state.result;
             filtered = filtered.filter(ele => ele.category === this.state.category)
             console.log(filtered)
@@ -59,32 +91,135 @@ class Team extends React.Component {
                 filtered: filtered
             })
         }
+        // when user filter location only
+        else if (this.state.category === "" && this.state.location !== "") {
+            let filtered = this.state.result;
+            filtered = filtered.filter(ele => ele.city === this.state.location)
+            console.log(filtered)
+            this.setState({
+                filtered: filtered
+            })
+        }
+        // when user filter both
+        else {
+            let filtered = this.state.result;
+            filtered = filtered.filter(ele => ele.category === this.state.category && ele.city === this.state.location)
+            console.log(filtered)
+            this.setState({
+                filtered: filtered
+            })
+        }
     };
 
-    favoriteVendor = () => {
+    loadFavorite = async () => {
+        try {
+            const response = await axios
+                .get("/api/favorite");
+            let vendorIdArray = response.data.map(ele => ele.vendorUser)
+            console.log(vendorIdArray);
 
+            this.setState({
+                userFavorite: vendorIdArray
+            }, () => {
+                console.log(this.state)
+            });
+        }
+        catch (error) {
+            console.log(error);
+        };
+    }
+
+    readFavorite = (id) => {
+        return this.state.userFavorite.includes(id)
+    }
+
+    addFavorite = (event) => {
+        event.preventDefault();
+        // console.log(event.target.parentElement.dataset.favorite)
+        console.log("handle Favorite")
+        let favoriteObject = {
+            user: "",
+            vendorUser: event.target.dataset.vendorid
+        }
+        console.log(favoriteObject)
+
+        return axios
+            .post("/api/favorite", favoriteObject)
+            .then(response => {
+                console.log(response.data.vendorUser);
+                let vendorIdArray = this.state.userFavorite
+                // console.log(vendorIdArray)
+                vendorIdArray.push(response.data.vendorUser)
+                // console.log(vendorIdArray)
+
+                this.setState({
+                    userFavorite: vendorIdArray
+                }, () => {
+                    console.log(this.state)
+                });
+            })
+    }
+
+    undoFavorite = (event) => {
+        event.preventDefault();
+        let vendorid = event.target.dataset.vendorid
+        return axios
+            .delete(`/api/favorite/${event.target.dataset.vendorid}`)
+            .then(response => {
+                console.log(response.data);
+                let vendorIdArray = this.state.userFavorite
+                console.log(vendorIdArray)
+                console.log(vendorid)
+                vendorIdArray = vendorIdArray.filter(ele => ele !== vendorid)
+                console.log(vendorIdArray)
+
+                this.setState({
+                    userFavorite: vendorIdArray
+                }, () => {
+                    console.log(this.state)
+                });
+            })
     }
 
     render() {
         return (
-            <Container>
-                <div className="container">
-                    <h1>Team Page Test</h1>
-                    <TeamSearch
-                        onClick={this.handleSearch}
-                        onChange={this.handleInputChange} />
-                    {this.state.filtered.map((ele, index) => (
-                        <Card
-                            key={index}
-                            name={ele.name}
-                            category={ele.category}
-                            address={ele.address}
-                            phone={ele.phone}
-                            description={ele.description}
-                            website={ele.website} />
-                    ))}
-                </div>
-            </Container>
+            <>
+                <Nav />
+                <Container>
+                    <div className="main-image-container">
+                        <h2 className="centered"><strong>Find your Wedding professionals in your area!</strong></h2>
+                        <img src="http://stephgrantprod.wpengine.com/wp-content/uploads/2013/07/ShannonSeemaWedding-15345-800x533.jpg" alt="Find your Team"></img>
+                        {/* <img src="http://ericacamilleproductions.com/weddings/wp-content/uploads/2019/02/mymoon-brooklyn-weddingphotographer-lgbt001.jpg"></img> */}
+
+                    </div>
+                    <div className="container">
+                        <TeamSearch
+                            onClick={this.handleSearch}
+                            onChange={this.handleInputChange}
+                            location={this.state.location} />
+                        {this.state.filtered.map((ele, index) => (
+                            <Card
+                                key={index}
+                                name={ele.name}
+                                category={ele.category}
+                                address={ele.address}
+                                city={ele.city}
+                                state={ele.state}
+                                zipcode={ele.zipcode}
+                                phone={ele.phone}
+                                description={ele.description}
+                                website={ele.website}
+                                image={ele.image}
+                                vendorid={ele._id}
+                                favorite={this.readFavorite(ele._id)}
+                                addFavorite={this.addFavorite}
+                                undoFavorite={this.undoFavorite}
+                                isLogIn={this.state.isLogIn}
+                            />
+                        ))}
+                    </div>
+                </Container>
+            </>
         );
     }
 }

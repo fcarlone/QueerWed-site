@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import Container from "../../layout/Container";
 
+import Nav from "../../layout/Nav";
+
+
 import {
   MDBContainer,
   MDBRow,
@@ -13,15 +16,19 @@ import {
 import { Button } from "../../layout/Button";
 
 class Login extends React.Component {
-  state = {
-    email: "",
-    password: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
+    };
+  }
+
   // Handle onSubmit
   onSubmitLogin = event => {
     event.preventDefault();
 
-    console.log("onSumit button pressed", this.state);
+    console.log("onSubmit button pressed", this.state);
 
     const userObject = {
       email: this.state.email,
@@ -34,7 +41,7 @@ class Login extends React.Component {
       .post("user-login", userObject)
       .then(response => {
         console.log(response.data);
-        window.location.href = "/planning";
+        window.location.href = this.props.currentPath;
       })
       .then(
         this.setState({
@@ -42,7 +49,7 @@ class Login extends React.Component {
           password: ""
         })
       )
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
         window.location.href = "/login";
       });
@@ -85,50 +92,53 @@ class Login extends React.Component {
 
   render() {
     return (
-      <Container>
-        <MDBContainer>
-          <MDBRow>
-            <MDBCol md="4" className="mx-auto mt-5">
-              <MDBCard>
-                <MDBCardBody>
-                  <form>
-                    <p className="h5 text-center mb-5 mt-3">Log in</p>
-                    <div className="grey-text">
-                      <MDBInput
-                        label="Type your email"
-                        icon="envelope"
-                        group
-                        type="email"
-                        validate
-                        error="wrong"
-                        success="right"
-                        value={this.state.email}
-                        onChange={this.onChangeEmail}
-                      />
-                      <MDBInput
-                        label="Type your password"
-                        icon="lock"
-                        group
-                        type="password"
-                        validate
-                        value={this.state.password}
-                        onChange={this.onChangePassword}
-                      />
-                    </div>
-                    <div className="text-center">
-                      <Button onClick={this.onSubmitLogin} value="Login" />
-                      <br />
-                      <p className="mt-2">
-                        Not a member? <a href="/signup">Sign Up</a>
-                      </p>
-                    </div>
-                  </form>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-      </Container>
+      <>
+        <Nav />
+        <Container>
+          <MDBContainer>
+            <MDBRow>
+              <MDBCol sm="8" md="6" lg="4" className="mx-auto mt-5">
+                <MDBCard>
+                  <MDBCardBody>
+                    <form>
+                      <p className="h5 text-center mb-5 mt-3 title-text grey-text">LOGIN</p>
+                      <div className="grey-text">
+                        <MDBInput
+                          label="Type your email"
+                          icon="envelope"
+                          group
+                          type="email"
+                          validate
+                          error="wrong"
+                          success="right"
+                          value={this.state.email}
+                          onChange={this.onChangeEmail}
+                        />
+                        <MDBInput
+                          label="Type your password"
+                          icon="lock"
+                          group
+                          type="password"
+                          validate
+                          value={this.state.password}
+                          onChange={this.onChangePassword}
+                        />
+                      </div>
+                      <div className="text-center">
+                        <Button className="btn-sm" onClick={this.onSubmitLogin} value="Login"  />
+                        <br />
+                        <p className="mt-2">
+                          Not a member? <a href="/signup" >Sign Up</a>
+                        </p>
+                      </div>
+                    </form>
+                  </MDBCardBody>
+                </MDBCard>
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer>
+        </Container>
+      </>
     );
   }
 }

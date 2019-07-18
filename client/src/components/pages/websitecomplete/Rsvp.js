@@ -6,16 +6,16 @@ import { PromiseProvider } from "mongoose";
 
 function Rsvp(props) {
 
-  const guestContext = useContext(GuestContext);
-  // const { deleteGuest, setCurrent, clearCurrent } = guestContext;
-  const { guests, getGuests } = guestContext;
+  // const guestContext = useContext(GuestContext);
+  // // const { deleteGuest, setCurrent, clearCurrent } = guestContext;
+  // const { guests, getGuests } = guestContext;
   
-  console.log("guest list", guests)
-  useEffect(() => {
-    console.log("this is working")
-    getGuests();
-    // eslint-disable-next-line
-  }, []);
+  // console.log("guest list", guests)
+  // useEffect(() => {
+  //   console.log("this is working")
+  //   getGuests();
+  //   // eslint-disable-next-line
+  // }, []);
 
   return(
     <div className="jumbotron d-flex" id="rsvp">
@@ -28,7 +28,7 @@ function Rsvp(props) {
       onChange={props.handleRsvpName} 
       value={props.value}
       name= "guestname"
-      type="text"  
+      type="text"
       placeholder="Type your name" />
     {/* <select id="findname" className="custom-select">
       <option selected>Find Your name here</option>
@@ -39,13 +39,13 @@ function Rsvp(props) {
     </sapn>
     <div id="fourline" className="guestanswer">
     <div className="form-check">
-    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+    <input className="form-check-input" type="checkbox" value="yes" />
   <label className="form-check-label" for="defaultCheck1">
     Yes, I will be there
   </label>
   </div>
   <div className="form-check">
-  <input className="form-check-input" type="checkbox" value="" id="defaultCheck2" />
+  <input className="form-check-input" type="checkbox" value="no" />
   <label className="form-check-label" for="defaultCheck2">
     No, I won't be there
   </label>
@@ -54,11 +54,11 @@ function Rsvp(props) {
     <button id="rsvpbutton" onClick={props.handleRsvpSubmitButton} type="button" 
           className="btn btn-outline-secondary">Submit</button>
     </div>
-      <h3>
+      {/* <h3>
         {guests.map((guest) => (
           console.log(guest.name)
         ))}
-      </h3>
+      </h3> */}
     </div>
     </div>
   )

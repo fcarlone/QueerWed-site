@@ -5,7 +5,7 @@
   width: 30rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  color: white;
+  color: black;
   padding-left: 80px;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .text-primary {
-  color: #003699;
+  color:black;
 }
 .guest-list {
   list-style-type: none;
@@ -40,8 +40,8 @@
 .bg-primary,
 .badge-primary,
 .alert-primary {
-  background: #003699;
-  color: #fff;
+  background: #fff;
+  color: black;
 }
 
 .btn-success,

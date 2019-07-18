@@ -1,18 +1,16 @@
 .form-container {
   margin-left: 5rem;
-  background-image: url(../event/notebook.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
+
 }
 
 .guest-form-title,
 .guest-form-guest-types-title,
 .guest-form-guest-types
  {
-  text-align: center;
+  text-align: left;
 
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  
   color: black;
   
 }
@@ -54,6 +52,3 @@
   text-align: center;
 }
 
-form{
-  padding:15px;
-}

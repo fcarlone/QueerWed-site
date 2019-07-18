@@ -8,7 +8,7 @@ function Details(props) {
         <h1 id="date1">Save the date!</h1>
         <br></br>
         <h4>Date :
-        <input 
+        <input
         onChange={props.handleDate}
         value={props.value1}
         name="date"
@@ -17,12 +17,12 @@ function Details(props) {
         />
           <button onClick={props.handleDateButton} type="button" 
           className="btn btn-outline-secondary">Add</button>
-          <button className="btn btn-outline-secondary"
-          type="button" >Edit</button>
+          {/* <button className="btn btn-outline-secondary"
+          type="button" >Edit</button> */}
         </h4>
         <br/>
         <h4>Location :
-            <input 
+            <input
             onChange={props.handleLocation}
             value={props.value2}
             name="location"
@@ -31,8 +31,8 @@ function Details(props) {
             />
               <button onClick={props.handleLocationButton} type="button" 
               className="btn btn-outline-secondary">Add</button>
-              <button className="btn btn-outline-secondary" 
-              type="button">Edit</button>
+              {/* <button className="btn btn-outline-secondary" 
+              type="button">Edit</button> */}
 
 
         </h4>

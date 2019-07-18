@@ -2,16 +2,15 @@ import React, { Fragment } from "react";
 import RegistryTitle from "./RegistryTitle";
 import RegistryItem from "./RegistryItem";
 import "../../../styles/registry/registry.css";
+import Nav from "../../layout/Nav"
 
 class Registry extends React.Component {
   render() {
     return (
       <Fragment>
+        <Nav />
         <section>
-          <h1 className="registry-content">
-            Registry Page Test <br />
-            Welcome to your registry
-          </h1>
+    
           <RegistryTitle />
         </section>
 

@@ -51,14 +51,14 @@ const GuestItem = ({ guest }) => {
       </ul>
       
       <p className="button-container">
-        <button
+        <button className="btn" 
           onClick={() => {
             setCurrent(guest);
           }}
         >
           Edit
         </button>
-        <button onClick={handleDeleteGuest}>Delete</button>
+        <button className="btn" onClick={handleDeleteGuest}>Delete</button>
       </p>
     </div>
   );

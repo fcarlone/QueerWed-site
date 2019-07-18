@@ -1,11 +1,10 @@
 .event-card {
   padding: 1rem;
-  border: #ccc 1px solid;
   margin: 0.7rem 0;
-  width: 30rem;
+  width: 27rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  color: white;
+  color:black;
   padding-left: 80px;
 }
 
@@ -15,10 +14,10 @@
   
 }
 
-.btn{
+/* .btn{
   color: black;
   background-color: rgb(233, 222, 222);
-}
+} */
 
 
 
