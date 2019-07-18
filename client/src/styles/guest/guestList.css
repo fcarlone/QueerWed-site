@@ -1,6 +1,4 @@
-.guest-list-container {
-  margin-top: 10rem;
-}
+
 
 .guest-list-description {
   margin-top: 2rem;
@@ -10,7 +8,6 @@
   color: white;
 }
 .whole-guest-container{
-  background-image: url(../todo/reuben-clay-gay-wedding-41.jpg);
   background-size: 100%;
 }
 

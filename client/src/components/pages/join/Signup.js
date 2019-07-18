@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import Container from "../../layout/Container";
 import Nav from "../../layout/Nav";
-
 import Carousel from "../../layout/Carousel";
 
 class Signup extends React.Component {
@@ -112,7 +111,7 @@ class Signup extends React.Component {
             onChange={this.handleInputChange}
             onClick={this.onSubmitSignup}
           >
-            <h1>Congratulations on your big day coming up!</h1>
+            <h1 className="title-font">Congratulations on your big day coming up!</h1>
             <h3>Now for a few questions.</h3>
           </Carousel>
         </Container>

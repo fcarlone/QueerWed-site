@@ -5,12 +5,12 @@
   padding: 1rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  color: white;
-  margin: auto;
+  color:black;
+  margin: 3px;
 }
 
 .container-todo-item:hover {
-  border: 1px solid black;
+ 
 }
 
 .todo-description {

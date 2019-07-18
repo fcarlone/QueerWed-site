@@ -10,6 +10,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
         this.state = {
             collapse: false,
             isWideEnough: false,
+            userId:"",
             userEmail: "",
             isLogIn: false
         };
@@ -29,6 +30,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
 
             if (response.data) {
                 this.setState({
+                    userId: response.data._id,
                     userEmail: response.data.email,
                     isLogIn: true
                 });
@@ -61,9 +63,9 @@ class FullPageIntroWithFixedNavbar extends React.Component {
             <div>
                 <header>
                     <Router>
-                        <MDBNavbar color="white" dark expand="md" fixed="top" style={{ minWidth: "1070px" }}>
+                        <MDBNavbar color="white" dark expand="sm" fixed="top" style={{ minWidth: "1070px" }}>
                             <MDBNavbarBrand>
-                                <a className="pink-text" href="/" style={{ fontFamily: "montserrat", fontWeight: "bolder" }}><strong>QueerWed</strong></a>
+                                <a className="pink-text" href="/" style={{ fontSize: "20px", fontFamily: "montserrat", fontWeight: "bolder" }}><strong>QueerWed</strong></a>
                             </MDBNavbarBrand>
                             {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
                             <MDBCollapse isOpen={this.state.collapse} navbar>
@@ -73,16 +75,17 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                         <li className="mainLi"><a className="mainMenu" href="/planning">Planning Tools</a>
                                             <ul className="subMenuContainer">
                                                 <div className="subMenu subMenu1">
-                                                    <li><a href="/planning/calendar">Calendar</a></li>
+                                                    <li><a href="/planning">Your Event</a></li>
                                                     <li><a href="/planning/checklist">Check List</a></li>
                                                     <li><a href="/planning/guestlist">Guest List</a></li>
-                                                    <li><a href="/planning/team">Manage Vendors</a></li>
+                                                    <li><a href="/planning/team">Your Vendors</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/registry">Create Your Registry</a></li>
                                                 </div>
                                                 <div className="subMenu">
-                                                    <li><a href="/website">Create Your Website</a></li>
+                                                    <li><a href="/website">Create Your Website</a></li>                                                
+                                                    <li><a href={`/website/user/${this.state.userId}`}>Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -93,16 +96,17 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                         <li className="mainLi"><a className="mainMenu" href="/registry">Wedding Registry</a>
                                             <ul className="subMenuContainer">
                                                 <div className="subMenu subMenu1">
-                                                    <li><a href="/planning/calendar">Calendar</a></li>
+                                                    <li><a href="/planning">Your Event</a></li>
                                                     <li><a href="/planning/checklist">Check List</a></li>
                                                     <li><a href="/planning/guestlist">Guest List</a></li>
-                                                    <li><a href="/planning/team">Manage Vendors</a></li>
+                                                    <li><a href="/planning/team">Your Vendors</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/registry">Create Your Registry</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/website">Create Your Website</a></li>
+                                                    <li><a href={`/website/user/${this.state.userId}`}>Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -113,16 +117,17 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                         <li className="mainLi"><a className="mainMenu" href="/website">Wedding Website</a>
                                             <ul className="subMenuContainer">
                                                 <div className="subMenu subMenu1">
-                                                    <li><a href="/planning/calendar">Calendar</a></li>
+                                                    <li><a href="/planning">Your Event</a></li>
                                                     <li><a href="/planning/checklist">Check List</a></li>
                                                     <li><a href="/planning/guestlist">Guest List</a></li>
-                                                    <li><a href="/planning/team">Manage Vendors</a></li>
+                                                    <li><a href="/planning/team">Your Vendors</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/registry">Create Your Registry</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/website">Create Your Website</a></li>
+                                                    <li><a href={`/website/user/${this.state.userId}`}>Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -133,16 +138,17 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                         <li className="mainLi"><a className="mainMenu" href="/team">Find Professionals</a>
                                             <ul className="subMenuContainer">
                                                 <div className="subMenu subMenu1">
-                                                    <li><a href="/planning/calendar">Calendar</a></li>
+                                                    <li><a href="/planning">Your Event</a></li>
                                                     <li><a href="/planning/checklist">Check List</a></li>
                                                     <li><a href="/planning/guestlist">Guest List</a></li>
-                                                    <li><a href="/planning/team">Manage Vendors</a></li>
+                                                    <li><a href="/planning/team">Your Vendors</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/registry">Create Your Registry</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/website">Create Your Website</a></li>
+                                                    <li><a href={`/website/user/${this.state.userId}`}>Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -155,16 +161,17 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                         <li className="mainLi"><a className="mainMenu" href="/login">Planning Tools</a>
                                             <ul className="subMenuContainer">
                                                 <div className="subMenu subMenu1">
-                                                    <li><a href="/login">Calendar</a></li>
+                                                    <li><a href="/login">Your Event</a></li>
                                                     <li><a href="/login">Check List</a></li>
                                                     <li><a href="/login">Guest List</a></li>
-                                                    <li><a href="/login">Manage Vendors</a></li>
+                                                    <li><a href="/login">Your Vendors</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/registry">Create Your Registry</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/login">Create Your Website</a></li>
+                                                    <li><a href="/login">Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -175,16 +182,17 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                         <li className="mainLi"><a className="mainMenu" href="/registry">Wedding Registry</a>
                                             <ul className="subMenuContainer">
                                                 <div className="subMenu subMenu1">
-                                                    <li><a href="/login">Calendar</a></li>
+                                                    <li><a href="/login">Your Event</a></li>
                                                     <li><a href="/login">Check List</a></li>
                                                     <li><a href="/login">Guest List</a></li>
-                                                    <li><a href="/login">Manage Vendors</a></li>
+                                                    <li><a href="/login">Your Vendors</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/registry">Create Your Registry</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/login">Create Your Website</a></li>
+                                                    <li><a href="/login">Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -195,16 +203,17 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                         <li className="mainLi"><a className="mainMenu" href="/login">Wedding Website</a>
                                             <ul className="subMenuContainer">
                                                 <div className="subMenu subMenu1">
-                                                    <li><a href="/login">Calendar</a></li>
+                                                    <li><a href="/login">Your Event</a></li>
                                                     <li><a href="/login">Check List</a></li>
                                                     <li><a href="/login">Guest List</a></li>
-                                                    <li><a href="/login">Manage Vendors</a></li>
+                                                    <li><a href="/login">Your Vendors</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/registry">Create Your Registry</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/login">Create Your Website</a></li>
+                                                    <li><a href="/login">Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -215,16 +224,17 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                                         <li className="mainLi"><a className="mainMenu" href="/team">Find Professionals</a>
                                             <ul className="subMenuContainer">
                                                 <div className="subMenu subMenu1">
-                                                    <li><a href="/login">Calendar</a></li>
+                                                    <li><a href="/login">Your Event</a></li>
                                                     <li><a href="/login">Check List</a></li>
                                                     <li><a href="/login">Guest List</a></li>
-                                                    <li><a href="/login">Manage Vendors</a></li>
+                                                    <li><a href="/login">Your Vendors</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/registry">Create Your Registry</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/login">Create Your Website</a></li>
+                                                    <li><a href="/login">Share My Website</a></li>
                                                 </div>
                                                 <div className="subMenu">
                                                     <li><a href="/team">Find Your Team</a></li>
@@ -237,17 +247,17 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                             <MDBNavbarNav right>
                                 <MDBNavItem>
                                     {this.state.isLogIn ?
-                                        <div className="joinMenuContainer" style={{ float: "right" }}>
+                                        <div className="joinMenuContainer" style={{ float: "right", minWidth:"180px"}}>
                                             <span className="m-1 joinMenu pink-text"><strong>{this.state.userEmail}</strong></span>
                                             <MDBBtn className="z-depth-0" color="pink" size="sm" onClick={this.logOut}>Log Out</MDBBtn>
                                             {/* <span className="m-1"><button className="joinMenu pink-text" style={{backgroundColor: "#fffff"}} onClick={this.logOut}>Log Out</button></span> */}
                                             {/* <span className="m-1"><a className="joinMenu grey-text" href="/login/vendor">Vendor</a></span> */}
                                         </div>
                                         :
-                                        <div className="joinMenuContainer" style={{ float: "right" }}>
+                                        <div className="joinMenuContainer" style={{ float: "right", minWidth:"180px"}}>
                                             <span className="m-1"><a className="joinMenu pink-text" href="/signup">Sign Up</a></span>
                                             <span className="m-1"><a className="joinMenu pink-text" href="/login">Log In</a></span>
-                                            <span className="m-1"><a className="joinMenu grey-text" href="/login/vendor">Vendor</a></span>
+                                            <span className="m-1"><a className="joinMenu black-text" href="/login/vendor">Vendor</a></span>
                                         </div>
                                     }
                                 </MDBNavItem>

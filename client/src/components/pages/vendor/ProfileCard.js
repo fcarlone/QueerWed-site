@@ -6,7 +6,7 @@ import "../../../style/vendor/vendor.css"
 
 const ProfileCard = (props) => {
     return (
-        <div className="background p-5" style={{ backgroundColor: "#eac7dc" }}>
+        <div className="background p-5 amy-crisp-gradient">
             <div className="container">
                 <a className="white-text float-right mt-0 mr-0" onClick={props.logOut}>LogOut <i className="fas fa-sign-out-alt"></i></a>
 
@@ -19,7 +19,7 @@ const ProfileCard = (props) => {
                     <div className="col-sm-12 col-md-6 col-lg-7 profile-container">
 
                         <div className="profile-content-container">
-                            <h1 className="white-text mb-3">Hi! {props.name}</h1>
+                            <h1 className="white-text mb-3 title-font">Hi! {props.name}</h1>
                             <p className="white-text"><MDBIcon far icon="envelope mr-2" />{props.email}</p>
                             <p className="white-text"><i className="fas fa-bars mr-2"></i>{props.category}</p>
                             <p className="white-text"><i className="fas fa-mobile-alt mr-2"></i>{props.phone}</p>

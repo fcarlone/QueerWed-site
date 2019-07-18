@@ -18,13 +18,13 @@ function Header(props) {
       value={props.value2}
       name= "name2"
       type="text" 
-      placeholder="Your spouse name" />
+      placeholder="Your spouse's name" />
     </h1>
 
     <button onClick={props.handleAddButton} type="button" className="btn btn-info">Add</button>
     {/* <button type="button" className="btn btn-light">Edit</button> */}
     <br></br>
-    <button type="button" className="btn btn-secondary">Upload Your Cover Photo</button>
+    {/* <button type="button" className="btn btn-secondary">Upload Your Cover Photo</button> */}
 
   </div>
   </div>

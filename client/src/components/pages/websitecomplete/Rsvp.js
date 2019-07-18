@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from "react";
-import GuestContext from "../../../context/guest/guestContext";
+import React from "react";
+// import GuestContext from "../../../context/guest/guestContext";
 import "../../../style/website/rsvp.css";
-import { PromiseProvider } from "mongoose";
+// import { PromiseProvider } from "mongoose";
 
 
 function Rsvp(props) {
@@ -39,13 +39,19 @@ function Rsvp(props) {
     </sapn>
     <div id="fourline" className="guestanswer">
     <div className="form-check">
-    <input className="form-check-input" type="checkbox" value="yes" />
+    <input onChange={props.handleCheckInputChange} 
+    className="form-check-input" 
+    name="isGoing"
+    type="checkbox" value="yes" />
   <label className="form-check-label" for="defaultCheck1">
     Yes, I will be there
   </label>
   </div>
   <div className="form-check">
-  <input className="form-check-input" type="checkbox" value="no" />
+  <input onChange={props.handleCheckInputChange}
+  className="form-check-input" 
+  name="isGoing"
+  type="checkbox" value="no" />
   <label className="form-check-label" for="defaultCheck2">
     No, I won't be there
   </label>

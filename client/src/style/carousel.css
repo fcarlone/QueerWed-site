@@ -33,7 +33,27 @@ select, textarea{
 .content-font {
     font-family: "Roboto, sans-serif"
 }
+.carouselContent > input[type=text] {
+    color: #ffffff;
+    outline-width: 0 !important;
+    outline: none !important;
+    font-family: "Roboto, sans-serif";
+    font-size: 18px;
 
+
+
+}
+.carouselContent > input[type=text]:active,
+.carouselContent > input[type=text]:focus,
+.carouselContent > input[type=text]:hover,
+.carouselContent > input[type=text]:focus-within {
+    color: #ffffff;
+    font-family: "Roboto, sans-serif";
+    font-size: 18px;
+    background-color:#e91e63;
+    outline-width: 0 !important;
+    outline: none !important;
+}
 
 /* .carousel-item.active {
     display:block;

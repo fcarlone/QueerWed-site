@@ -3,6 +3,7 @@ import axios from "axios";
 
 import Container from "../../layout/Container.js"
 import Nav from "../../layout/Nav"
+import PageImage from "../../layout/PageImage"
 
 import TeamSearch from "../../pages/team/TeamSearch";
 import Card from "../../pages/team/Card"
@@ -189,18 +190,20 @@ class MyVendor extends React.Component {
             <>
                 <Nav />
                 <Container>
-                    <div className="main-image-container">
-                        <h2 className="centered"><strong>Your Favorite Professionals!</strong></h2>
-                        <img src="http://stephgrantprod.wpengine.com/wp-content/uploads/2013/07/ShannonSeemaWedding-15345-800x533.jpg" alt="Find your Team"></img>
-                        {/* <img src="http://ericacamilleproductions.com/weddings/wp-content/uploads/2019/02/mymoon-brooklyn-weddingphotographer-lgbt001.jpg"></img> */}
-
-                    </div>
+                    <PageImage
+                        title="Your Favorite Professionals!"
+                        src="http://stephgrantprod.wpengine.com/wp-content/uploads/2013/07/ShannonSeemaWedding-15345-800x533.jpg" />
                     <div className="container">
-                        {this.state.isLogIn && <TeamSearch
+                        {this.state.result.length === 0 ? 
+                            <h3 className="text-center pink-text mt-5">
+                                <span className="pink-text">Currently, You don't have any favorite vendor.</span>
+                                <br></br>
+                                <a className="text-center pink-text" href="/team"> Click here to see all vendors in your area <i class="fas fa-angle-double-right ml-2"></i></a></h3>
+                            :
+                            this.state.isLogIn && <TeamSearch
                             onClick={this.handleSearch}
                             onChange={this.handleInputChange}
                             location={this.state.location} />}
-                        
                         {this.state.filtered.map((ele, index) => (
                             <Card
                                 key={index}

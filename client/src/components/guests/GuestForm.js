@@ -222,7 +222,7 @@ const GuestForm = () => {
               <input
                 type="submit"
                 value={current ? "Update Guest" : "Add Guest"}
-                className="btn btn-primary"
+                className="btn"
               />
             </div>
           </Form.Group>

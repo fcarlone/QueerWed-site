@@ -1,11 +1,18 @@
-import React from "react";
+import React, { Fragment } from "react";
 import axios from "axios";
-import Container from "../../layout/Container"
+import Container from "../../layout/Container";
 import Nav from "../../layout/Nav";
 
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBCard, MDBCardBody } from 'mdbreact';
-import { Button } from "../../layout/Button"
-import { withRouter } from "react-router-dom"
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBCard,
+  MDBCardBody
+} from "mdbreact";
+import { Button } from "../../layout/Button";
+import { withRouter } from "react-router-dom";
 
 class VendorLogin extends React.Component {
   state = {
@@ -29,7 +36,7 @@ class VendorLogin extends React.Component {
       .post("/vendoruser-login", userObject)
       .then(response => {
         console.log(response.data);
-        this.props.history.push("/vendor")
+        this.props.history.push("/vendor");
         // window.location.href = "/vendor"
       })
       .then(
@@ -37,10 +44,11 @@ class VendorLogin extends React.Component {
           email: "",
           password: ""
         })
-      ).catch(function (error) {
+      )
+      .catch(function(error) {
         console.log(error);
-        window.location.href = "/login/vendor"
-      });;
+        window.location.href = "/login/vendor";
+      });
   };
 
   // Handle onChange
@@ -54,7 +62,7 @@ class VendorLogin extends React.Component {
 
   render() {
     return (
-      <>
+      <Fragment>
         <Nav />
         <Container>
           <MDBContainer>
@@ -63,7 +71,7 @@ class VendorLogin extends React.Component {
                 <MDBCard>
                   <MDBCardBody>
                     <form>
-                      <p className="h5 text-center mb-5 mt-3 title-text grey-text">VENDOR LOGIN</p>
+                      <p className="h5 text-center mb-5 mt-3 title-font grey-text">VENDOR LOGIN</p>
                       <div className="grey-text">
                         <MDBInput
                           label="Type your email"
@@ -88,8 +96,10 @@ class VendorLogin extends React.Component {
                       </div>
                       <div className="text-center">
                         <Button onClick={this.onSubmitLogin} value="Login" />
-                        <br></br>
-                        <p className="mt-2">Not a member? <a href="/signup/vendor">Sign Up</a></p>
+                        <br />
+                        <p className="mt-2">
+                          Not a member? <a href="/signup/vendor">Sign Up</a>
+                        </p>
                       </div>
                     </form>
                   </MDBCardBody>
@@ -98,7 +108,7 @@ class VendorLogin extends React.Component {
             </MDBRow>
           </MDBContainer>
         </Container>
-      </>
+      </Fragment>
     );
   }
 }
