@@ -45,12 +45,11 @@ const GuestItem = ({ guest }) => {
       <ul className="guest-list">
         <li>{address1}</li>
         {address2 && <li> {address2} </li>}
-        <li>{city}</li>
-        <li>{state}</li>
-        <li>{zip}</li>
+        <span>{city}, {state} {zip}</span>
         {email && <li> {email} </li>}
         {phone && <li> {phone} </li>}
       </ul>
+      
       <p className="button-container">
         <button
           onClick={() => {
