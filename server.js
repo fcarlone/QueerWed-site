@@ -8,7 +8,6 @@ const passport = require("./config/passport");
 // For Image File upload
 const fs = require("fs");
 
-
 const app = express();
 
 const PORT = process.env.PORT || 5000;
@@ -44,31 +43,20 @@ require("./routes/website")(app);
 require("./routes/team")(app);
 require("./routes/favorite")(app);
 
-
-// Route to load single HTML page
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
-
 // Test Route (DELETE after front-end build)
-app.get("/", (req, res) => {
-  res.send("test server");
-});
-
-// for Image Upload
-// app.use(multer({
-//   dest: "./uploads/",
-//   rename: function (fieldname, filename) {
-//     return filename;
-//   },
-// }));
-
-// app.post("/api/photo", function (req, res) {
-//   var newUpload = new db.Upload();
-//   newUpload.img.data = fs.readFileSync(req.files.userPhoto.path)
-//   newUpload.img.contentType = "image / png";
-//   newUpload.save();
+// app.get("/", (req, res) => {
+//   res.send("test server");
 // });
+
+// Serve up static assets
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+
+  // Route to load single HTML page
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  });
+}
 
 // Add listner
 app.listen(PORT, () => {
