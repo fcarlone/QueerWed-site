@@ -93,7 +93,7 @@ class Vendor extends React.Component {
                 />
 
                 <div className="container">
-                    <h1 className="p-4 text-center title-font" style={{ color: "#eac7dc" }}>Couples Who Like You!</h1>
+                    <h1 className="p-4 text-center title-font" style={{ color: "#e91e63" }}>Couples Who Like You!</h1>
                     <div className="card-columns">
                         {this.state.userData.map((ele, index) =>
                             <UserCard

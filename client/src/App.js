@@ -70,6 +70,7 @@ class App extends Component {
               <Route exact path="/signup/vendor" component={VendorSignup} />
 
               <Route exact path="/vendor" component={Vendor} />
+              
             </Switch>
             <Route exact path="/website/user/:id" component={WebsiteComplete} />
           </div>

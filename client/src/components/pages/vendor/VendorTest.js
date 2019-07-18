@@ -37,7 +37,7 @@ class Vendor extends React.Component {
                     image="https://www.ftd.com/blog/content/uploads/2017/01/hero-pantone-flowers-720x474.jpg"
                 />
                 <div className="container">
-                    <h1 className="p-4 text-center title-font" style={{color:"#eac7dc"}}>Couples Who Like You!</h1>
+                    <h1 className="p-4 text-center title-font" style={{color:"#e91e63"}}>Couples Who Like You!</h1>
                     <div className="card-columns">
                         <UserCard
                             name="Gina"
