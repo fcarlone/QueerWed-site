@@ -2,7 +2,7 @@ import React from "react";
 
 const TeamSearch = (props) => (
     <div className="text-center">
-        <form style={{display:"inline-block"}}>
+        <form style={{ display: "inline-block" }}>
             <div className="form-row align-items-center">
                 <div className="col-auto">
                     <div className="md-form">
@@ -22,14 +22,14 @@ const TeamSearch = (props) => (
                     <div className="md-form input-group mb-3">
                         <div className="input-group-prepend">
                             <span className="input-group-text md-addon">in</span>
+                            <input type="text" className="form-control pl-0 rounded-0" id="inlineFormInputGroupMD"
+                                placeholder="Location" name="location" onChange={props.onChange} value={props.location} style={{ height: "20px", paddingBottom: "8px" }}></input>
                         </div>
-                        <input type="text" className="form-control pl-0 rounded-0" id="inlineFormInputGroupMD"
-                            placeholder="Location" name="location" onChange={props.onChange} value={props.location} style={{ height: "20px", paddingBottom: "8px" }}></input>
                     </div>
                 </div>
 
                 <div className="col-auto">
-                    <button type="submit" className="btn btn-pink mb-0" onClick={props.onClick}>Search</button>
+                    <button type="submit" className="btn btn-pink mb-0 z-depth-0" onClick={props.onClick}>Search</button>
                 </div>
             </div>
         </form>

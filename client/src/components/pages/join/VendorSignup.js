@@ -84,7 +84,7 @@ class VendorSignup extends React.Component {
                     <div className="container">
                         <div className="SignUpValidation mx-auto" style={{ height: " calc(100vh - 60px)", position: "relative" }}>
                             <div style={{ position: "absolute", top: "50%", transform: "translateY(-50%)" }}>
-                                <h1 className="pink-text">Hi, Welcome to QueerWed</h1>
+                                <h1 className="pink-text title-font">Hi, Welcome to QueerWed</h1>
                                 <br></br>
                                 <h5>An app for LGBTQIA+ wedding professionals to connect with LGBTQIA+ folks who are getting married.</h5>
                                 <h5>QueerWed is about promoting solidarity and commerce within the queer community,</h5>
@@ -92,7 +92,7 @@ class VendorSignup extends React.Component {
                                 <br></br>
                                 <h5><a className="pink-text" href="#signUpQuestion"><i className="fas fa-check mr-2"></i>You’re a sole proprietor and identify as LGBTQIA+</a></h5>
                                 <h5><a className="pink-text" href="#signUpQuestion"><i className="fas fa-check mr-2"></i>The owner or at least one of your employees identify as LGBTQIA+</a></h5>
-                                <p><a className="grey-text" href="/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Neither of those, Take me back to the home<i className="fas fa-arrow-right ml-2"></i></a></p>
+                                <p><a className="grey-text" href="/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Neither of those, Take me back to the homepage<i className="fas fa-arrow-right ml-2"></i></a></p>
                                 <br></br>
                                 <br></br>
 
@@ -101,7 +101,7 @@ class VendorSignup extends React.Component {
 
                         </div>
                         <div id="signUpQuestion" style={{ paddingTop: "60px",paddingBottom: "60px" }}>
-                            <h1 className="pink-text">Tell me about your business.</h1>
+                            <h1 className="pink-text title-font">Tell me about your business.</h1>
                             <MDBInput name="email" value={this.state.email} onChange={this.handleInputChange} label="email" />
                             <MDBInput name="password" value={this.state.password} onChange={this.handleInputChange} type="password" label="password" />
                             <MDBInput name="category" value={this.state.category} onChange={this.handleInputChange} label="What kind of business are you in?" prepend="Options" />

@@ -5,7 +5,6 @@ import GuestState from "./context/guest/GuestState";
 
 // Planning Pages
 import Loading from "./components/pages/Loading";
-import Planning from "./components/pages/planning/Planning";
 import Events from "./components/pages/planning/event/Events";
 import GuestList from "./components/pages/planning/GuestList";
 import Todos from "./components/pages/planning/todo/Todos";
@@ -49,7 +48,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Loading} />
 
-              <Route exact path="/planning" component={Planning} />
+              <Route exact path="/planning" component={Events} />
               <Route exact path="/planning/calendar" component={Events} />
               <Route exact path="/planning/checklist" component={Todos} />
               <Route exact path="/planning/guestlist" component={GuestList} />

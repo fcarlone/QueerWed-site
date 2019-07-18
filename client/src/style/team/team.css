@@ -1,7 +1,7 @@
 .main-image-container {
   display: inline-block;
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 250px;
   overflow: hidden;
   
@@ -11,7 +11,7 @@
 }
 
 .main-image-container > img {
-  width: 100%;
+  width: 100vw;
   margin-top: -250px;
 }
 
