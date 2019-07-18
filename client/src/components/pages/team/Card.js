@@ -14,9 +14,11 @@ class Card extends React.Component {
                     <div className="col-md-8 team-card-body">
                         <div className="card-body">
                             {this.props.isLogIn && (this.props.favorite ? <MDBIcon icon="heart" size="lg" className="pink-text" onClick={this.props.undoFavorite} data-vendorid={this.props.vendorid} />
-                                : <MDBIcon far icon="heart" size="lg" className="pink-text" onClick={this.props.addFavorite} data-vendorid={this.props.vendorid} />
+                                : <MDBIcon far icon="heart" size="lg" className="pink-text" onClick={this.props.addFavorite} data-vendorid={this.props.vendorid} data-toggle="tooltip" data-placement="right"
+                                title="When you LIKE a vendor, they can see your information." />
                             )}
-                            <h5 className="card-title mb-3">{this.props.name}</h5>
+                            <h5 className="card-title title-font"><strong>{this.props.name}</strong></h5>
+                            <br></br>
                             <p className="card-text"><i className="fas fa-bars mr-2"></i>{this.props.category}</p>
                             <p className="card-text">
                                 <i className="fas fa-map-marker-alt mr-2"></i>

@@ -19,11 +19,11 @@ const Carousel = (props) => (
                     <MDBView>
                         <div className="carouselBackground">
                             <div className="carouselContent text-center">
-                                <h1>Hi, Welcome to <span className="title-font"><strong>QueerWed!</strong></span></h1>
+                                <h1 className="title-font">Hi, Welcome to <span className="title-font"><strong>QueerWed!</strong></span></h1>
                                 <h3> If either you or your partner is a member of LGBTQIA+ community, please proceed!</h3>
                                 <br></br>
                                 <p className="mb-0">Neither my partner nor I are part of this community.</p>
-                                <a className="white-text" href="/">Take me to the home > </a>
+                                <a className="white-text" href="/">Take me to the homepage > </a>
                             </div>
                         </div>
                     </MDBView>
@@ -43,7 +43,7 @@ const Carousel = (props) => (
                         <MDBView>
                             <div className="carouselBackground">
                                 <div className="carouselContent text-center">
-                                    <h1>{ele.question}</h1>
+                                    <h1 className="title-font">{ele.question}</h1>
                                     <h3>{ele.sub}</h3>
                                     <input type="text" name={ele.name} onChange={props.onChange} id="exampleForm2" className="form-control text-center answer"></input>
                                 </div>
@@ -55,7 +55,7 @@ const Carousel = (props) => (
                     <MDBView>
                         <div className="carouselBackground">
                             <div className="carouselContent text-center">
-                                <h1>Almost There!</h1>
+                                <h1 className="title-font">Almost There!</h1>
                                 <h3 className="mb-3">Click Sign Up.</h3>
                                 <OutlinedButton onClick={props.onClick}><b>Sign Up</b>
                                 </OutlinedButton>

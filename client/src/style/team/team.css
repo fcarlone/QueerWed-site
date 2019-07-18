@@ -1,7 +1,7 @@
 .main-image-container {
   display: inline-block;
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 250px;
   overflow: hidden;
   
@@ -11,7 +11,7 @@
 }
 
 .main-image-container > img {
-  width: 100%;
+  width: 100vw;
   margin-top: -250px;
 }
 
@@ -48,4 +48,21 @@
   right:15px;
   margin: 20px;
   cursor: pointer
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

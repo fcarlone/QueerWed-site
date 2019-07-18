@@ -6,6 +6,8 @@ import TeamSearch from "./TeamSearch.js";
 import Card from "./Card"
 import '../../../style/team/team.css'
 import Nav from "../../layout/Nav";
+import PageImage from "../../layout/PageImage";
+
 
 class Team extends React.Component {
     constructor(props) {
@@ -186,12 +188,9 @@ class Team extends React.Component {
             <>
                 <Nav />
                 <Container>
-                    <div className="main-image-container">
-                        <h2 className="centered"><strong>Find your Wedding professionals in your area!</strong></h2>
-                        <img src="http://stephgrantprod.wpengine.com/wp-content/uploads/2013/07/ShannonSeemaWedding-15345-800x533.jpg" alt="Find your Team"></img>
-                        {/* <img src="http://ericacamilleproductions.com/weddings/wp-content/uploads/2019/02/mymoon-brooklyn-weddingphotographer-lgbt001.jpg"></img> */}
-
-                    </div>
+                    <PageImage 
+                     title="Find your Wedding professionals in your area!"
+                     src="http://stephgrantprod.wpengine.com/wp-content/uploads/2015/01/AM_web-393-800x533.jpg"/>
                     <div className="container">
                         <TeamSearch
                             onClick={this.handleSearch}

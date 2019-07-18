@@ -100,7 +100,6 @@ class TodoForm extends Component {
                     />
                   </div>
                 )}
-              />
              <div class="input-group-append">
                 <div className="todo-btn-container">
                   <button className="btn btn-todo">
