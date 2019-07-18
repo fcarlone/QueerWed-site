@@ -237,14 +237,14 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                             <MDBNavbarNav right>
                                 <MDBNavItem>
                                     {this.state.isLogIn ?
-                                        <div className="joinMenuContainer" style={{ float: "right" }}>
+                                        <div className="joinMenuContainer" style={{ float: "right", minWidth:"180px"}}>
                                             <span className="m-1 joinMenu pink-text"><strong>{this.state.userEmail}</strong></span>
                                             <MDBBtn className="z-depth-0" color="pink" size="sm" onClick={this.logOut}>Log Out</MDBBtn>
                                             {/* <span className="m-1"><button className="joinMenu pink-text" style={{backgroundColor: "#fffff"}} onClick={this.logOut}>Log Out</button></span> */}
                                             {/* <span className="m-1"><a className="joinMenu grey-text" href="/login/vendor">Vendor</a></span> */}
                                         </div>
                                         :
-                                        <div className="joinMenuContainer" style={{ float: "right" }}>
+                                        <div className="joinMenuContainer" style={{ float: "right", minWidth:"180px"}}>
                                             <span className="m-1"><a className="joinMenu pink-text" href="/signup">Sign Up</a></span>
                                             <span className="m-1"><a className="joinMenu pink-text" href="/login">Log In</a></span>
                                             <span className="m-1"><a className="joinMenu black-text" href="/login/vendor">Vendor</a></span>

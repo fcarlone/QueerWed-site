@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import Container from "../../layout/Container";
 import Nav from "../../layout/Nav";
-
 import Carousel from "../../layout/Carousel";
 
 class Signup extends React.Component {
