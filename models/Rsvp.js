@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
 
-const WebsiteSchema = mongoose.Schema({
+const RsvpSchema = mongoose.Schema({
   user: {
       type : Schema.Types.ObjectId,
       ref: "users"
@@ -10,9 +10,9 @@ const WebsiteSchema = mongoose.Schema({
   guestName: {
     type: String,
   },
-  rsvp: {
+  isGoing: {
     type: String
   }
 })
 
-module.exports = mongoose.model("website", WebsiteSchema);
+module.exports = mongoose.model("Rsvp", RsvpSchema);

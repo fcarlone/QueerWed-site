@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import Nav from './WebsiteNav.js'
 import Header from './Header.js';
 import Details from './Detail.js';
-import Container from '../../layout/Container';
+// import Container from '../../layout/Container';
 import Rsvp from './Rsvp.js';
+import Registry from './Registry.js';
 import axios from 'axios';
-import { array } from 'prop-types';
-import { lstat } from 'fs';
+// import { array } from 'prop-types';
+// import { lstat } from 'fs';
 // import { eventNames } from 'cluster';
 
 // import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -23,7 +24,8 @@ class WebsiteComplete extends Component {
     location: '',
     rsvpdate: '',
     guestname: '',
-    rsvp: ''
+    rsvp: '',
+    isGoing: null
   };
 
   componentDidMount() {
@@ -64,13 +66,23 @@ class WebsiteComplete extends Component {
     console.log(this.state.name)
   }
 
-  handleRsvpSubmitButton = (event) => {
-    event.preventDefault();
-    console.log(event.target.value);
-    console.log(this.state.guestname);
-    console.log(this.state.name)
-    // console.log(this.state.rsvp)
-  }
+  handleCheckInputChange = (event) => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.value : null;
+    const name = target.name;
+  
+       this.setState({
+       [name]: value
+       });
+    }
+
+    handleRsvpSubmitButton = (event) => {
+      event.preventDefault();
+      console.log(this.state.guestname);
+      console.log(this.state.isGoing);
+      axios.post("/api/rsvp", { guestName: this.state.guestname, isGoing:this.state.isGoing, })
+      .then(response => console.log(response))
+    }
 
   render() {
 
@@ -89,10 +101,13 @@ class WebsiteComplete extends Component {
                 date={this.state.date}
                 location={this.state.location} />
 
+              {/* <Registry /> */}
+
           <Rsvp   
           rsvpdate= {this.state.rsvpdate} 
           handleRsvpName = {this.handleRsvpName}
           handleRsvpSubmitButton = {this.handleRsvpSubmitButton}
+          handleCheckInputChange = {this.handleCheckInputChange}
           value = {this.state.guestname}
           />
 

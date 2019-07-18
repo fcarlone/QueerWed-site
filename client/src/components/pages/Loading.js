@@ -70,7 +70,7 @@ class Loading extends React.Component {
    
              <h4 class="title">
                <i class="fa fa-heart" aria-hidden="true"></i>
-               <a href="/website/create"> Share & Celebrate</a></h4>
+               <a href="/website/create"> Share &amp; Celebrate</a></h4>
              <p class="description">Create a website for your wedding details to share information, updates, and photos
                with guests</p>
            </div>
