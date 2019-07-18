@@ -9,7 +9,7 @@ const TodoItems = props => (
       >
         <h3 className="todo-description">{props.item.todo}</h3>
       </span>
-      <button className="btn " onClick={props.toggleComplete}>
+      <button className="btn" onClick={props.toggleComplete}>
         {props.item.completed ? "Undo" : "Completed"}
       </button>
       <button className="btn" onClick={props.handleEditTodo}>
