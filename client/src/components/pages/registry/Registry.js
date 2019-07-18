@@ -10,10 +10,7 @@ class Registry extends React.Component {
       <Fragment>
         <Nav />
         <section>
-          <h1 className="registry-content">
-            Registry Page Test <br />
-            Welcome to your registry
-          </h1>
+    
           <RegistryTitle />
         </section>
 

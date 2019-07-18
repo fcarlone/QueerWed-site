@@ -1,16 +1,28 @@
 /* body{
   margin-top: -115px;
 } */
+<<<<<<< HEAD
+.main-image-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+=======
+>>>>>>> 0c3deb923264e48a85ae739d9db57da52d63d3b2
 
 .container-event {
-  margin-top: 11rem;
+ 
   font-family: 'Montserrat', sans-serif;
-  background-image: url(../todo/reuben-clay-gay-wedding-41.jpg);
-  background-size: 100%;
   
 }
 
-.event-title {
+/* .event-title {
   text-align: center;
   margin-bottom: 3rem;
   font-family: 'Montserrat', sans-serif;
@@ -18,14 +30,14 @@
   color: white;
   padding-top: 120px;
  
-}
+} */
 
 .event-list-description {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 5px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  color: white;
+  font-size: 30px;
+  color:black;
 }
 
 .events-section-one {
@@ -37,6 +49,7 @@
 .events-section-two {
   width: 35rem;
   margin-left: 10rem;
+  
 
 }
 

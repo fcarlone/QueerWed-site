@@ -39,7 +39,7 @@ class EventForm extends Component {
       <Fragment>
         <div className="event-form-container">
         <div className="enterevent">
-        <h2>Enter Event</h2></div>
+        <h2>Enter Event:</h2></div>
           <Form onSubmit={this.onSubmit}>
             <Form.Group>
               <input
@@ -86,7 +86,7 @@ class EventForm extends Component {
             </Form.Group>
 
             <div className="event-btn-container">
-              <button className="btn btn-event-form">Add</button>
+              <button className="btn">Add</button>
             </div>
           </Form>
         </div>
