@@ -1,9 +1,9 @@
 .container-form {
   border: none;
   text-align: center;
-  margin: auto;
-  color: white;
-  font-weight: 600;
+  margin-top: 3px;
+  color: black;
+  
   font-family: 'Montserrat', sans-serif;
 
 }
@@ -11,6 +11,7 @@
 .input-todo {
   width: 20rem;
   color: black;
+  font-size: 20px;
 }
 
 .todo-btn-container,

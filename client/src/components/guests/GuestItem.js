@@ -5,7 +5,7 @@ import "../../styles/guest/guestItem.css";
 
 const GuestItem = ({ guest }) => {
   const guestContext = useContext(GuestContext);
-  const { deleteGuest, setCurrent, clearCurrent } = guestContext;
+  const { deleteGuest, setCurrent, clearCurrent, clearFilter } = guestContext;
   const {
     _id,
     name,
@@ -22,6 +22,7 @@ const GuestItem = ({ guest }) => {
   const handleDeleteGuest = () => {
     deleteGuest(_id);
     clearCurrent();
+    clearFilter();
   };
 
   return (
@@ -45,21 +46,20 @@ const GuestItem = ({ guest }) => {
       <ul className="guest-list">
         <li>{address1}</li>
         {address2 && <li> {address2} </li>}
-        <li>{city}</li>
-        <li>{state}</li>
-        <li>{zip}</li>
+        <span>{city}, {state} {zip}</span>
         {email && <li> {email} </li>}
         {phone && <li> {phone} </li>}
       </ul>
+      
       <p className="button-container">
-        <button
+        <button className="btn" 
           onClick={() => {
             setCurrent(guest);
           }}
         >
           Edit
         </button>
-        <button onClick={handleDeleteGuest}>Delete</button>
+        <button className="btn" onClick={handleDeleteGuest}>Delete</button>
       </p>
     </div>
   );

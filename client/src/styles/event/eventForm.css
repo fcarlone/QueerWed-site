@@ -1,8 +1,10 @@
 .event-form-container {
   margin-left: 5rem;
-  background-image: url(notebook.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
+  font-family: 'Montserrat', sans-serif;
+ 
+  
 }
 
 .event-form-venue,
@@ -12,7 +14,7 @@
   width: 20rem;
   color:black;
   padding-left: 7px;
-  background-color: rgb(233, 222, 222);
+  background-color:white;
   
 }
 
@@ -29,5 +31,8 @@
   color: black;
   background-size: 90%;
   background-repeat: no-repeat;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  margin-top: 3px;
 }
 

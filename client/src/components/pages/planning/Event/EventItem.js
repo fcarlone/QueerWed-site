@@ -32,9 +32,6 @@ const EventItem = props => {
           </h3>
         </div>
         <div className="event-item-btn-container">
-          <button className="btn" onClick={props.handleEditEvent}>
-            Edit
-          </button>
           <button className="btn" onClick={props.handleRemoveEvent}>
             Delete
           </button>
