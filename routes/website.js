@@ -6,6 +6,7 @@ const db = require("../models")
 // Connect model
 const Website = require("../models/Website");
 
+
 module.exports = function(app) {
   // Get user
   // app.get("/user", (req, res) => {
@@ -28,6 +29,23 @@ module.exports = function(app) {
       .catch(err => res.status(500).json(err))
   });
   
+  app.post("/api/rsvp", (req, res) => {
+    console.log(req.body)
+    req.body.user = req.user._id
+    db.Rsvp
+     .create(req.body)
+     .then(data => {
+      res.json(data)
+     })
+  })
+
+  app.get("/api/rsvp", isAuthenticated, (req, res) => {
+    db.Rsvp
+    .find({user: req.user._id})
+    .then(result => res.json(result))
+      // console.log(result)
+      .catch(err => res.status(500).json(err))
+  });
 
   app.post("/create-website", isAuthenticated, async (req, res, next) => {
     console.log("create website", req.body);

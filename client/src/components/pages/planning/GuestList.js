@@ -20,7 +20,6 @@ const GuestList = () => {
           </div>
         </div>
       </div>
-      </div>
     </Fragment>
   );
 };

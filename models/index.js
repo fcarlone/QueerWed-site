@@ -6,5 +6,6 @@ module.exports = {
   VendorUser: require("./VendorUser"),
   Upload: require("./Upload"),
   Website: require("./Website"),
+  Rsvp: require("./Rsvp"),
   Favorite: require("./Favorite")
 };

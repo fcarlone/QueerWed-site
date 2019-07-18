@@ -9,6 +9,7 @@ import MainNav from '../../layout/Nav';
 import Rsvp from './Rsvp.js';
 // import Faqs from './Faqs.js';
 import CreateButton from './CreateButton.js';
+import Registry from './Registry.js';
 import axios from 'axios';
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 // import 'bootstrap-css-only/css/bootstrap.min.css';
@@ -34,7 +35,7 @@ class Website extends Component {
     try {
       const response = await axios
         .get("/api/websitedata");
-      console.log(response.data);
+      // console.log(response.data);
       this.setState({
         userId: response.data[0].user,
       });
@@ -59,9 +60,7 @@ class Website extends Component {
   handleAddButton = (event) => {
     event.preventDefault();
     console.log(this.state.name1, this.state.name2);
-    this.setState({
-      
-    })
+    alert("Hello! " + this.state.name1 +" & " + this.state.name2 + "! Your name and your spouse name just added!")
   }
 
   // Header - End: Add name1 and name2
@@ -79,6 +78,7 @@ class Website extends Component {
   handleDateButton = (event) => {
     event.preventDefault();
     console.log(this.state.date);
+    alert("Your big day is " + this.state.date + "! This date just added!")
   }
   handleLocation = (event) => {
     event.preventDefault();
@@ -90,6 +90,7 @@ class Website extends Component {
   handleLocationButton = (event) => {
     event.preventDefault();
     console.log(this.state.location);
+    alert("Your wedding will be held " + this.state.location+ "! This location just added!")
   }
 
   // End : Date and Location
@@ -106,6 +107,8 @@ class Website extends Component {
   handleAddRsvp = (event) => {
     event.preventDefault();
     console.log(this.state.rsvpdate);
+    alert("Your RSVP due date is " + this.state.rsvpdate+ "! This date just added!")
+
   }
 
   // End : RSVP date
@@ -116,6 +119,8 @@ class Website extends Component {
       .then(res => {
         console.log(res)
       })
+  alert("You just created your own website! Share the page with your friends!")
+
   }
   // End : create website
 
@@ -145,6 +150,8 @@ class Website extends Component {
                   value1={this.state.date}
                   value2={this.state.location}
                 />
+
+                {/* <Registry /> */}
 
                 <Rsvp
                   handleInputRsvp={this.handleInputRsvp}

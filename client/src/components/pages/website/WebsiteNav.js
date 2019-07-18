@@ -8,7 +8,7 @@ function Nav(props) {
     <li className="detail nav-item col-2 text-left">
       <a className="nav-link js-scroll-trigger" href="#details">date &amp; location</a></li>
     <li className="registry nav-item col-2 text-left">
-      <a className="nav-link js-scroll-trigger" href="#registry">registry</a></li>
+      <a className="nav-link js-scroll-trigger" href="/registry">registry</a></li>
     {/* <li className="guestbook nav-item col-2">
       <a className="nav-link js-scroll-trigger" href="#guestbook">guest book</a></li>
     <li className="qa nav-item col-2">
