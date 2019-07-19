@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "./node_modules/react";
+import React, { Component, Fragment } from "react";
 import "../../../../styles/todo/todoForm.css";
 
 class TodoForm extends Component {

@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from "./node_modules/react";
+import React, { Component, Fragment } from "react";
 import TodoItem from "./TodoItem";
 import TodoForm from "./TodoForm";
-import axios from "./node_modules/axios";
+import axios from "axios";
 import TodoMenu from "./TodoMenu";
 import "../../../../styles/todo/todo.css";
 import Nav from "../../../layout/Nav";

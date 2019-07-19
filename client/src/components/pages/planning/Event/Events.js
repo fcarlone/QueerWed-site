@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from "./node_modules/react";
+import React, { Component, Fragment } from "react";
 import EventForm from "./EventForm";
 import EventItem from "./EventItem";
-import axios from "./node_modules/axios";
+import axios from "axios";
 import "../../../../styles/event/event.css";
 import Nav from "../../../layout/Nav";
 
