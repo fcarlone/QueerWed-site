@@ -23,6 +23,6 @@
   <br>
 
 You can visit the site at:  
-[https://queerwed.herokuapp.com//](https://queerwed.herokuapp.com/)
+[https://queerwed.herokuapp.com/](https://queerwed.herokuapp.com/)
 
 [![Visit the site](assets/screenshot.png)](https://queerwed.herokuapp.com/)
