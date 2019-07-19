@@ -6,11 +6,7 @@ const connectDB = require("./config/db");
 const session = require("express-session");
 const passport = require("./config/passport");
 // For Image File upload
-const fs = require("fs");
-
 const app = express();
-
-const PORT = process.env.PORT || 5000;
 
 // Connect database
 connectDB();
@@ -26,11 +22,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Serve static assets
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-
 // Define routes
 require("./routes/user")(app);
 require("./routes/vendorUser")(app);
@@ -43,10 +34,12 @@ require("./routes/website")(app);
 require("./routes/team")(app);
 require("./routes/favorite")(app);
 
-// Test Route (DELETE after front-end build)
-// app.get("/", (req, res) => {
-//   res.send("test server");
+// Route to load single HTML page
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // });
+
+const PORT = process.env.PORT || 5000;
 
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
