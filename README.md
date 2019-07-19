@@ -12,11 +12,11 @@
 <br>
 <br>
 
-## Couples Sign Up
+### Couples Sign Up
 
 - Click the "Sign Up" button. Answer a few questions about your big day. Use your email address and password to log into your account.
 
-## Vendor Sign Up
+### Vendor Sign Up
 
 - Click the "Are You A Vendor" button. If you meet the requirements, complete the business form.
   <br>
