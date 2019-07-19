@@ -70,7 +70,7 @@ class Signup extends React.Component {
       .post("user-signup", userObject)
       .then(response => {
         console.log(response.data);
-        window.location.href = "/planning";
+        window.location.href = "/login";
       })
       .then(
         this.setState({
@@ -111,7 +111,9 @@ class Signup extends React.Component {
             onChange={this.handleInputChange}
             onClick={this.onSubmitSignup}
           >
-            <h1 className="title-font">Congratulations on your big day coming up!</h1>
+            <h1 className="title-font">
+              Congratulations on your big day coming up!
+            </h1>
             <h3>Now for a few questions.</h3>
           </Carousel>
         </Container>

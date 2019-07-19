@@ -5,7 +5,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 // Connect model
 const User = require("../models/User");
 
-module.exports = function (app) {
+module.exports = function(app) {
   // Get user
   app.get("/user", (req, res) => {
     res.send(req.user);
@@ -13,23 +13,22 @@ module.exports = function (app) {
   // Get user
   app.get("/user/:id", (req, res) => {
     console.log("get user Info");
-    User
-      .find({ _id: req.params.id })
+    User.find({ _id: req.params.id })
       .then(result => res.json(result))
       .catch(err => res.status(500).json(err));
   });
   // User logout
-  app.get("/logout", function (req, res) {
-    console.log("LOGOUT")
+  app.get("/logout", function(req, res) {
+    console.log("LOGOUT");
     // req.logout();
     // res.redirect("/");
-    req.session.destroy((err) => {
-      if(err) return next(err)
-    
-      req.logout()
-    
-      res.redirect("/")
-    })
+    req.session.destroy(err => {
+      if (err) return next(err);
+
+      req.logout();
+
+      res.redirect("/");
+    });
   });
 
   // User login
@@ -43,7 +42,15 @@ module.exports = function (app) {
   app.post("/user-signup", async (req, res) => {
     // Get user data
     console.log("user signup from client-side", req.body);
-    const { email, password, name, partnerName, dayOfWedding, howManyGuest, enjoyThing } = req.body;
+    const {
+      email,
+      password,
+      name,
+      partnerName,
+      dayOfWedding,
+      howManyGuest,
+      enjoyThing
+    } = req.body;
 
     // ***Check required fields***
 
