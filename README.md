@@ -14,7 +14,7 @@
 
 ## Couples Sign Up
 
-- Click the "Sign Up" button. Answer a few quesitons about your big day. Use your email address and password to log into your account.
+- Click the "Sign Up" button. Answer a few questions about your big day. Use your email address and password to log into your account.
 
 ## Vendor Sign Up
 
