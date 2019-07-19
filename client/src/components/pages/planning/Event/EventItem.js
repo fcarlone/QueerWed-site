@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from "./node_modules/react";
 import "../../../../styles/event/eventItem.css";
-const moment = require("moment");
+const moment = require("./node_modules/moment");
 
 const EventItem = props => {
   const { venue, description, date } = props.event;

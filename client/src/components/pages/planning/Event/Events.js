@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment } from "./node_modules/react";
 import EventForm from "./EventForm";
 import EventItem from "./EventItem";
-import axios from "axios";
+import axios from "./node_modules/axios";
 import "../../../../styles/event/event.css";
-import Nav from "../../../layout/Nav"
+import Nav from "../../../layout/Nav";
 
 class Events extends Component {
   state = {
@@ -60,19 +60,20 @@ class Events extends Component {
     this.setState({ current: result });
   };
 
- 
-  
-
   render() {
     return (
       <Fragment>
         <Nav />
         <div className="main-image-container">
-                        <h2 className="centered"><strong>Manage My Events</strong></h2>
-                        <img src="https://equallywed.com/wp-content/uploads/2019/03/Screen-Shot-2019-03-12-at-4.48.25-PM-585x425.png" alt="Manage your events"></img>
-                        {/* <img src="http://ericacamilleproductions.com/weddings/wp-content/uploads/2019/02/mymoon-brooklyn-weddingphotographer-lgbt001.jpg"></img> */}
-
-                    </div>
+          <h2 className="centered">
+            <strong>Manage My Events</strong>
+          </h2>
+          <img
+            src="https://equallywed.com/wp-content/uploads/2019/03/Screen-Shot-2019-03-12-at-4.48.25-PM-585x425.png"
+            alt="Manage your events"
+          />
+          {/* <img src="http://ericacamilleproductions.com/weddings/wp-content/uploads/2019/02/mymoon-brooklyn-weddingphotographer-lgbt001.jpg"></img> */}
+        </div>
         <div className="container-event">
           {/* <h1 className="event-title">Manage Your Events</h1> */}
           <div className="events-section-one">
@@ -97,7 +98,5 @@ class Events extends Component {
     );
   }
 }
-
-
 
 export default Events;

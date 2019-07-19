@@ -5,9 +5,9 @@ import GuestState from "./context/guest/GuestState";
 
 // Planning Pages
 import Loading from "./components/pages/Loading";
-import Events from "./components/pages/planning/event/Events";
+import Events from "./components/pages/planning/Event/Events";
 import GuestList from "./components/pages/planning/GuestList";
-import Todos from "./components/pages/planning/todo/Todos";
+import Todos from "./components/pages/planning/Todo/Todos";
 import myVendors from "./components/pages/planning/myVendors";
 
 // Registry Pages

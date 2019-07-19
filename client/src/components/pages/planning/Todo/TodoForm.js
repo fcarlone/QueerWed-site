@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment } from "./node_modules/react";
 import "../../../../styles/todo/todoForm.css";
 
 class TodoForm extends Component {
@@ -65,9 +65,7 @@ class TodoForm extends Component {
           <h2>To Do:</h2>
 
           <div className="add-item">
-
             <form onSubmit={this.onSubmit}>
-
               {this.props.current !== null ? (
                 // true
 
@@ -85,22 +83,22 @@ class TodoForm extends Component {
                   />
                 </div>
               ) : (
-                  // false
+                // false
 
-                  <div class="input-group mb-3">
-                    <input
-                      type="text"
-                      placeholder="Add a new task"
-                      aria-label="Add a new task"
-                      aria-describedby="basic-addon2"
-                      value={this.state.newItem}
-                      onChange={this.onChange}
-                      autoFocus="autofocus"
-                      className="input-todo"
-                    />
-                  </div>
-                )}
-             <div class="input-group-append">
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    placeholder="Add a new task"
+                    aria-label="Add a new task"
+                    aria-describedby="basic-addon2"
+                    value={this.state.newItem}
+                    onChange={this.onChange}
+                    autoFocus="autofocus"
+                    className="input-todo"
+                  />
+                </div>
+              )}
+              <div class="input-group-append">
                 <div className="todo-btn-container">
                   <button className="btn btn-todo">
                     {this.props.current !== null ? "Update Task" : "Add Task"}

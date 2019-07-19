@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from "./node_modules/react";
 import "../../../../styles/todo/todoMenu.css";
 
 class TodoMenu extends React.Component {

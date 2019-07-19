@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment } from "./node_modules/react";
 import TodoItem from "./TodoItem";
 import TodoForm from "./TodoForm";
-import axios from "axios";
+import axios from "./node_modules/axios";
 import TodoMenu from "./TodoMenu";
 import "../../../../styles/todo/todo.css";
-import Nav from "../../../layout/Nav"
+import Nav from "../../../layout/Nav";
 
 class Todos extends Component {
   state = {
@@ -93,7 +93,7 @@ class Todos extends Component {
       });
     });
   };
-
+  ß;
   handleEditChange = editTodo => {
     console.log(editTodo);
     let editText = editTodo.newItem;
@@ -129,15 +129,17 @@ class Todos extends Component {
       <Fragment>
         <Nav />
         <div className="main-image-container">
-          <h2 className="centered"><strong>Manage My To Do List</strong></h2>
-          <img src="http://www.coloradogayweddings.com/uploads/1/2/5/2/12524663/sq-denver-same-sex-wedding-planner_3_orig.jpg" alt="Manage your events"></img>
+          <h2 className="centered">
+            <strong>Manage My To Do List</strong>
+          </h2>
+          <img
+            src="http://www.coloradogayweddings.com/uploads/1/2/5/2/12524663/sq-denver-same-sex-wedding-planner_3_orig.jpg"
+            alt="Manage your events"
+          />
           {/* <img src="http://ericacamilleproductions.com/weddings/wp-content/uploads/2019/02/mymoon-brooklyn-weddingphotographer-lgbt001.jpg"></img> */}
-
         </div>
 
         <div className="whole-container-todo">
-
-
           <div className="container-todo">
             <div className="one">
               <TodoMenu items={this.state.items} />
