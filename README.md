@@ -26,3 +26,14 @@ You can visit the site at:
 [https://queerwed.herokuapp.com](https://queerwed.herokuapp.com/)
 
 [![Visit the site](assets/screenshot.png)](https://queerwed.herokuapp.com/)
+
+<br>
+<br>
+
+## My Contribution
+
+- Setup the application's backend, configure Passport.js for user authentication and Express.js for HTTP requests.
+- Setup the client folder to install and config the React library.
+- Guest list page - built the guest list form (CRUD operation) to allow the user to create a guest list and React Hooks (useContext) to pass the guest list data throughout the web application.
+- Event list page - built the event list form (CRUD operation) to let the user create an event listing.
+- Check list page - built the check list form to allow the user to create a todo list with the ability to tick/delete/edit the todo.
